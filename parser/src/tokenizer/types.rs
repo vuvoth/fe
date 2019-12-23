@@ -7,7 +7,7 @@ use crate::span::Span;
 
 /// Indicates the basic syntactic element represented by a token.
 #[derive(Serialize, Deserialize, Debug, PartialEq, Copy, Clone)]
-pub enum TokenType {
+pub enum TokenKind {
     NAME,
     NUMBER,
     STRING,
@@ -28,7 +28,7 @@ pub enum TokenType {
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct Token<'a> {
     /// The type of a token.
-    pub typ: TokenType,
+    pub kind: TokenKind,
 
     /// The text content of a parsed token.
     pub string: &'a str,

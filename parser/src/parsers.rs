@@ -35,7 +35,7 @@ use crate::tokenizer::tokenize::{
 };
 use crate::tokenizer::types::{
     Token,
-    TokenType,
+    TokenKind,
 };
 
 pub type TokenSlice<'a> = &'a [Token<'a>];
@@ -48,7 +48,7 @@ pub fn get_parse_tokens<'a>(source: &'a str) -> Result<Vec<Token<'a>>, TokenizeE
 
     Ok(tokens
         .into_iter()
-        .filter(|t| t.typ != TokenType::NL && t.typ != TokenType::COMMENT)
+        .filter(|t| t.kind != TokenKind::NL && t.kind != TokenKind::COMMENT)
         .collect())
 }
 
@@ -63,12 +63,12 @@ where
     }
 }
 
-/// Parse a token of a specific type from a token slice.
-pub fn token<'a, E>(typ: TokenType) -> impl Fn(TokenSlice<'a>) -> TokenResult<&Token, E>
+/// Parse a token of a specific kind from a token slice.
+pub fn token<'a, E>(kind: TokenKind) -> impl Fn(TokenSlice<'a>) -> TokenResult<&Token, E>
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    verify(one_token, move |t: &Token| t.typ == typ)
+    verify(one_token, move |t: &Token| t.kind == kind)
 }
 
 /// Parse a name token from a token slice.
@@ -76,7 +76,7 @@ pub fn name_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    token(TokenType::NAME)(input)
+    token(TokenKind::NAME)(input)
 }
 
 /// Parse a name token containing a specific string from a token slice.
@@ -92,7 +92,7 @@ pub fn op_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    token(TokenType::OP)(input)
+    token(TokenKind::OP)(input)
 }
 
 /// Parse an op token containing a specific string from a token slice.
@@ -108,7 +108,7 @@ pub fn number_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    token(TokenType::NUMBER)(input)
+    token(TokenKind::NUMBER)(input)
 }
 
 /// Parse a string token from a token slice.
@@ -116,7 +116,7 @@ pub fn string_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    token(TokenType::STRING)(input)
+    token(TokenKind::STRING)(input)
 }
 
 /// Parse an indent token from a token slice.
@@ -124,7 +124,7 @@ pub fn indent_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    token(TokenType::INDENT)(input)
+    token(TokenKind::INDENT)(input)
 }
 
 /// Parse a dedent token from a token slice.
@@ -132,7 +132,7 @@ pub fn dedent_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    token(TokenType::DEDENT)(input)
+    token(TokenKind::DEDENT)(input)
 }
 
 /// Parse a grammatically significant newline token from a token slice.
@@ -140,7 +140,7 @@ pub fn newline_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    token(TokenType::NEWLINE)(input)
+    token(TokenKind::NEWLINE)(input)
 }
 
 /// Parse an endmarker token from a token slice.
@@ -148,7 +148,7 @@ pub fn endmarker_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    token(TokenType::ENDMARKER)(input)
+    token(TokenKind::ENDMARKER)(input)
 }
 
 /// Parse a module definition.

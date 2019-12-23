@@ -11,7 +11,7 @@ use vyper_parser::string_utils::StringPositions;
 use vyper_parser::tokenizer::{
     tokenize,
     Token,
-    TokenType,
+    TokenKind,
     TokenizeError,
 };
 
@@ -19,7 +19,7 @@ use vyper_parser::tokenizer::{
 /// module.
 #[derive(Serialize)]
 struct PythonTokenInfo<'a> {
-    pub typ: TokenType,
+    pub typ: TokenKind,
     pub string: &'a str,
     pub start: (usize, usize),
     pub end: (usize, usize),
@@ -41,7 +41,7 @@ impl<'a> PythonTokenInfo<'a> {
         };
 
         Self {
-            typ: tok.typ,
+            typ: tok.kind,
             string: tok.string,
             start: (start_pos.line, start_pos.col),
             end: (end_pos.line, end_pos.col),

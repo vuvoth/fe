@@ -15,10 +15,10 @@
 //!
 //! ## Differences/similarities with python's `tokenize` module
 //!
-//! * The [`self::tokenize::tokenize`] function generates all token types
-//!   produced by python's `tokenize.tokenize` method *except* for an initial
-//!   `ENCODING` token.  Source files are always assumed to be encoded in utf-8
-//!   so this token is redundant.
+//! * The [`self::tokenize::tokenize`] function generates all token types (which
+//!   we call token kinds) produced by python's `tokenize.tokenize` method
+//!   *except* for an initial `ENCODING` token.  Source files are always assumed
+//!   to be encoded in utf-8 so this token is redundant.
 //! * The [`self::types::Token`] struct, which we use to represent parsed
 //!   tokens, includes a single `span` field containing the byte offsets
 //!   representing the beginning and exclusive end of the token in a source
@@ -46,5 +46,5 @@ pub use self::tokenize::{
 };
 pub use self::types::{
     Token,
-    TokenType,
+    TokenKind,
 };
