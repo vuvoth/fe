@@ -1,3 +1,5 @@
+use std::convert::TryFrom;
+
 use regex::Regex;
 
 use crate::span::Span;
@@ -18,6 +20,7 @@ use crate::tokenizer::regex::{
 };
 use crate::tokenizer::types::{
     Token,
+    TokenKind,
     TokenKind::*,
 };
 
@@ -336,7 +339,7 @@ pub fn tokenize<'a>(input: &'a str) -> Result<Vec<Token<'a>>, TokenizeError> {
                         parenlev -= 1;
                     }
                     result.push(Token {
-                        kind: Op,
+                        kind: TokenKind::try_from(token).unwrap(),
                         string: token,
                         span: Span::new(soff, eoff),
                         line,

@@ -36,6 +36,7 @@ use crate::tokenizer::tokenize::{
 use crate::tokenizer::types::{
     Token,
     TokenKind,
+    TokenKind::*,
 };
 
 pub type TokenSlice<'a> = &'a [Token<'a>];
@@ -48,7 +49,7 @@ pub fn get_parse_tokens<'a>(source: &'a str) -> Result<Vec<Token<'a>>, TokenizeE
 
     Ok(tokens
         .into_iter()
-        .filter(|t| t.kind != TokenKind::WhitespaceNewline && t.kind != TokenKind::Comment)
+        .filter(|t| t.kind != WhitespaceNewline && t.kind != Comment)
         .collect())
 }
 
@@ -76,7 +77,7 @@ pub fn name_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    token(TokenKind::Name)(input)
+    token(Name)(input)
 }
 
 /// Parse a name token containing a specific string from a token slice.
@@ -87,28 +88,12 @@ where
     verify(name_token, move |t: &Token| t.string == string)
 }
 
-/// Parse an op token from a token slice.
-pub fn op_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
-    token(TokenKind::Op)(input)
-}
-
-/// Parse an op token containing a specific string from a token slice.
-pub fn op_string<'a, E>(string: &'a str) -> impl Fn(TokenSlice<'a>) -> TokenResult<&Token, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
-    verify(op_token, move |t: &Token| t.string == string)
-}
-
 /// Parse a number token from a token slice.
 pub fn num_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    token(TokenKind::Num)(input)
+    token(Num)(input)
 }
 
 /// Parse a string token from a token slice.
@@ -116,7 +101,7 @@ pub fn str_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    token(TokenKind::Str)(input)
+    token(Str)(input)
 }
 
 /// Parse an indent token from a token slice.
@@ -124,7 +109,7 @@ pub fn indent_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    token(TokenKind::Indent)(input)
+    token(Indent)(input)
 }
 
 /// Parse a dedent token from a token slice.
@@ -132,7 +117,7 @@ pub fn dedent_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    token(TokenKind::Dedent)(input)
+    token(Dedent)(input)
 }
 
 /// Parse a grammatically significant newline token from a token slice.
@@ -140,7 +125,7 @@ pub fn newline_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    token(TokenKind::Newline)(input)
+    token(Newline)(input)
 }
 
 /// Parse an endmarker token from a token slice.
@@ -148,7 +133,7 @@ pub fn endmarker_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    token(TokenKind::EndMarker)(input)
+    token(EndMarker)(input)
 }
 
 /// Parse a module definition.
@@ -226,7 +211,7 @@ where
 {
     let (input, import_kw) = name_string("import")(input)?;
     let (input, first_name) = simple_import_name(input)?;
-    let (input, mut other_names) = many0(preceded(op_string(","), simple_import_name))(input)?;
+    let (input, mut other_names) = many0(preceded(token(Comma), simple_import_name))(input)?;
 
     let mut result = vec![first_name];
     result.append(&mut other_names);
@@ -378,7 +363,7 @@ pub fn from_import_names_star<'a, E>(
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    let (input, star) = op_string("*")(input)?;
+    let (input, star) = token(Star)(input)?;
 
     Ok((
         input,
@@ -397,15 +382,15 @@ pub fn from_import_names_parens<'a, E>(
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    let (input, l_paren) = op_string("(")(input)?;
+    let (input, o_paren) = token(OpenParen)(input)?;
     let (input, names) = from_import_names_list(input)?;
-    let (input, r_paren) = op_string(")")(input)?;
+    let (input, c_paren) = token(CloseParen)(input)?;
 
     Ok((
         input,
         Spanned {
             node: names.node,
-            span: Span::from_pair(l_paren, r_paren),
+            span: Span::from_pair(o_paren, c_paren),
         },
     ))
 }
@@ -418,8 +403,8 @@ where
     E: ParseError<TokenSlice<'a>>,
 {
     let (input, first_name) = from_import_name(input)?;
-    let (input, mut other_names) = many0(preceded(op_string(","), from_import_name))(input)?;
-    let (input, comma_tok) = opt(op_string(","))(input)?;
+    let (input, mut other_names) = many0(preceded(token(Comma), from_import_name))(input)?;
+    let (input, comma_tok) = opt(token(Comma))(input)?;
 
     let mut names = vec![first_name];
     names.append(&mut other_names);
@@ -475,7 +460,7 @@ where
     E: ParseError<TokenSlice<'a>>,
 {
     let (input, first_part) = name_token(input)?;
-    let (input, other_parts) = many0(preceded(op_string("."), name_token))(input)?;
+    let (input, other_parts) = many0(preceded(token(Dot), name_token))(input)?;
 
     let mut path = vec![first_part.string];
     path.extend(other_parts.iter().map(|t| t.string));
@@ -496,11 +481,11 @@ pub fn dots_to_int<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<usize>, 
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    let (input, toks) = many1(alt((op_string("."), op_string("..."))))(input)?;
+    let (input, toks) = many1(alt((token(Dot), token(Ellipsis))))(input)?;
 
     let value = toks
         .iter()
-        .map(|t| if t.string == "." { 1 } else { 3 })
+        .map(|t| if t.kind == Dot { 1 } else { 3 })
         .sum::<usize>()
         - 1;
 
@@ -522,7 +507,7 @@ where
     // "contract" name ":" NEWLINE
     let (input, contract_kw) = name_string("contract")(input)?;
     let (input, name) = name_token(input)?;
-    let (input, _) = op_string(":")(input)?;
+    let (input, _) = token(Colon)(input)?;
     let (input, _) = newline_token(input)?;
 
     // INDENT contract_stmt+ DEDENT
@@ -561,7 +546,7 @@ where
     // "event" name ":" NEWLINE
     let (input, event_kw) = name_string("event")(input)?;
     let (input, name) = name_token(input)?;
-    let (input, _) = op_string(":")(input)?;
+    let (input, _) = token(Colon)(input)?;
     let (input, _) = newline_token(input)?;
 
     // INDENT event_field+ DEDENT
@@ -590,7 +575,7 @@ where
     E: ParseError<TokenSlice<'a>>,
 {
     let (input, name) = name_token(input)?;
-    let (input, _) = op_string(":")(input)?;
+    let (input, _) = token(Colon)(input)?;
     let (input, typ) = name_token(input)?;
     let (input, _) = newline_token(input)?;
 
@@ -615,8 +600,8 @@ where
 {
     let (input, head) = const_term(input)?;
     let (input, tail) = many0(alt((
-        pair(op_string("+"), const_term),
-        pair(op_string("-"), const_term),
+        pair(token(Plus), const_term),
+        pair(token(Minus), const_term),
     )))(input)?;
 
     let mut left_expr = head;
@@ -644,9 +629,9 @@ where
 {
     let (input, head) = const_factor(input)?;
     let (input, tail) = many0(alt((
-        pair(op_string("*"), const_factor),
-        pair(op_string("/"), const_factor),
-        pair(op_string("%"), const_factor),
+        pair(token(Star), const_factor),
+        pair(token(Slash), const_factor),
+        pair(token(Percent), const_factor),
     )))(input)?;
 
     let mut left_expr = head;
@@ -673,10 +658,7 @@ where
     E: ParseError<TokenSlice<'a>>,
 {
     let unary_op = map(
-        pair(
-            alt((op_string("+"), op_string("-"), op_string("~"))),
-            const_factor,
-        ),
+        pair(alt((token(Plus), token(Minus), token(Tilde))), const_factor),
         |res| {
             let (op_tok, operand) = res;
             let span = Span::from_pair(op_tok, &operand);
@@ -701,7 +683,7 @@ where
     E: ParseError<TokenSlice<'a>>,
 {
     let bin_op = map(
-        separated_pair(const_atom, op_string("**"), const_factor),
+        separated_pair(const_atom, token(StarStar), const_factor),
         |res| {
             let (left, right) = res;
             let span = Span::from_pair(&left, &right);
@@ -745,15 +727,15 @@ pub fn const_group<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<ConstExp
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    let (input, l_paren) = op_string("(")(input)?;
+    let (input, o_paren) = token(OpenParen)(input)?;
     let (input, spanned_expr) = const_expr(input)?;
-    let (input, r_paren) = op_string(")")(input)?;
+    let (input, c_paren) = token(CloseParen)(input)?;
 
     Ok((
         input,
         Spanned {
             node: spanned_expr.node,
-            span: Span::from_pair(l_paren, r_paren),
+            span: Span::from_pair(o_paren, c_paren),
         },
     ))
 }

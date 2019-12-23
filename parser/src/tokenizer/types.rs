@@ -13,7 +13,6 @@ pub enum TokenKind {
     Name,
     Num,
     Str,
-    Op,
     Comment,
 
     OpenParen,
