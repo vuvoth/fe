@@ -91,7 +91,7 @@ impl<'a> From<&'a Token<'a>> for Spanned<TypeDesc> {
     fn from(token: &'a Token<'a>) -> Self {
         Spanned {
             node: TypeDesc::Base {
-                base: token.to_string(),
+                base: token.maybe_to_string().unwrap(),
             },
             span: token.span,
         }

@@ -255,7 +255,10 @@ where
 
     let (span, alias) = {
         match alias_tok {
-            Some(tok) => (Span::from_pair(&path, tok), Some(tok.to_string())),
+            Some(tok) => (
+                Span::from_pair(&path, tok),
+                Some(tok.maybe_to_string().unwrap()),
+            ),
             _ => (path.span, None),
         }
     };
@@ -453,10 +456,13 @@ where
     let (input, name_tok) = name_token(input)?;
     let (input, alias_tok) = opt(preceded(name_string("as"), name_token))(input)?;
 
-    let name = name_tok.to_string();
+    let name = name_tok.maybe_to_string().unwrap();
     let (span, alias) = {
         match alias_tok {
-            Some(tok) => (Span::from_pair(name_tok, tok), Some(tok.to_string())),
+            Some(tok) => (
+                Span::from_pair(name_tok, tok),
+                Some(tok.maybe_to_string().unwrap()),
+            ),
             _ => (name_tok.span, None),
         }
     };
@@ -478,8 +484,8 @@ where
     let (input, first_part) = name_token(input)?;
     let (input, other_parts) = many0(preceded(token(Dot), name_token))(input)?;
 
-    let mut path = vec![first_part.to_string()];
-    path.extend(other_parts.iter().map(|t| t.to_string()));
+    let mut path = vec![first_part.maybe_to_string().unwrap()];
+    path.extend(other_parts.iter().map(|t| t.maybe_to_string().unwrap()));
 
     let span = if other_parts.is_empty() {
         first_part.span
@@ -538,7 +544,7 @@ where
         input,
         Spanned {
             node: ContractDef {
-                name: name.to_string(),
+                name: name.maybe_to_string().unwrap(),
                 body,
             },
             span,
@@ -577,7 +583,7 @@ where
         input,
         Spanned {
             node: ContractStmt::EventDef {
-                name: name.to_string(),
+                name: name.maybe_to_string().unwrap(),
                 fields,
             },
             span,
@@ -601,7 +607,7 @@ where
         input,
         Spanned {
             node: EventField {
-                name: name.to_string(),
+                name: name.maybe_to_string().unwrap(),
                 typ: typ.into(),
             },
             span,
@@ -728,12 +734,14 @@ where
         const_group,
         map(name_token, |t| Spanned {
             node: ConstExpr::Name {
-                name: t.to_string(),
+                name: t.maybe_to_string().unwrap(),
             },
             span: t.span,
         }),
         map(num_token, |t| Spanned {
-            node: ConstExpr::Num { num: t.to_string() },
+            node: ConstExpr::Num {
+                num: t.maybe_to_string().unwrap(),
+            },
             span: t.span,
         }),
     ))(input)

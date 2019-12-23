@@ -75,10 +75,10 @@ pub enum TokenKind {
 }
 
 impl TokenKind {
-    pub fn to_string(&self) -> String {
+    pub fn maybe_to_string(&self) -> Option<String> {
         use TokenKind::*;
 
-        match self {
+        Some(match self {
             Name(s) => s.clone(),
             Num(s) => s.clone(),
             Str(s) => s.clone(),
@@ -129,13 +129,10 @@ impl TokenKind {
             AtEq => "@=".to_string(),
             RightArrow => "->".to_string(),
             Ellipsis => "...".to_string(),
-            Indent => "<INDENT>".to_string(),
-            Dedent => "<DEDENT>".to_string(),
             Newline => "\n".to_string(),
             WhitespaceNewline => "\n".to_string(),
-            EndMarker => "<ENDMARKER>".to_string(),
-            ErrorToken => "<ERRORTOKEN>".to_string(),
-        }
+            _ => return None,
+        })
     }
 }
 
@@ -212,8 +209,8 @@ pub struct Token<'a> {
 }
 
 impl<'a> Token<'a> {
-    pub fn to_string(&self) -> String {
-        self.kind.to_string()
+    pub fn maybe_to_string(&self) -> Option<String> {
+        self.kind.maybe_to_string()
     }
 }
 
