@@ -8,12 +8,12 @@ use serde::{
 use crate::span::Span;
 
 /// Indicates the basic syntactic element represented by a token.
-#[derive(Serialize, Deserialize, Debug, PartialEq, Copy, Clone)]
+#[derive(Serialize, Deserialize, Debug, PartialEq, Clone)]
 pub enum TokenKind {
-    Name,
-    Num,
-    Str,
-    Comment,
+    Name(String),
+    Num(String),
+    Str(String),
+    Comment(String),
 
     OpenParen,
     CloseParen,

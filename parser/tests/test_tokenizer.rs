@@ -36,10 +36,10 @@ impl From<TokenKind> for TokenType {
         use TokenType::*;
 
         match kind {
-            Name => NAME,
-            Num => NUMBER,
-            Str => STRING,
-            Comment => COMMENT,
+            Name(_) => NAME,
+            Num(_) => NUMBER,
+            Str(_) => STRING,
+            Comment(_) => COMMENT,
             Indent => INDENT,
             Dedent => DEDENT,
             Newline => NEWLINE,
@@ -77,7 +77,7 @@ impl<'a> PythonTokenInfo<'a> {
         };
 
         Self {
-            typ: tok.kind.into(),
+            typ: tok.kind.clone().into(),
             string: tok.string,
             start: (start_pos.line, start_pos.col),
             end: (end_pos.line, end_pos.col),

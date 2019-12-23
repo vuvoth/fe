@@ -49,7 +49,11 @@ pub fn get_parse_tokens<'a>(source: &'a str) -> Result<Vec<Token<'a>>, TokenizeE
 
     Ok(tokens
         .into_iter()
-        .filter(|t| t.kind != WhitespaceNewline && t.kind != Comment)
+        .filter(|t| match t.kind {
+            Comment(_) => false,
+            WhitespaceNewline => false,
+            _ => true,
+        })
         .collect())
 }
 
@@ -77,7 +81,10 @@ pub fn name_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    token(Name)(input)
+    verify(one_token, move |t: &Token| match t.kind {
+        Name(_) => true,
+        _ => false,
+    })(input)
 }
 
 /// Parse a name token containing a specific string from a token slice.
@@ -85,7 +92,10 @@ pub fn name_string<'a, E>(string: &'a str) -> impl Fn(TokenSlice<'a>) -> TokenRe
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    verify(name_token, move |t: &Token| t.string == string)
+    verify(one_token, move |t: &Token| match &t.kind {
+        Name(s) if s == string => true,
+        _ => false,
+    })
 }
 
 /// Parse a number token from a token slice.
@@ -93,7 +103,10 @@ pub fn num_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    token(Num)(input)
+    verify(one_token, move |t: &Token| match t.kind {
+        Num(_) => true,
+        _ => false,
+    })(input)
 }
 
 /// Parse a string token from a token slice.
@@ -101,7 +114,10 @@ pub fn str_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    token(Str)(input)
+    verify(one_token, move |t: &Token| match t.kind {
+        Str(_) => true,
+        _ => false,
+    })(input)
 }
 
 /// Parse an indent token from a token slice.
