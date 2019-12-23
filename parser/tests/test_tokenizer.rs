@@ -64,6 +64,7 @@ struct PythonTokenInfo<'a> {
 
 impl<'a> PythonTokenInfo<'a> {
     pub fn from_token_and_positions(
+        input: &'a str,
         tok: &'a Token<'a>,
         string_pos: &mut StringPositions<'_>,
     ) -> Self {
@@ -78,7 +79,7 @@ impl<'a> PythonTokenInfo<'a> {
 
         Self {
             typ: tok.kind.clone().into(),
-            string: tok.string,
+            string: &input[tok.span.start..tok.span.end],
             start: (start_pos.line, start_pos.col),
             end: (end_pos.line, end_pos.col),
             line: tok.line,
@@ -93,7 +94,7 @@ fn get_rust_token_json(input: &str) -> String {
     // Convert vyper tokens into python tokens
     let python_tokens = tokens
         .iter()
-        .map(|tok| PythonTokenInfo::from_token_and_positions(tok, &mut string_pos))
+        .map(|tok| PythonTokenInfo::from_token_and_positions(input, tok, &mut string_pos))
         .collect::<Vec<PythonTokenInfo>>();
 
     serde_json::to_string_pretty(&python_tokens).unwrap()

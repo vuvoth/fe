@@ -49,7 +49,7 @@ pub fn format_debug_error(input: &str, e: VerboseError<TokenSlice>) -> String {
                     result += &format!(
                         ", expected {:?} but found {:?}:\n",
                         c,
-                        tok.string.chars().next().unwrap()
+                        tok.to_string().chars().next().unwrap()
                     );
                 }
                 VerboseErrorKind::Context(s) => {

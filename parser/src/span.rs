@@ -40,7 +40,7 @@ pub struct Spanned<T> {
 }
 
 impl<T> From<&Spanned<T>> for Span {
-    fn from(spanned: &Spanned<T>) -> Span {
+    fn from(spanned: &Spanned<T>) -> Self {
         spanned.span
     }
 }

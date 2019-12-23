@@ -251,12 +251,12 @@ where
     E: ParseError<TokenSlice<'a>>,
 {
     let (input, path) = dotted_name(input)?;
-    let (input, alias) = opt(preceded(name_string("as"), name_token))(input)?;
+    let (input, alias_tok) = opt(preceded(name_string("as"), name_token))(input)?;
 
-    let span = {
-        match alias {
-            Some(alias_tok) => Span::from_pair(&path, alias_tok),
-            None => path.span,
+    let (span, alias) = {
+        match alias_tok {
+            Some(tok) => (Span::from_pair(&path, tok), Some(tok.to_string())),
+            _ => (path.span, None),
         }
     };
 
@@ -265,7 +265,7 @@ where
         Spanned {
             node: SimpleImportName {
                 path: path.node,
-                alias: alias.map(|t| t.string.to_string()),
+                alias,
             },
             span,
         },
@@ -450,21 +450,21 @@ pub fn from_import_name<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<Fro
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    let (input, name) = name_token(input)?;
-    let (input, alias) = opt(preceded(name_string("as"), name_token))(input)?;
+    let (input, name_tok) = name_token(input)?;
+    let (input, alias_tok) = opt(preceded(name_string("as"), name_token))(input)?;
 
-    let span = match alias {
-        Some(alias_tok) => Span::from_pair(name, alias_tok),
-        None => name.span,
+    let name = name_tok.to_string();
+    let (span, alias) = {
+        match alias_tok {
+            Some(tok) => (Span::from_pair(name_tok, tok), Some(tok.to_string())),
+            _ => (name_tok.span, None),
+        }
     };
 
     Ok((
         input,
         Spanned {
-            node: FromImportName {
-                name: name.string.to_string(),
-                alias: alias.map(|t| t.string.to_string()),
-            },
+            node: FromImportName { name, alias },
             span,
         },
     ))
@@ -478,8 +478,8 @@ where
     let (input, first_part) = name_token(input)?;
     let (input, other_parts) = many0(preceded(token(Dot), name_token))(input)?;
 
-    let mut path = vec![first_part.string.to_string()];
-    path.extend(other_parts.iter().map(|t| t.string.to_string()));
+    let mut path = vec![first_part.to_string()];
+    path.extend(other_parts.iter().map(|t| t.to_string()));
 
     let span = if other_parts.is_empty() {
         first_part.span
@@ -538,7 +538,7 @@ where
         input,
         Spanned {
             node: ContractDef {
-                name: name.string.to_string(),
+                name: name.to_string(),
                 body,
             },
             span,
@@ -577,7 +577,7 @@ where
         input,
         Spanned {
             node: ContractStmt::EventDef {
-                name: name.string.to_string(),
+                name: name.to_string(),
                 fields,
             },
             span,
@@ -601,7 +601,7 @@ where
         input,
         Spanned {
             node: EventField {
-                name: name.string.to_string(),
+                name: name.to_string(),
                 typ: typ.into(),
             },
             span,
@@ -627,7 +627,7 @@ where
         left_expr = Spanned {
             node: ConstExpr::BinOp {
                 left: Box::new(left_expr),
-                op: Operator::try_from(op_tok.string).unwrap(),
+                op: Operator::try_from(op_tok).unwrap(),
                 right: Box::new(right_expr),
             },
             span,
@@ -657,7 +657,7 @@ where
         left_expr = Spanned {
             node: ConstExpr::BinOp {
                 left: Box::new(left_expr),
-                op: Operator::try_from(op_tok.string).unwrap(),
+                op: Operator::try_from(op_tok).unwrap(),
                 right: Box::new(right_expr),
             },
             span,
@@ -681,7 +681,7 @@ where
 
             Spanned {
                 node: ConstExpr::UnaryOp {
-                    op: UnaryOp::try_from(op_tok.string).unwrap(),
+                    op: UnaryOp::try_from(op_tok).unwrap(),
                     operand: Box::new(operand),
                 },
                 span,
@@ -728,14 +728,12 @@ where
         const_group,
         map(name_token, |t| Spanned {
             node: ConstExpr::Name {
-                name: t.string.to_string(),
+                name: t.to_string(),
             },
             span: t.span,
         }),
         map(num_token, |t| Spanned {
-            node: ConstExpr::Num {
-                num: t.string.to_string(),
-            },
+            node: ConstExpr::Num { num: t.to_string() },
             span: t.span,
         }),
     ))(input)

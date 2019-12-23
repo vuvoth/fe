@@ -6,7 +6,10 @@ use serde::{
 };
 
 use crate::span::Spanned;
-use crate::tokenizer::types::Token;
+use crate::tokenizer::types::{
+    Token,
+    TokenKind,
+};
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct Module {
@@ -88,7 +91,7 @@ impl<'a> From<&'a Token<'a>> for Spanned<TypeDesc> {
     fn from(token: &'a Token<'a>) -> Self {
         Spanned {
             node: TypeDesc::Base {
-                base: token.string.to_string(),
+                base: token.to_string(),
             },
             span: token.span,
         }
@@ -116,24 +119,26 @@ pub enum Operator {
     BitAnd,
 }
 
-impl TryFrom<&str> for Operator {
+impl<'a> TryFrom<&Token<'a>> for Operator {
     type Error = &'static str;
 
     #[cfg_attr(tarpaulin, skip)]
-    fn try_from(string: &str) -> Result<Self, Self::Error> {
-        match string {
-            "+" => Ok(Self::Add),
-            "-" => Ok(Self::Sub),
-            "*" => Ok(Self::Mult),
-            "/" => Ok(Self::Div),
-            "%" => Ok(Self::Mod),
-            "**" => Ok(Self::Pow),
-            "<<" => Ok(Self::LShift),
-            ">>" => Ok(Self::RShift),
-            "|" => Ok(Self::BitOr),
-            "^" => Ok(Self::BitXor),
-            "&" => Ok(Self::BitAnd),
-            _ => Err("unrecognized binary operator string"),
+    fn try_from(tok: &Token) -> Result<Self, Self::Error> {
+        use TokenKind::*;
+
+        match tok.kind {
+            Plus => Ok(Self::Add),
+            Minus => Ok(Self::Sub),
+            Star => Ok(Self::Mult),
+            Slash => Ok(Self::Div),
+            Percent => Ok(Self::Mod),
+            StarStar => Ok(Self::Pow),
+            Shl => Ok(Self::LShift),
+            Shr => Ok(Self::RShift),
+            Pipe => Ok(Self::BitOr),
+            Caret => Ok(Self::BitXor),
+            Amper => Ok(Self::BitAnd),
+            _ => Err("unrecognized binary operator token"),
         }
     }
 }
@@ -146,17 +151,19 @@ pub enum UnaryOp {
     USub,
 }
 
-impl TryFrom<&str> for UnaryOp {
+impl<'a> TryFrom<&Token<'a>> for UnaryOp {
     type Error = &'static str;
 
     #[cfg_attr(tarpaulin, skip)]
-    fn try_from(string: &str) -> Result<Self, Self::Error> {
-        match string {
-            "~" => Ok(Self::Invert),
-            "not" => Ok(Self::Not),
-            "+" => Ok(Self::UAdd),
-            "-" => Ok(Self::USub),
-            _ => Err("unrecognized unary operator string"),
+    fn try_from(tok: &Token) -> Result<Self, Self::Error> {
+        use TokenKind::*;
+
+        match &tok.kind {
+            Tilde => Ok(Self::Invert),
+            Name(s) if s == "not" => Ok(Self::Not),
+            Plus => Ok(Self::UAdd),
+            Minus => Ok(Self::USub),
+            _ => Err("unrecognized unary operator token"),
         }
     }
 }
