@@ -265,7 +265,7 @@ where
         Spanned {
             node: SimpleImportName {
                 path: path.node,
-                alias: alias.map(|t| t.string),
+                alias: alias.map(|t| t.string.to_string()),
             },
             span,
         },
@@ -462,8 +462,8 @@ where
         input,
         Spanned {
             node: FromImportName {
-                name: name.string,
-                alias: alias.map(|t| t.string),
+                name: name.string.to_string(),
+                alias: alias.map(|t| t.string.to_string()),
             },
             span,
         },
@@ -471,15 +471,15 @@ where
 }
 
 /// Parse a dotted import name.
-pub fn dotted_name<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<Vec<&'a str>>, E>
+pub fn dotted_name<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<Vec<String>>, E>
 where
     E: ParseError<TokenSlice<'a>>,
 {
     let (input, first_part) = name_token(input)?;
     let (input, other_parts) = many0(preceded(token(Dot), name_token))(input)?;
 
-    let mut path = vec![first_part.string];
-    path.extend(other_parts.iter().map(|t| t.string));
+    let mut path = vec![first_part.string.to_string()];
+    path.extend(other_parts.iter().map(|t| t.string.to_string()));
 
     let span = if other_parts.is_empty() {
         first_part.span
@@ -538,7 +538,7 @@ where
         input,
         Spanned {
             node: ContractDef {
-                name: name.string,
+                name: name.string.to_string(),
                 body,
             },
             span,
@@ -577,7 +577,7 @@ where
         input,
         Spanned {
             node: ContractStmt::EventDef {
-                name: name.string,
+                name: name.string.to_string(),
                 fields,
             },
             span,
@@ -601,7 +601,7 @@ where
         input,
         Spanned {
             node: EventField {
-                name: name.string,
+                name: name.string.to_string(),
                 typ: typ.into(),
             },
             span,
@@ -727,11 +727,15 @@ where
     alt((
         const_group,
         map(name_token, |t| Spanned {
-            node: ConstExpr::Name { name: t.string },
+            node: ConstExpr::Name {
+                name: t.string.to_string(),
+            },
             span: t.span,
         }),
         map(num_token, |t| Spanned {
-            node: ConstExpr::Num { num: t.string },
+            node: ConstExpr::Num {
+                num: t.string.to_string(),
+            },
             span: t.span,
         }),
     ))(input)

@@ -9,105 +9,96 @@ use crate::span::Spanned;
 use crate::tokenizer::types::Token;
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
-pub struct Module<'a> {
-    #[serde(borrow)]
-    pub body: Vec<Spanned<ModuleStmt<'a>>>,
+pub struct Module {
+    pub body: Vec<Spanned<ModuleStmt>>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
-pub enum ModuleStmt<'a> {
+pub enum ModuleStmt {
     ContractDef {
-        name: &'a str,
-        #[serde(borrow)]
-        body: Vec<Spanned<ContractStmt<'a>>>,
+        name: String,
+        body: Vec<Spanned<ContractStmt>>,
     },
     SimpleImport {
-        #[serde(borrow)]
-        names: Vec<Spanned<SimpleImportName<'a>>>,
+        names: Vec<Spanned<SimpleImportName>>,
     },
     FromImport {
-        #[serde(borrow)]
-        path: Spanned<FromImportPath<'a>>,
-        #[serde(borrow)]
-        names: Spanned<FromImportNames<'a>>,
+        path: Spanned<FromImportPath>,
+        names: Spanned<FromImportNames>,
     },
     TypeDef {
-        name: &'a str,
-        #[serde(borrow)]
-        typ: TypeDesc<'a>,
+        name: String,
+        typ: TypeDesc,
     },
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
-pub enum ContractStmt<'a> {
+pub enum ContractStmt {
     EventDef {
-        name: &'a str,
-        #[serde(borrow)]
-        fields: Vec<Spanned<EventField<'a>>>,
+        name: String,
+        fields: Vec<Spanned<EventField>>,
     },
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
-pub struct SimpleImportName<'a> {
-    pub path: Vec<&'a str>,
-    pub alias: Option<&'a str>,
+pub struct SimpleImportName {
+    pub path: Vec<String>,
+    pub alias: Option<String>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
-pub enum FromImportPath<'a> {
+pub enum FromImportPath {
     Absolute {
-        #[serde(borrow)]
-        path: Vec<&'a str>,
+        path: Vec<String>,
     },
     Relative {
         parent_level: usize,
-        #[serde(borrow)]
-        path: Vec<&'a str>,
+        path: Vec<String>,
     },
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
-pub enum FromImportNames<'a> {
+pub enum FromImportNames {
     Star,
-    #[serde(borrow)]
-    List(Vec<Spanned<FromImportName<'a>>>),
+    List(Vec<Spanned<FromImportName>>),
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
-pub struct FromImportName<'a> {
-    pub name: &'a str,
-    pub alias: Option<&'a str>,
+pub struct FromImportName {
+    pub name: String,
+    pub alias: Option<String>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
-pub enum TypeDesc<'a> {
+pub enum TypeDesc {
     Base {
-        base: &'a str,
+        base: String,
     },
     Array {
-        typ: Box<Spanned<TypeDesc<'a>>>,
+        typ: Box<Spanned<TypeDesc>>,
         dimension: usize,
     },
     Map {
-        from: Box<Spanned<TypeDesc<'a>>>,
-        to: Box<Spanned<TypeDesc<'a>>>,
+        from: Box<Spanned<TypeDesc>>,
+        to: Box<Spanned<TypeDesc>>,
     },
 }
 
-impl<'a> From<&'a Token<'a>> for Spanned<TypeDesc<'a>> {
+impl<'a> From<&'a Token<'a>> for Spanned<TypeDesc> {
     fn from(token: &'a Token<'a>) -> Self {
         Spanned {
-            node: TypeDesc::Base { base: token.string },
+            node: TypeDesc::Base {
+                base: token.string.to_string(),
+            },
             span: token.span,
         }
     }
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
-pub struct EventField<'a> {
-    pub name: &'a str,
-    #[serde(borrow)]
-    pub typ: Spanned<TypeDesc<'a>>,
+pub struct EventField {
+    pub name: String,
+    pub typ: Spanned<TypeDesc>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
@@ -171,20 +162,20 @@ impl TryFrom<&str> for UnaryOp {
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
-pub enum ConstExpr<'a> {
+pub enum ConstExpr {
     BinOp {
-        left: Box<Spanned<ConstExpr<'a>>>,
+        left: Box<Spanned<ConstExpr>>,
         op: Operator,
-        right: Box<Spanned<ConstExpr<'a>>>,
+        right: Box<Spanned<ConstExpr>>,
     },
     UnaryOp {
         op: UnaryOp,
-        operand: Box<Spanned<ConstExpr<'a>>>,
+        operand: Box<Spanned<ConstExpr>>,
     },
     Name {
-        name: &'a str,
+        name: String,
     },
     Num {
-        num: &'a str,
+        num: String,
     },
 }
