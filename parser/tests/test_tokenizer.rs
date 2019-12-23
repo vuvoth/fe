@@ -15,11 +15,47 @@ use vyper_parser::tokenizer::{
     TokenizeError,
 };
 
+#[derive(Serialize)]
+pub enum TokenType {
+    NAME,
+    NUMBER,
+    STRING,
+    OP,
+    COMMENT,
+    INDENT,
+    DEDENT,
+    NEWLINE,
+    NL,
+    ENDMARKER,
+    ERRORTOKEN,
+}
+
+impl From<TokenKind> for TokenType {
+    fn from(kind: TokenKind) -> Self {
+        use TokenKind::*;
+        use TokenType::*;
+
+        match kind {
+            Name => NAME,
+            Num => NUMBER,
+            Str => STRING,
+            Op => OP,
+            Comment => COMMENT,
+            Indent => INDENT,
+            Dedent => DEDENT,
+            Newline => NEWLINE,
+            WhitespaceNewline => NL,
+            EndMarker => ENDMARKER,
+            ErrorToken => ERRORTOKEN,
+        }
+    }
+}
+
 /// A python token object similar to those defined in python's stdlib `tokenize`
 /// module.
 #[derive(Serialize)]
 struct PythonTokenInfo<'a> {
-    pub typ: TokenKind,
+    pub typ: TokenType,
     pub string: &'a str,
     pub start: (usize, usize),
     pub end: (usize, usize),
@@ -41,7 +77,7 @@ impl<'a> PythonTokenInfo<'a> {
         };
 
         Self {
-            typ: tok.kind,
+            typ: tok.kind.into(),
             string: tok.string,
             start: (start_pos.line, start_pos.col),
             end: (end_pos.line, end_pos.col),

@@ -48,7 +48,7 @@ pub fn get_parse_tokens<'a>(source: &'a str) -> Result<Vec<Token<'a>>, TokenizeE
 
     Ok(tokens
         .into_iter()
-        .filter(|t| t.kind != TokenKind::NL && t.kind != TokenKind::COMMENT)
+        .filter(|t| t.kind != TokenKind::WhitespaceNewline && t.kind != TokenKind::Comment)
         .collect())
 }
 
@@ -76,7 +76,7 @@ pub fn name_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    token(TokenKind::NAME)(input)
+    token(TokenKind::Name)(input)
 }
 
 /// Parse a name token containing a specific string from a token slice.
@@ -92,7 +92,7 @@ pub fn op_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    token(TokenKind::OP)(input)
+    token(TokenKind::Op)(input)
 }
 
 /// Parse an op token containing a specific string from a token slice.
@@ -104,19 +104,19 @@ where
 }
 
 /// Parse a number token from a token slice.
-pub fn number_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
+pub fn num_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    token(TokenKind::NUMBER)(input)
+    token(TokenKind::Num)(input)
 }
 
 /// Parse a string token from a token slice.
-pub fn string_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
+pub fn str_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    token(TokenKind::STRING)(input)
+    token(TokenKind::Str)(input)
 }
 
 /// Parse an indent token from a token slice.
@@ -124,7 +124,7 @@ pub fn indent_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    token(TokenKind::INDENT)(input)
+    token(TokenKind::Indent)(input)
 }
 
 /// Parse a dedent token from a token slice.
@@ -132,7 +132,7 @@ pub fn dedent_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    token(TokenKind::DEDENT)(input)
+    token(TokenKind::Dedent)(input)
 }
 
 /// Parse a grammatically significant newline token from a token slice.
@@ -140,7 +140,7 @@ pub fn newline_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    token(TokenKind::NEWLINE)(input)
+    token(TokenKind::Newline)(input)
 }
 
 /// Parse an endmarker token from a token slice.
@@ -148,7 +148,7 @@ pub fn endmarker_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    token(TokenKind::ENDMARKER)(input)
+    token(TokenKind::EndMarker)(input)
 }
 
 /// Parse a module definition.
@@ -732,7 +732,7 @@ where
             node: ConstExpr::Name { name: t.string },
             span: t.span,
         }),
-        map(number_token, |t| Spanned {
+        map(num_token, |t| Spanned {
             node: ConstExpr::Num { num: t.string },
             span: t.span,
         }),

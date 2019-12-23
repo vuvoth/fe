@@ -8,20 +8,22 @@ use crate::span::Span;
 /// Indicates the basic syntactic element represented by a token.
 #[derive(Serialize, Deserialize, Debug, PartialEq, Copy, Clone)]
 pub enum TokenKind {
-    NAME,
-    NUMBER,
-    STRING,
-    OP,
-    COMMENT,
+    Name,
+    Num,
+    Str,
+    Op,
+    Comment,
 
-    INDENT,
-    DEDENT,
+    Indent,
+    Dedent,
 
-    NEWLINE, // Grammatically significant newlines
-    NL,      // Whitespace newlines (useful in case source should be reconstructed from tokens)
-    ENDMARKER,
+    // Grammatically significant newlines
+    Newline,
+    // Whitespace newlines (useful in case source should be reconstructed from tokens)
+    WhitespaceNewline,
+    EndMarker,
 
-    ERRORTOKEN,
+    ErrorToken,
 }
 
 /// A token parsed from a source string.
