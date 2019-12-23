@@ -39,7 +39,6 @@ impl From<TokenKind> for TokenType {
             Name => NAME,
             Num => NUMBER,
             Str => STRING,
-            Op => OP,
             Comment => COMMENT,
             Indent => INDENT,
             Dedent => DEDENT,
@@ -47,6 +46,7 @@ impl From<TokenKind> for TokenType {
             WhitespaceNewline => NL,
             EndMarker => ENDMARKER,
             ErrorToken => ERRORTOKEN,
+            _ => OP,
         }
     }
 }
