@@ -19,7 +19,7 @@ pub enum TokenKind {
 
     // Grammatically significant newlines
     Newline,
-    // Whitespace newlines (useful in case source should be reconstructed from tokens)
+    // Whitespace newlines (such as those that appear in parenthesized expressions)
     WhitespaceNewline,
     EndMarker,
 
