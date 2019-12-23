@@ -46,11 +46,7 @@ pub fn format_debug_error(input: &str, e: VerboseError<TokenSlice>) -> String {
 
             match err_kind {
                 VerboseErrorKind::Char(c) => {
-                    result += &format!(
-                        ", expected {:?} but found {:?}:\n",
-                        c,
-                        tok.to_string().chars().next().unwrap()
-                    );
+                    result += &format!(", expected {:?} but found {:?}:\n", c, tok);
                 }
                 VerboseErrorKind::Context(s) => {
                     result += &format!(", in {}:\n", s);
