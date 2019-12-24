@@ -8,6 +8,7 @@ use crate::string_utils::{
     lstrip_slice,
     rstrip_slice,
 };
+use crate::symbol::Symbol;
 use crate::tokenizer::regex::{
     compile_anchored,
     get_pseudotoken_pattern,
@@ -124,7 +125,7 @@ pub fn tokenize(input: &str) -> Result<Vec<Token>, TokenizeError> {
                 line_pos = tok_end;
 
                 result.push(Token {
-                    kind: Str(input[contstr_start_val..line_start + tok_end].to_string()),
+                    kind: Str,
                     span: Span::new(contstr_start_val, line_start + tok_end),
                 });
 
@@ -182,7 +183,7 @@ pub fn tokenize(input: &str) -> Result<Vec<Token>, TokenizeError> {
                         let comment_token_len = comment_token.len();
 
                         result.push(Token {
-                            kind: Comment(comment_token.to_string()),
+                            kind: Comment,
                             span: Span::new(
                                 line_start + line_pos,
                                 line_start + line_pos + comment_token_len,
@@ -248,7 +249,7 @@ pub fn tokenize(input: &str) -> Result<Vec<Token>, TokenizeError> {
 
                 if initial.is_ascii_digit() || (initial == '.' && token != "." && token != "...") {
                     result.push(Token {
-                        kind: Num(token.to_string()),
+                        kind: Num,
                         span: Span::new(soff, eoff),
                     });
                 } else if initial == '\r' || initial == '\n' {
@@ -262,7 +263,7 @@ pub fn tokenize(input: &str) -> Result<Vec<Token>, TokenizeError> {
                     });
                 } else if initial == '#' {
                     result.push(Token {
-                        kind: Comment(token.to_string()),
+                        kind: Comment,
                         span: Span::new(soff, eoff),
                     });
                 } else if triple_quoted.contains(token) {
@@ -270,10 +271,9 @@ pub fn tokenize(input: &str) -> Result<Vec<Token>, TokenizeError> {
 
                     if let Some(endmatch) = contstr_end_re.unwrap().find_at(line, line_pos) {
                         line_pos = endmatch.end();
-                        let token = &line[tok_start..line_pos];
 
                         result.push(Token {
-                            kind: Str(token.to_string()),
+                            kind: Str,
                             span: Span::new(soff, line_start + line_pos),
                         });
                     } else {
@@ -291,13 +291,13 @@ pub fn tokenize(input: &str) -> Result<Vec<Token>, TokenizeError> {
                         needcont = true;
                     } else {
                         result.push(Token {
-                            kind: Str(token.to_string()),
+                            kind: Str,
                             span: Span::new(soff, eoff),
                         });
                     }
                 } else if is_identifier_char(initial) {
                     result.push(Token {
-                        kind: Name(token.to_string()),
+                        kind: Name(Symbol::new(token)),
                         span: Span::new(soff, eoff),
                     });
                 } else if initial == '\\' {

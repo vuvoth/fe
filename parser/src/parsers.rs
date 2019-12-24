@@ -29,6 +29,7 @@ use crate::span::{
     Span,
     Spanned,
 };
+use crate::symbol::Symbol;
 use crate::tokenizer::tokenize::{
     tokenize,
     TokenizeError,
@@ -50,7 +51,7 @@ pub fn get_parse_tokens<'a>(source: &'a str) -> Result<Vec<Token>, TokenizeError
     Ok(tokens
         .into_iter()
         .filter(|t| match t.kind {
-            Comment(_) => false,
+            Comment => false,
             WhitespaceNewline => false,
             _ => true,
         })
@@ -92,8 +93,8 @@ pub fn name_string<'a, E>(string: &'a str) -> impl Fn(TokenSlice<'a>) -> TokenRe
 where
     E: ParseError<TokenSlice<'a>>,
 {
-    verify(one_token, move |t: &Token| match &t.kind {
-        Name(s) if s == string => true,
+    verify(one_token, move |t: &Token| match t.kind {
+        Name(s) if s == Symbol::new(string) => true,
         _ => false,
     })
 }
@@ -104,7 +105,7 @@ where
     E: ParseError<TokenSlice<'a>>,
 {
     verify(one_token, move |t: &Token| match t.kind {
-        Num(_) => true,
+        Num => true,
         _ => false,
     })(input)
 }
@@ -115,7 +116,7 @@ where
     E: ParseError<TokenSlice<'a>>,
 {
     verify(one_token, move |t: &Token| match t.kind {
-        Str(_) => true,
+        Str => true,
         _ => false,
     })(input)
 }
@@ -257,7 +258,7 @@ where
         match alias_tok {
             Some(tok) => (
                 Span::from_pair(&path, tok),
-                Some(tok.maybe_to_string().unwrap()),
+                Some(tok.maybe_to_symbol().unwrap()),
             ),
             _ => (path.span, None),
         }
@@ -456,12 +457,12 @@ where
     let (input, name_tok) = name_token(input)?;
     let (input, alias_tok) = opt(preceded(name_string("as"), name_token))(input)?;
 
-    let name = name_tok.maybe_to_string().unwrap();
+    let name = name_tok.maybe_to_symbol().unwrap();
     let (span, alias) = {
         match alias_tok {
             Some(tok) => (
                 Span::from_pair(name_tok, tok),
-                Some(tok.maybe_to_string().unwrap()),
+                Some(tok.maybe_to_symbol().unwrap()),
             ),
             _ => (name_tok.span, None),
         }
@@ -477,15 +478,15 @@ where
 }
 
 /// Parse a dotted import name.
-pub fn dotted_name<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<Vec<String>>, E>
+pub fn dotted_name<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<Vec<Symbol>>, E>
 where
     E: ParseError<TokenSlice<'a>>,
 {
     let (input, first_part) = name_token(input)?;
     let (input, other_parts) = many0(preceded(token(Dot), name_token))(input)?;
 
-    let mut path = vec![first_part.maybe_to_string().unwrap()];
-    path.extend(other_parts.iter().map(|t| t.maybe_to_string().unwrap()));
+    let mut path = vec![first_part.maybe_to_symbol().unwrap()];
+    path.extend(other_parts.iter().map(|t| t.maybe_to_symbol().unwrap()));
 
     let span = if other_parts.is_empty() {
         first_part.span
@@ -544,7 +545,7 @@ where
         input,
         Spanned {
             node: ContractDef {
-                name: name.maybe_to_string().unwrap(),
+                name: name.maybe_to_symbol().unwrap(),
                 body,
             },
             span,
@@ -583,7 +584,7 @@ where
         input,
         Spanned {
             node: ContractStmt::EventDef {
-                name: name.maybe_to_string().unwrap(),
+                name: name.maybe_to_symbol().unwrap(),
                 fields,
             },
             span,
@@ -607,7 +608,7 @@ where
         input,
         Spanned {
             node: EventField {
-                name: name.maybe_to_string().unwrap(),
+                name: name.maybe_to_symbol().unwrap(),
                 typ: typ.into(),
             },
             span,
@@ -734,14 +735,12 @@ where
         const_group,
         map(name_token, |t| Spanned {
             node: ConstExpr::Name {
-                name: t.maybe_to_string().unwrap(),
+                name: t.maybe_to_symbol().unwrap(),
             },
             span: t.span,
         }),
         map(num_token, |t| Spanned {
-            node: ConstExpr::Num {
-                num: t.maybe_to_string().unwrap(),
-            },
+            node: ConstExpr::Num,
             span: t.span,
         }),
     ))(input)

@@ -6,6 +6,7 @@ use serde::{
 };
 
 use crate::span::Spanned;
+use crate::symbol::Symbol;
 use crate::tokenizer::types::{
     Token,
     TokenKind,
@@ -19,7 +20,7 @@ pub struct Module {
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub enum ModuleStmt {
     ContractDef {
-        name: String,
+        name: Symbol,
         body: Vec<Spanned<ContractStmt>>,
     },
     SimpleImport {
@@ -30,7 +31,7 @@ pub enum ModuleStmt {
         names: Spanned<FromImportNames>,
     },
     TypeDef {
-        name: String,
+        name: Symbol,
         typ: TypeDesc,
     },
 }
@@ -38,25 +39,25 @@ pub enum ModuleStmt {
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub enum ContractStmt {
     EventDef {
-        name: String,
+        name: Symbol,
         fields: Vec<Spanned<EventField>>,
     },
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct SimpleImportName {
-    pub path: Vec<String>,
-    pub alias: Option<String>,
+    pub path: Vec<Symbol>,
+    pub alias: Option<Symbol>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub enum FromImportPath {
     Absolute {
-        path: Vec<String>,
+        path: Vec<Symbol>,
     },
     Relative {
         parent_level: usize,
-        path: Vec<String>,
+        path: Vec<Symbol>,
     },
 }
 
@@ -68,14 +69,14 @@ pub enum FromImportNames {
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct FromImportName {
-    pub name: String,
-    pub alias: Option<String>,
+    pub name: Symbol,
+    pub alias: Option<Symbol>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub enum TypeDesc {
     Base {
-        base: String,
+        base: Symbol,
     },
     Array {
         typ: Box<Spanned<TypeDesc>>,
@@ -91,7 +92,7 @@ impl From<&Token> for Spanned<TypeDesc> {
     fn from(token: &Token) -> Self {
         Spanned {
             node: TypeDesc::Base {
-                base: token.maybe_to_string().unwrap(),
+                base: token.maybe_to_symbol().unwrap(),
             },
             span: token.span,
         }
@@ -100,7 +101,7 @@ impl From<&Token> for Spanned<TypeDesc> {
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct EventField {
-    pub name: String,
+    pub name: Symbol,
     pub typ: Spanned<TypeDesc>,
 }
 
@@ -158,9 +159,9 @@ impl TryFrom<&Token> for UnaryOp {
     fn try_from(tok: &Token) -> Result<Self, Self::Error> {
         use TokenKind::*;
 
-        match &tok.kind {
+        match tok.kind {
             Tilde => Ok(Self::Invert),
-            Name(s) if s == "not" => Ok(Self::Not),
+            Name(s) if s == Symbol::new("not") => Ok(Self::Not),
             Plus => Ok(Self::UAdd),
             Minus => Ok(Self::USub),
             _ => Err("unrecognized unary operator token"),
@@ -180,9 +181,7 @@ pub enum ConstExpr {
         operand: Box<Spanned<ConstExpr>>,
     },
     Name {
-        name: String,
+        name: Symbol,
     },
-    Num {
-        num: String,
-    },
+    Num,
 }

@@ -37,9 +37,9 @@ impl From<TokenKind> for TokenType {
 
         match kind {
             Name(_) => NAME,
-            Num(_) => NUMBER,
-            Str(_) => STRING,
-            Comment(_) => COMMENT,
+            Num => NUMBER,
+            Str => STRING,
+            Comment => COMMENT,
             Indent => INDENT,
             Dedent => DEDENT,
             Newline => NEWLINE,

@@ -13,6 +13,8 @@ crate-type = ["cdylib", "rlib"]
 [dependencies]
 nom = "5"
 regex = "1"
+lazy_static = "1.4.0"
+string-interner = "0.7.1"
 serde = { version = "1", features = ["derive"] }
 
 [target.'cfg(target_arch = "wasm32")'.dependencies]

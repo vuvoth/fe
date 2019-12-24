@@ -1,9 +1,7 @@
 1
 ---
 Spanned(
-  node: Num(
-    num: "1",
-  ),
+  node: Num,
   span: Span(
     start: 0,
     end: 1,
