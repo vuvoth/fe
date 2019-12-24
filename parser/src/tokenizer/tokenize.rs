@@ -48,7 +48,7 @@ pub struct TokenizeError {
 /// A vector of tokens.
 #[allow(clippy::cognitive_complexity)]
 #[allow(clippy::trivial_regex)]
-pub fn tokenize<'a>(input: &'a str) -> Result<Vec<Token<'a>>, TokenizeError> {
+pub fn tokenize(input: &str) -> Result<Vec<Token>, TokenizeError> {
     // Static values/helpers
     let pseudo_token_re = compile_anchored(&get_pseudotoken_pattern());
 
@@ -83,7 +83,7 @@ pub fn tokenize<'a>(input: &'a str) -> Result<Vec<Token<'a>>, TokenizeError> {
     };
 
     // Token list result
-    let mut result: Vec<Token<'a>> = Vec::new();
+    let mut result: Vec<Token> = Vec::new();
 
     // State vars
     let mut parenlev: usize = 0;
@@ -91,7 +91,6 @@ pub fn tokenize<'a>(input: &'a str) -> Result<Vec<Token<'a>>, TokenizeError> {
     let mut indents: Vec<usize> = vec![0];
 
     let mut contstr_start: Option<usize> = None;
-    let mut contline_start: Option<usize> = None;
     let mut contstr_end_re: Option<&Regex> = None;
     let mut needcont: bool = false;
 
@@ -127,22 +126,18 @@ pub fn tokenize<'a>(input: &'a str) -> Result<Vec<Token<'a>>, TokenizeError> {
                 result.push(Token {
                     kind: Str(input[contstr_start_val..line_start + tok_end].to_string()),
                     span: Span::new(contstr_start_val, line_start + tok_end),
-                    line: &input[contline_start.unwrap()..line_end],
                 });
 
                 contstr_start = None;
-                contline_start = None;
 
                 needcont = false;
             } else if needcont && !line.ends_with("\\\n") && !line.ends_with("\\\r\n") {
                 result.push(Token {
                     kind: ErrorToken,
                     span: Span::new(contstr_start_val, line_end),
-                    line: &input[contline_start.unwrap()..line_start],
                 });
 
                 contstr_start = None;
-                contline_start = None;
 
                 continue;
             } else {
@@ -192,7 +187,6 @@ pub fn tokenize<'a>(input: &'a str) -> Result<Vec<Token<'a>>, TokenizeError> {
                                 line_start + line_pos,
                                 line_start + line_pos + comment_token_len,
                             ),
-                            line,
                         });
 
                         line_pos += comment_token_len;
@@ -201,7 +195,6 @@ pub fn tokenize<'a>(input: &'a str) -> Result<Vec<Token<'a>>, TokenizeError> {
                     result.push(Token {
                         kind: WhitespaceNewline,
                         span: Span::new(line_start + line_pos, line_end),
-                        line,
                     });
 
                     continue;
@@ -215,7 +208,6 @@ pub fn tokenize<'a>(input: &'a str) -> Result<Vec<Token<'a>>, TokenizeError> {
                 result.push(Token {
                     kind: Indent,
                     span: Span::new(line_start, rest_off),
-                    line,
                 });
             }
 
@@ -231,7 +223,6 @@ pub fn tokenize<'a>(input: &'a str) -> Result<Vec<Token<'a>>, TokenizeError> {
                 result.push(Token {
                     kind: Dedent,
                     span: Span::new(rest_off, rest_off),
-                    line,
                 });
             }
         } else {
@@ -259,7 +250,6 @@ pub fn tokenize<'a>(input: &'a str) -> Result<Vec<Token<'a>>, TokenizeError> {
                     result.push(Token {
                         kind: Num(token.to_string()),
                         span: Span::new(soff, eoff),
-                        line,
                     });
                 } else if initial == '\r' || initial == '\n' {
                     result.push(Token {
@@ -269,13 +259,11 @@ pub fn tokenize<'a>(input: &'a str) -> Result<Vec<Token<'a>>, TokenizeError> {
                             Newline
                         },
                         span: Span::new(soff, eoff),
-                        line,
                     });
                 } else if initial == '#' {
                     result.push(Token {
                         kind: Comment(token.to_string()),
                         span: Span::new(soff, eoff),
-                        line,
                     });
                 } else if triple_quoted.contains(token) {
                     contstr_end_re = Some(get_contstr_end_re(token));
@@ -287,11 +275,9 @@ pub fn tokenize<'a>(input: &'a str) -> Result<Vec<Token<'a>>, TokenizeError> {
                         result.push(Token {
                             kind: Str(token.to_string()),
                             span: Span::new(soff, line_start + line_pos),
-                            line,
                         });
                     } else {
                         contstr_start = Some(line_start + tok_start);
-                        contline_start = Some(line_start);
                         break;
                     }
                 } else if single_quoted.contains(&initial.to_string())
@@ -300,23 +286,19 @@ pub fn tokenize<'a>(input: &'a str) -> Result<Vec<Token<'a>>, TokenizeError> {
                 {
                     if token.ends_with('\n') {
                         contstr_end_re = Some(get_contstr_end_re(token));
-
                         contstr_start = Some(line_start + tok_start);
-                        contline_start = Some(line_start);
 
                         needcont = true;
                     } else {
                         result.push(Token {
                             kind: Str(token.to_string()),
                             span: Span::new(soff, eoff),
-                            line,
                         });
                     }
                 } else if is_identifier_char(initial) {
                     result.push(Token {
                         kind: Name(token.to_string()),
                         span: Span::new(soff, eoff),
-                        line,
                     });
                 } else if initial == '\\' {
                     continued = true;
@@ -329,7 +311,6 @@ pub fn tokenize<'a>(input: &'a str) -> Result<Vec<Token<'a>>, TokenizeError> {
                     result.push(Token {
                         kind: TokenKind::try_from(token).unwrap(),
                         span: Span::new(soff, eoff),
-                        line,
                     });
                 }
             } else {
@@ -337,7 +318,6 @@ pub fn tokenize<'a>(input: &'a str) -> Result<Vec<Token<'a>>, TokenizeError> {
                 result.push(Token {
                     kind: ErrorToken,
                     span: Span::new(line_start + line_pos, line_start + line_pos + 1),
-                    line,
                 });
                 line_pos += 1;
             }
@@ -348,7 +328,6 @@ pub fn tokenize<'a>(input: &'a str) -> Result<Vec<Token<'a>>, TokenizeError> {
     // This is *just in case* anyone actually cares that the location of the
     // pointer makes any kind of sense.
     let input_len = input.len();
-    let empty_end_slice = &input[input_len..];
 
     if contstr_start.is_some() {
         return Err(TokenizeError {
@@ -382,7 +361,6 @@ pub fn tokenize<'a>(input: &'a str) -> Result<Vec<Token<'a>>, TokenizeError> {
                     // here and just act like the token has a length of zero.
                     input_len,
                 ),
-                line: empty_end_slice,
             });
         }
     }
@@ -390,13 +368,11 @@ pub fn tokenize<'a>(input: &'a str) -> Result<Vec<Token<'a>>, TokenizeError> {
         result.push(Token {
             kind: Dedent,
             span: Span::new(input_len, input_len),
-            line: empty_end_slice,
         });
     }
     result.push(Token {
         kind: EndMarker,
         span: Span::new(input_len, input_len),
-        line: empty_end_slice,
     });
 
     Ok(result)

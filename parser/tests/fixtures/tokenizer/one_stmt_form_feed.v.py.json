@@ -13,8 +13,7 @@ event Greet:
     "end": [
       1,
       5
-    ],
-    "line": "event Greet:\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -26,8 +25,7 @@ event Greet:
     "end": [
       1,
       11
-    ],
-    "line": "event Greet:\n"
+    ]
   },
   {
     "typ": "OP",
@@ -39,8 +37,7 @@ event Greet:
     "end": [
       1,
       12
-    ],
-    "line": "event Greet:\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -52,8 +49,7 @@ event Greet:
     "end": [
       2,
       0
-    ],
-    "line": "event Greet:\n"
+    ]
   },
   {
     "typ": "INDENT",
@@ -65,8 +61,7 @@ event Greet:
     "end": [
       2,
       9
-    ],
-    "line": "    \f    name: bytes32\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -78,8 +73,7 @@ event Greet:
     "end": [
       2,
       13
-    ],
-    "line": "    \f    name: bytes32\n"
+    ]
   },
   {
     "typ": "OP",
@@ -91,8 +85,7 @@ event Greet:
     "end": [
       2,
       14
-    ],
-    "line": "    \f    name: bytes32\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -104,8 +97,7 @@ event Greet:
     "end": [
       2,
       22
-    ],
-    "line": "    \f    name: bytes32\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -117,8 +109,7 @@ event Greet:
     "end": [
       3,
       0
-    ],
-    "line": "    \f    name: bytes32\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -130,8 +121,7 @@ event Greet:
     "end": [
       3,
       7
-    ],
-    "line": "    age: uint8"
+    ]
   },
   {
     "typ": "OP",
@@ -143,8 +133,7 @@ event Greet:
     "end": [
       3,
       8
-    ],
-    "line": "    age: uint8"
+    ]
   },
   {
     "typ": "NAME",
@@ -156,8 +145,7 @@ event Greet:
     "end": [
       3,
       14
-    ],
-    "line": "    age: uint8"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -169,8 +157,7 @@ event Greet:
     "end": [
       3,
       14
-    ],
-    "line": ""
+    ]
   },
   {
     "typ": "DEDENT",
@@ -182,8 +169,7 @@ event Greet:
     "end": [
       3,
       14
-    ],
-    "line": ""
+    ]
   },
   {
     "typ": "ENDMARKER",
@@ -195,7 +181,6 @@ event Greet:
     "end": [
       3,
       14
-    ],
-    "line": ""
+    ]
   }
 ]

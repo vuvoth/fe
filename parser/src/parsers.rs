@@ -39,12 +39,12 @@ use crate::tokenizer::types::{
     TokenKind::*,
 };
 
-pub type TokenSlice<'a> = &'a [Token<'a>];
+pub type TokenSlice<'a> = &'a [Token];
 pub type TokenResult<'a, O, E> = IResult<TokenSlice<'a>, O, E>;
 
 /// Tokenize the given source code in `source` and filter out tokens not
 /// relevant to parsing.
-pub fn get_parse_tokens<'a>(source: &'a str) -> Result<Vec<Token<'a>>, TokenizeError> {
+pub fn get_parse_tokens<'a>(source: &'a str) -> Result<Vec<Token>, TokenizeError> {
     let tokens = tokenize(source)?;
 
     Ok(tokens

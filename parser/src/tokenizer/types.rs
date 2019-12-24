@@ -197,24 +197,21 @@ impl TryFrom<&str> for TokenKind {
 
 /// A token parsed from a source string.
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
-pub struct Token<'a> {
+pub struct Token {
     /// The type of a token.
     pub kind: TokenKind,
 
     /// The span of source text covered by a token.
     pub span: Span,
-
-    /// The text content of the line from which a token was parsed.
-    pub line: &'a str,
 }
 
-impl<'a> Token<'a> {
+impl Token {
     pub fn maybe_to_string(&self) -> Option<String> {
         self.kind.maybe_to_string()
     }
 }
 
-impl<'a> From<&Token<'a>> for Span {
+impl From<&Token> for Span {
     fn from(token: &Token) -> Span {
         token.span
     }

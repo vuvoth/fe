@@ -32,8 +32,7 @@ lkjasdkfas \
     "end": [
       1,
       3
-    ],
-    "line": "foo = \"bar\"\n"
+    ]
   },
   {
     "typ": "OP",
@@ -45,8 +44,7 @@ lkjasdkfas \
     "end": [
       1,
       5
-    ],
-    "line": "foo = \"bar\"\n"
+    ]
   },
   {
     "typ": "STRING",
@@ -58,8 +56,7 @@ lkjasdkfas \
     "end": [
       1,
       11
-    ],
-    "line": "foo = \"bar\"\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -71,8 +68,7 @@ lkjasdkfas \
     "end": [
       2,
       0
-    ],
-    "line": "foo = \"bar\"\n"
+    ]
   },
   {
     "typ": "NL",
@@ -84,8 +80,7 @@ lkjasdkfas \
     "end": [
       3,
       0
-    ],
-    "line": "\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -97,8 +92,7 @@ lkjasdkfas \
     "end": [
       3,
       3
-    ],
-    "line": "foo = 'bar'\n"
+    ]
   },
   {
     "typ": "OP",
@@ -110,8 +104,7 @@ lkjasdkfas \
     "end": [
       3,
       5
-    ],
-    "line": "foo = 'bar'\n"
+    ]
   },
   {
     "typ": "STRING",
@@ -123,8 +116,7 @@ lkjasdkfas \
     "end": [
       3,
       11
-    ],
-    "line": "foo = 'bar'\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -136,8 +128,7 @@ lkjasdkfas \
     "end": [
       4,
       0
-    ],
-    "line": "foo = 'bar'\n"
+    ]
   },
   {
     "typ": "NL",
@@ -149,8 +140,7 @@ lkjasdkfas \
     "end": [
       5,
       0
-    ],
-    "line": "\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -162,8 +152,7 @@ lkjasdkfas \
     "end": [
       5,
       3
-    ],
-    "line": "foo = ' \\nbar '\n"
+    ]
   },
   {
     "typ": "OP",
@@ -175,8 +164,7 @@ lkjasdkfas \
     "end": [
       5,
       5
-    ],
-    "line": "foo = ' \\nbar '\n"
+    ]
   },
   {
     "typ": "STRING",
@@ -188,8 +176,7 @@ lkjasdkfas \
     "end": [
       5,
       15
-    ],
-    "line": "foo = ' \\nbar '\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -201,8 +188,7 @@ lkjasdkfas \
     "end": [
       6,
       0
-    ],
-    "line": "foo = ' \\nbar '\n"
+    ]
   },
   {
     "typ": "NL",
@@ -214,8 +200,7 @@ lkjasdkfas \
     "end": [
       7,
       0
-    ],
-    "line": "\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -227,8 +212,7 @@ lkjasdkfas \
     "end": [
       7,
       3
-    ],
-    "line": "foo = \" \\\n"
+    ]
   },
   {
     "typ": "OP",
@@ -240,8 +224,7 @@ lkjasdkfas \
     "end": [
       7,
       5
-    ],
-    "line": "foo = \" \\\n"
+    ]
   },
   {
     "typ": "ERRORTOKEN",
@@ -253,8 +236,7 @@ lkjasdkfas \
     "end": [
       9,
       0
-    ],
-    "line": "foo = \" \\\n"
+    ]
   },
   {
     "typ": "ERRORTOKEN",
@@ -266,8 +248,7 @@ lkjasdkfas \
     "end": [
       9,
       1
-    ],
-    "line": "\"\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -279,8 +260,7 @@ lkjasdkfas \
     "end": [
       10,
       0
-    ],
-    "line": "\"\n"
+    ]
   },
   {
     "typ": "NL",
@@ -292,8 +272,7 @@ lkjasdkfas \
     "end": [
       11,
       0
-    ],
-    "line": "\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -305,8 +284,7 @@ lkjasdkfas \
     "end": [
       11,
       3
-    ],
-    "line": "foo = ' \\\n"
+    ]
   },
   {
     "typ": "OP",
@@ -318,8 +296,7 @@ lkjasdkfas \
     "end": [
       11,
       5
-    ],
-    "line": "foo = ' \\\n"
+    ]
   },
   {
     "typ": "ERRORTOKEN",
@@ -331,8 +308,7 @@ lkjasdkfas \
     "end": [
       13,
       0
-    ],
-    "line": "foo = ' \\\n"
+    ]
   },
   {
     "typ": "ERRORTOKEN",
@@ -344,8 +320,7 @@ lkjasdkfas \
     "end": [
       13,
       1
-    ],
-    "line": "'\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -357,8 +332,7 @@ lkjasdkfas \
     "end": [
       14,
       0
-    ],
-    "line": "'\n"
+    ]
   },
   {
     "typ": "NL",
@@ -370,8 +344,7 @@ lkjasdkfas \
     "end": [
       15,
       0
-    ],
-    "line": "\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -383,8 +356,7 @@ lkjasdkfas \
     "end": [
       15,
       3
-    ],
-    "line": "foo = ' \\\n"
+    ]
   },
   {
     "typ": "OP",
@@ -396,8 +368,7 @@ lkjasdkfas \
     "end": [
       15,
       5
-    ],
-    "line": "foo = ' \\\n"
+    ]
   },
   {
     "typ": "STRING",
@@ -409,8 +380,7 @@ lkjasdkfas \
     "end": [
       17,
       1
-    ],
-    "line": "foo = ' \\\nbar \\\n'\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -422,8 +392,7 @@ lkjasdkfas \
     "end": [
       18,
       0
-    ],
-    "line": "'\n"
+    ]
   },
   {
     "typ": "NL",
@@ -435,8 +404,7 @@ lkjasdkfas \
     "end": [
       19,
       0
-    ],
-    "line": "\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -448,8 +416,7 @@ lkjasdkfas \
     "end": [
       19,
       3
-    ],
-    "line": "foo = ' \\n\\\n"
+    ]
   },
   {
     "typ": "OP",
@@ -461,8 +428,7 @@ lkjasdkfas \
     "end": [
       19,
       5
-    ],
-    "line": "foo = ' \\n\\\n"
+    ]
   },
   {
     "typ": "STRING",
@@ -474,8 +440,7 @@ lkjasdkfas \
     "end": [
       22,
       1
-    ],
-    "line": "foo = ' \\n\\\nbar \\r \\\nlkjasdkfas \\\n'"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -487,8 +452,7 @@ lkjasdkfas \
     "end": [
       22,
       1
-    ],
-    "line": ""
+    ]
   },
   {
     "typ": "ENDMARKER",
@@ -500,7 +464,6 @@ lkjasdkfas \
     "end": [
       22,
       1
-    ],
-    "line": ""
+    ]
   }
 ]

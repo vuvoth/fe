@@ -59,13 +59,12 @@ struct PythonTokenInfo<'a> {
     pub string: &'a str,
     pub start: (usize, usize),
     pub end: (usize, usize),
-    pub line: &'a str,
 }
 
 impl<'a> PythonTokenInfo<'a> {
     pub fn from_token_and_positions(
         input: &'a str,
-        tok: &'a Token<'a>,
+        tok: &Token,
         string_pos: &mut StringPositions<'_>,
     ) -> Self {
         let start_pos = match string_pos.get_pos(tok.span.start) {
@@ -82,7 +81,6 @@ impl<'a> PythonTokenInfo<'a> {
             string: &input[tok.span.start..tok.span.end],
             start: (start_pos.line, start_pos.col),
             end: (end_pos.line, end_pos.col),
-            line: tok.line,
         }
     }
 }

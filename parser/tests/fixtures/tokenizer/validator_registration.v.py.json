@@ -113,8 +113,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       1,
       18
-    ],
-    "line": "MIN_DEPOSIT_AMOUNT: constant(uint256) = 1000000000  # Gwei\n"
+    ]
   },
   {
     "typ": "OP",
@@ -126,8 +125,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       1,
       19
-    ],
-    "line": "MIN_DEPOSIT_AMOUNT: constant(uint256) = 1000000000  # Gwei\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -139,8 +137,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       1,
       28
-    ],
-    "line": "MIN_DEPOSIT_AMOUNT: constant(uint256) = 1000000000  # Gwei\n"
+    ]
   },
   {
     "typ": "OP",
@@ -152,8 +149,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       1,
       29
-    ],
-    "line": "MIN_DEPOSIT_AMOUNT: constant(uint256) = 1000000000  # Gwei\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -165,8 +161,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       1,
       36
-    ],
-    "line": "MIN_DEPOSIT_AMOUNT: constant(uint256) = 1000000000  # Gwei\n"
+    ]
   },
   {
     "typ": "OP",
@@ -178,8 +173,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       1,
       37
-    ],
-    "line": "MIN_DEPOSIT_AMOUNT: constant(uint256) = 1000000000  # Gwei\n"
+    ]
   },
   {
     "typ": "OP",
@@ -191,8 +185,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       1,
       39
-    ],
-    "line": "MIN_DEPOSIT_AMOUNT: constant(uint256) = 1000000000  # Gwei\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -204,8 +197,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       1,
       50
-    ],
-    "line": "MIN_DEPOSIT_AMOUNT: constant(uint256) = 1000000000  # Gwei\n"
+    ]
   },
   {
     "typ": "COMMENT",
@@ -217,8 +209,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       1,
       58
-    ],
-    "line": "MIN_DEPOSIT_AMOUNT: constant(uint256) = 1000000000  # Gwei\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -230,8 +221,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       2,
       0
-    ],
-    "line": "MIN_DEPOSIT_AMOUNT: constant(uint256) = 1000000000  # Gwei\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -243,8 +233,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       2,
       27
-    ],
-    "line": "DEPOSIT_CONTRACT_TREE_DEPTH: constant(uint256) = 32\n"
+    ]
   },
   {
     "typ": "OP",
@@ -256,8 +245,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       2,
       28
-    ],
-    "line": "DEPOSIT_CONTRACT_TREE_DEPTH: constant(uint256) = 32\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -269,8 +257,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       2,
       37
-    ],
-    "line": "DEPOSIT_CONTRACT_TREE_DEPTH: constant(uint256) = 32\n"
+    ]
   },
   {
     "typ": "OP",
@@ -282,8 +269,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       2,
       38
-    ],
-    "line": "DEPOSIT_CONTRACT_TREE_DEPTH: constant(uint256) = 32\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -295,8 +281,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       2,
       45
-    ],
-    "line": "DEPOSIT_CONTRACT_TREE_DEPTH: constant(uint256) = 32\n"
+    ]
   },
   {
     "typ": "OP",
@@ -308,8 +293,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       2,
       46
-    ],
-    "line": "DEPOSIT_CONTRACT_TREE_DEPTH: constant(uint256) = 32\n"
+    ]
   },
   {
     "typ": "OP",
@@ -321,8 +305,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       2,
       48
-    ],
-    "line": "DEPOSIT_CONTRACT_TREE_DEPTH: constant(uint256) = 32\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -334,8 +317,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       2,
       51
-    ],
-    "line": "DEPOSIT_CONTRACT_TREE_DEPTH: constant(uint256) = 32\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -347,8 +329,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       3,
       0
-    ],
-    "line": "DEPOSIT_CONTRACT_TREE_DEPTH: constant(uint256) = 32\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -360,8 +341,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       3,
       17
-    ],
-    "line": "MAX_DEPOSIT_COUNT: constant(uint256) = 4294967295 # 2**DEPOSIT_CONTRACT_TREE_DEPTH - 1\n"
+    ]
   },
   {
     "typ": "OP",
@@ -373,8 +353,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       3,
       18
-    ],
-    "line": "MAX_DEPOSIT_COUNT: constant(uint256) = 4294967295 # 2**DEPOSIT_CONTRACT_TREE_DEPTH - 1\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -386,8 +365,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       3,
       27
-    ],
-    "line": "MAX_DEPOSIT_COUNT: constant(uint256) = 4294967295 # 2**DEPOSIT_CONTRACT_TREE_DEPTH - 1\n"
+    ]
   },
   {
     "typ": "OP",
@@ -399,8 +377,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       3,
       28
-    ],
-    "line": "MAX_DEPOSIT_COUNT: constant(uint256) = 4294967295 # 2**DEPOSIT_CONTRACT_TREE_DEPTH - 1\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -412,8 +389,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       3,
       35
-    ],
-    "line": "MAX_DEPOSIT_COUNT: constant(uint256) = 4294967295 # 2**DEPOSIT_CONTRACT_TREE_DEPTH - 1\n"
+    ]
   },
   {
     "typ": "OP",
@@ -425,8 +401,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       3,
       36
-    ],
-    "line": "MAX_DEPOSIT_COUNT: constant(uint256) = 4294967295 # 2**DEPOSIT_CONTRACT_TREE_DEPTH - 1\n"
+    ]
   },
   {
     "typ": "OP",
@@ -438,8 +413,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       3,
       38
-    ],
-    "line": "MAX_DEPOSIT_COUNT: constant(uint256) = 4294967295 # 2**DEPOSIT_CONTRACT_TREE_DEPTH - 1\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -451,8 +425,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       3,
       49
-    ],
-    "line": "MAX_DEPOSIT_COUNT: constant(uint256) = 4294967295 # 2**DEPOSIT_CONTRACT_TREE_DEPTH - 1\n"
+    ]
   },
   {
     "typ": "COMMENT",
@@ -464,8 +437,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       3,
       86
-    ],
-    "line": "MAX_DEPOSIT_COUNT: constant(uint256) = 4294967295 # 2**DEPOSIT_CONTRACT_TREE_DEPTH - 1\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -477,8 +449,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       4,
       0
-    ],
-    "line": "MAX_DEPOSIT_COUNT: constant(uint256) = 4294967295 # 2**DEPOSIT_CONTRACT_TREE_DEPTH - 1\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -490,8 +461,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       4,
       13
-    ],
-    "line": "PUBKEY_LENGTH: constant(uint256) = 48  # bytes\n"
+    ]
   },
   {
     "typ": "OP",
@@ -503,8 +473,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       4,
       14
-    ],
-    "line": "PUBKEY_LENGTH: constant(uint256) = 48  # bytes\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -516,8 +485,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       4,
       23
-    ],
-    "line": "PUBKEY_LENGTH: constant(uint256) = 48  # bytes\n"
+    ]
   },
   {
     "typ": "OP",
@@ -529,8 +497,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       4,
       24
-    ],
-    "line": "PUBKEY_LENGTH: constant(uint256) = 48  # bytes\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -542,8 +509,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       4,
       31
-    ],
-    "line": "PUBKEY_LENGTH: constant(uint256) = 48  # bytes\n"
+    ]
   },
   {
     "typ": "OP",
@@ -555,8 +521,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       4,
       32
-    ],
-    "line": "PUBKEY_LENGTH: constant(uint256) = 48  # bytes\n"
+    ]
   },
   {
     "typ": "OP",
@@ -568,8 +533,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       4,
       34
-    ],
-    "line": "PUBKEY_LENGTH: constant(uint256) = 48  # bytes\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -581,8 +545,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       4,
       37
-    ],
-    "line": "PUBKEY_LENGTH: constant(uint256) = 48  # bytes\n"
+    ]
   },
   {
     "typ": "COMMENT",
@@ -594,8 +557,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       4,
       46
-    ],
-    "line": "PUBKEY_LENGTH: constant(uint256) = 48  # bytes\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -607,8 +569,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       5,
       0
-    ],
-    "line": "PUBKEY_LENGTH: constant(uint256) = 48  # bytes\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -620,8 +581,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       5,
       29
-    ],
-    "line": "WITHDRAWAL_CREDENTIALS_LENGTH: constant(uint256) = 32  # bytes\n"
+    ]
   },
   {
     "typ": "OP",
@@ -633,8 +593,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       5,
       30
-    ],
-    "line": "WITHDRAWAL_CREDENTIALS_LENGTH: constant(uint256) = 32  # bytes\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -646,8 +605,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       5,
       39
-    ],
-    "line": "WITHDRAWAL_CREDENTIALS_LENGTH: constant(uint256) = 32  # bytes\n"
+    ]
   },
   {
     "typ": "OP",
@@ -659,8 +617,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       5,
       40
-    ],
-    "line": "WITHDRAWAL_CREDENTIALS_LENGTH: constant(uint256) = 32  # bytes\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -672,8 +629,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       5,
       47
-    ],
-    "line": "WITHDRAWAL_CREDENTIALS_LENGTH: constant(uint256) = 32  # bytes\n"
+    ]
   },
   {
     "typ": "OP",
@@ -685,8 +641,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       5,
       48
-    ],
-    "line": "WITHDRAWAL_CREDENTIALS_LENGTH: constant(uint256) = 32  # bytes\n"
+    ]
   },
   {
     "typ": "OP",
@@ -698,8 +653,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       5,
       50
-    ],
-    "line": "WITHDRAWAL_CREDENTIALS_LENGTH: constant(uint256) = 32  # bytes\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -711,8 +665,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       5,
       53
-    ],
-    "line": "WITHDRAWAL_CREDENTIALS_LENGTH: constant(uint256) = 32  # bytes\n"
+    ]
   },
   {
     "typ": "COMMENT",
@@ -724,8 +677,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       5,
       62
-    ],
-    "line": "WITHDRAWAL_CREDENTIALS_LENGTH: constant(uint256) = 32  # bytes\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -737,8 +689,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       6,
       0
-    ],
-    "line": "WITHDRAWAL_CREDENTIALS_LENGTH: constant(uint256) = 32  # bytes\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -750,8 +701,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       6,
       13
-    ],
-    "line": "AMOUNT_LENGTH: constant(uint256) = 8  # bytes\n"
+    ]
   },
   {
     "typ": "OP",
@@ -763,8 +713,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       6,
       14
-    ],
-    "line": "AMOUNT_LENGTH: constant(uint256) = 8  # bytes\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -776,8 +725,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       6,
       23
-    ],
-    "line": "AMOUNT_LENGTH: constant(uint256) = 8  # bytes\n"
+    ]
   },
   {
     "typ": "OP",
@@ -789,8 +737,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       6,
       24
-    ],
-    "line": "AMOUNT_LENGTH: constant(uint256) = 8  # bytes\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -802,8 +749,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       6,
       31
-    ],
-    "line": "AMOUNT_LENGTH: constant(uint256) = 8  # bytes\n"
+    ]
   },
   {
     "typ": "OP",
@@ -815,8 +761,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       6,
       32
-    ],
-    "line": "AMOUNT_LENGTH: constant(uint256) = 8  # bytes\n"
+    ]
   },
   {
     "typ": "OP",
@@ -828,8 +773,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       6,
       34
-    ],
-    "line": "AMOUNT_LENGTH: constant(uint256) = 8  # bytes\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -841,8 +785,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       6,
       36
-    ],
-    "line": "AMOUNT_LENGTH: constant(uint256) = 8  # bytes\n"
+    ]
   },
   {
     "typ": "COMMENT",
@@ -854,8 +797,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       6,
       45
-    ],
-    "line": "AMOUNT_LENGTH: constant(uint256) = 8  # bytes\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -867,8 +809,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       7,
       0
-    ],
-    "line": "AMOUNT_LENGTH: constant(uint256) = 8  # bytes\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -880,8 +821,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       7,
       16
-    ],
-    "line": "SIGNATURE_LENGTH: constant(uint256) = 96  # bytes\n"
+    ]
   },
   {
     "typ": "OP",
@@ -893,8 +833,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       7,
       17
-    ],
-    "line": "SIGNATURE_LENGTH: constant(uint256) = 96  # bytes\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -906,8 +845,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       7,
       26
-    ],
-    "line": "SIGNATURE_LENGTH: constant(uint256) = 96  # bytes\n"
+    ]
   },
   {
     "typ": "OP",
@@ -919,8 +857,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       7,
       27
-    ],
-    "line": "SIGNATURE_LENGTH: constant(uint256) = 96  # bytes\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -932,8 +869,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       7,
       34
-    ],
-    "line": "SIGNATURE_LENGTH: constant(uint256) = 96  # bytes\n"
+    ]
   },
   {
     "typ": "OP",
@@ -945,8 +881,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       7,
       35
-    ],
-    "line": "SIGNATURE_LENGTH: constant(uint256) = 96  # bytes\n"
+    ]
   },
   {
     "typ": "OP",
@@ -958,8 +893,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       7,
       37
-    ],
-    "line": "SIGNATURE_LENGTH: constant(uint256) = 96  # bytes\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -971,8 +905,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       7,
       40
-    ],
-    "line": "SIGNATURE_LENGTH: constant(uint256) = 96  # bytes\n"
+    ]
   },
   {
     "typ": "COMMENT",
@@ -984,8 +917,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       7,
       49
-    ],
-    "line": "SIGNATURE_LENGTH: constant(uint256) = 96  # bytes\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -997,8 +929,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       8,
       0
-    ],
-    "line": "SIGNATURE_LENGTH: constant(uint256) = 96  # bytes\n"
+    ]
   },
   {
     "typ": "NL",
@@ -1010,8 +941,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       9,
       0
-    ],
-    "line": "\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -1023,8 +953,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       9,
       12
-    ],
-    "line": "DepositEvent: event({\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1036,8 +965,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       9,
       13
-    ],
-    "line": "DepositEvent: event({\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -1049,8 +977,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       9,
       19
-    ],
-    "line": "DepositEvent: event({\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1062,8 +989,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       9,
       20
-    ],
-    "line": "DepositEvent: event({\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1075,8 +1001,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       9,
       21
-    ],
-    "line": "DepositEvent: event({\n"
+    ]
   },
   {
     "typ": "NL",
@@ -1088,8 +1013,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       10,
       0
-    ],
-    "line": "DepositEvent: event({\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -1101,8 +1025,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       10,
       10
-    ],
-    "line": "    pubkey: bytes[48],\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1114,8 +1037,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       10,
       11
-    ],
-    "line": "    pubkey: bytes[48],\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -1127,8 +1049,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       10,
       17
-    ],
-    "line": "    pubkey: bytes[48],\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1140,8 +1061,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       10,
       18
-    ],
-    "line": "    pubkey: bytes[48],\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -1153,8 +1073,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       10,
       20
-    ],
-    "line": "    pubkey: bytes[48],\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1166,8 +1085,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       10,
       21
-    ],
-    "line": "    pubkey: bytes[48],\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1179,8 +1097,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       10,
       22
-    ],
-    "line": "    pubkey: bytes[48],\n"
+    ]
   },
   {
     "typ": "NL",
@@ -1192,8 +1109,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       11,
       0
-    ],
-    "line": "    pubkey: bytes[48],\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -1205,8 +1121,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       11,
       26
-    ],
-    "line": "    withdrawal_credentials: bytes[32],\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1218,8 +1133,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       11,
       27
-    ],
-    "line": "    withdrawal_credentials: bytes[32],\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -1231,8 +1145,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       11,
       33
-    ],
-    "line": "    withdrawal_credentials: bytes[32],\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1244,8 +1157,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       11,
       34
-    ],
-    "line": "    withdrawal_credentials: bytes[32],\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -1257,8 +1169,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       11,
       36
-    ],
-    "line": "    withdrawal_credentials: bytes[32],\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1270,8 +1181,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       11,
       37
-    ],
-    "line": "    withdrawal_credentials: bytes[32],\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1283,8 +1193,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       11,
       38
-    ],
-    "line": "    withdrawal_credentials: bytes[32],\n"
+    ]
   },
   {
     "typ": "NL",
@@ -1296,8 +1205,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       12,
       0
-    ],
-    "line": "    withdrawal_credentials: bytes[32],\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -1309,8 +1217,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       12,
       10
-    ],
-    "line": "    amount: bytes[8],\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1322,8 +1229,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       12,
       11
-    ],
-    "line": "    amount: bytes[8],\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -1335,8 +1241,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       12,
       17
-    ],
-    "line": "    amount: bytes[8],\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1348,8 +1253,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       12,
       18
-    ],
-    "line": "    amount: bytes[8],\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -1361,8 +1265,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       12,
       19
-    ],
-    "line": "    amount: bytes[8],\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1374,8 +1277,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       12,
       20
-    ],
-    "line": "    amount: bytes[8],\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1387,8 +1289,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       12,
       21
-    ],
-    "line": "    amount: bytes[8],\n"
+    ]
   },
   {
     "typ": "NL",
@@ -1400,8 +1301,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       13,
       0
-    ],
-    "line": "    amount: bytes[8],\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -1413,8 +1313,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       13,
       13
-    ],
-    "line": "    signature: bytes[96],\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1426,8 +1325,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       13,
       14
-    ],
-    "line": "    signature: bytes[96],\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -1439,8 +1337,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       13,
       20
-    ],
-    "line": "    signature: bytes[96],\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1452,8 +1349,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       13,
       21
-    ],
-    "line": "    signature: bytes[96],\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -1465,8 +1361,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       13,
       23
-    ],
-    "line": "    signature: bytes[96],\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1478,8 +1373,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       13,
       24
-    ],
-    "line": "    signature: bytes[96],\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1491,8 +1385,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       13,
       25
-    ],
-    "line": "    signature: bytes[96],\n"
+    ]
   },
   {
     "typ": "NL",
@@ -1504,8 +1397,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       14,
       0
-    ],
-    "line": "    signature: bytes[96],\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -1517,8 +1409,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       14,
       9
-    ],
-    "line": "    index: bytes[8],\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1530,8 +1421,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       14,
       10
-    ],
-    "line": "    index: bytes[8],\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -1543,8 +1433,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       14,
       16
-    ],
-    "line": "    index: bytes[8],\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1556,8 +1445,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       14,
       17
-    ],
-    "line": "    index: bytes[8],\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -1569,8 +1457,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       14,
       18
-    ],
-    "line": "    index: bytes[8],\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1582,8 +1469,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       14,
       19
-    ],
-    "line": "    index: bytes[8],\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1595,8 +1481,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       14,
       20
-    ],
-    "line": "    index: bytes[8],\n"
+    ]
   },
   {
     "typ": "NL",
@@ -1608,8 +1493,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       15,
       0
-    ],
-    "line": "    index: bytes[8],\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1621,8 +1505,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       15,
       1
-    ],
-    "line": "})\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1634,8 +1517,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       15,
       2
-    ],
-    "line": "})\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -1647,8 +1529,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       16,
       0
-    ],
-    "line": "})\n"
+    ]
   },
   {
     "typ": "NL",
@@ -1660,8 +1541,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       17,
       0
-    ],
-    "line": "\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -1673,8 +1553,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       17,
       6
-    ],
-    "line": "branch: bytes32[DEPOSIT_CONTRACT_TREE_DEPTH]\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1686,8 +1565,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       17,
       7
-    ],
-    "line": "branch: bytes32[DEPOSIT_CONTRACT_TREE_DEPTH]\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -1699,8 +1577,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       17,
       15
-    ],
-    "line": "branch: bytes32[DEPOSIT_CONTRACT_TREE_DEPTH]\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1712,8 +1589,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       17,
       16
-    ],
-    "line": "branch: bytes32[DEPOSIT_CONTRACT_TREE_DEPTH]\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -1725,8 +1601,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       17,
       43
-    ],
-    "line": "branch: bytes32[DEPOSIT_CONTRACT_TREE_DEPTH]\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1738,8 +1613,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       17,
       44
-    ],
-    "line": "branch: bytes32[DEPOSIT_CONTRACT_TREE_DEPTH]\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -1751,8 +1625,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       18,
       0
-    ],
-    "line": "branch: bytes32[DEPOSIT_CONTRACT_TREE_DEPTH]\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -1764,8 +1637,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       18,
       13
-    ],
-    "line": "deposit_count: uint256\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1777,8 +1649,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       18,
       14
-    ],
-    "line": "deposit_count: uint256\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -1790,8 +1661,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       18,
       22
-    ],
-    "line": "deposit_count: uint256\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -1803,8 +1673,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       19,
       0
-    ],
-    "line": "deposit_count: uint256\n"
+    ]
   },
   {
     "typ": "NL",
@@ -1816,8 +1685,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       20,
       0
-    ],
-    "line": "\n"
+    ]
   },
   {
     "typ": "COMMENT",
@@ -1829,8 +1697,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       20,
       44
-    ],
-    "line": "# Compute hashes in empty sparse Merkle tree\n"
+    ]
   },
   {
     "typ": "NL",
@@ -1842,8 +1709,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       21,
       0
-    ],
-    "line": "# Compute hashes in empty sparse Merkle tree\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -1855,8 +1721,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       21,
       11
-    ],
-    "line": "zero_hashes: bytes32[DEPOSIT_CONTRACT_TREE_DEPTH]\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1868,8 +1733,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       21,
       12
-    ],
-    "line": "zero_hashes: bytes32[DEPOSIT_CONTRACT_TREE_DEPTH]\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -1881,8 +1745,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       21,
       20
-    ],
-    "line": "zero_hashes: bytes32[DEPOSIT_CONTRACT_TREE_DEPTH]\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1894,8 +1757,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       21,
       21
-    ],
-    "line": "zero_hashes: bytes32[DEPOSIT_CONTRACT_TREE_DEPTH]\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -1907,8 +1769,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       21,
       48
-    ],
-    "line": "zero_hashes: bytes32[DEPOSIT_CONTRACT_TREE_DEPTH]\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1920,8 +1781,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       21,
       49
-    ],
-    "line": "zero_hashes: bytes32[DEPOSIT_CONTRACT_TREE_DEPTH]\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -1933,8 +1793,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       22,
       0
-    ],
-    "line": "zero_hashes: bytes32[DEPOSIT_CONTRACT_TREE_DEPTH]\n"
+    ]
   },
   {
     "typ": "OP",
@@ -1946,8 +1805,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       22,
       1
-    ],
-    "line": "@public\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -1959,8 +1817,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       22,
       7
-    ],
-    "line": "@public\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -1972,8 +1829,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       23,
       0
-    ],
-    "line": "@public\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -1985,8 +1841,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       23,
       3
-    ],
-    "line": "def __init__():\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -1998,8 +1853,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       23,
       12
-    ],
-    "line": "def __init__():\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2011,8 +1865,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       23,
       13
-    ],
-    "line": "def __init__():\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2024,8 +1877,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       23,
       14
-    ],
-    "line": "def __init__():\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2037,8 +1889,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       23,
       15
-    ],
-    "line": "def __init__():\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -2050,8 +1901,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       24,
       0
-    ],
-    "line": "def __init__():\n"
+    ]
   },
   {
     "typ": "INDENT",
@@ -2063,8 +1913,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       24,
       4
-    ],
-    "line": "    for i in range(DEPOSIT_CONTRACT_TREE_DEPTH - 1):\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -2076,8 +1925,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       24,
       7
-    ],
-    "line": "    for i in range(DEPOSIT_CONTRACT_TREE_DEPTH - 1):\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -2089,8 +1937,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       24,
       9
-    ],
-    "line": "    for i in range(DEPOSIT_CONTRACT_TREE_DEPTH - 1):\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -2102,8 +1949,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       24,
       12
-    ],
-    "line": "    for i in range(DEPOSIT_CONTRACT_TREE_DEPTH - 1):\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -2115,8 +1961,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       24,
       18
-    ],
-    "line": "    for i in range(DEPOSIT_CONTRACT_TREE_DEPTH - 1):\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2128,8 +1973,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       24,
       19
-    ],
-    "line": "    for i in range(DEPOSIT_CONTRACT_TREE_DEPTH - 1):\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -2141,8 +1985,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       24,
       46
-    ],
-    "line": "    for i in range(DEPOSIT_CONTRACT_TREE_DEPTH - 1):\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2154,8 +1997,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       24,
       48
-    ],
-    "line": "    for i in range(DEPOSIT_CONTRACT_TREE_DEPTH - 1):\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -2167,8 +2009,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       24,
       50
-    ],
-    "line": "    for i in range(DEPOSIT_CONTRACT_TREE_DEPTH - 1):\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2180,8 +2021,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       24,
       51
-    ],
-    "line": "    for i in range(DEPOSIT_CONTRACT_TREE_DEPTH - 1):\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2193,8 +2033,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       24,
       52
-    ],
-    "line": "    for i in range(DEPOSIT_CONTRACT_TREE_DEPTH - 1):\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -2206,8 +2045,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       25,
       0
-    ],
-    "line": "    for i in range(DEPOSIT_CONTRACT_TREE_DEPTH - 1):\n"
+    ]
   },
   {
     "typ": "INDENT",
@@ -2219,8 +2057,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       25,
       8
-    ],
-    "line": "        self.zero_hashes[i + 1] = sha256(concat(self.zero_hashes[i], self.zero_hashes[i]))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -2232,8 +2069,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       25,
       12
-    ],
-    "line": "        self.zero_hashes[i + 1] = sha256(concat(self.zero_hashes[i], self.zero_hashes[i]))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2245,8 +2081,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       25,
       13
-    ],
-    "line": "        self.zero_hashes[i + 1] = sha256(concat(self.zero_hashes[i], self.zero_hashes[i]))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -2258,8 +2093,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       25,
       24
-    ],
-    "line": "        self.zero_hashes[i + 1] = sha256(concat(self.zero_hashes[i], self.zero_hashes[i]))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2271,8 +2105,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       25,
       25
-    ],
-    "line": "        self.zero_hashes[i + 1] = sha256(concat(self.zero_hashes[i], self.zero_hashes[i]))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -2284,8 +2117,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       25,
       26
-    ],
-    "line": "        self.zero_hashes[i + 1] = sha256(concat(self.zero_hashes[i], self.zero_hashes[i]))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2297,8 +2129,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       25,
       28
-    ],
-    "line": "        self.zero_hashes[i + 1] = sha256(concat(self.zero_hashes[i], self.zero_hashes[i]))\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -2310,8 +2141,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       25,
       30
-    ],
-    "line": "        self.zero_hashes[i + 1] = sha256(concat(self.zero_hashes[i], self.zero_hashes[i]))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2323,8 +2153,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       25,
       31
-    ],
-    "line": "        self.zero_hashes[i + 1] = sha256(concat(self.zero_hashes[i], self.zero_hashes[i]))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2336,8 +2165,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       25,
       33
-    ],
-    "line": "        self.zero_hashes[i + 1] = sha256(concat(self.zero_hashes[i], self.zero_hashes[i]))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -2349,8 +2177,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       25,
       40
-    ],
-    "line": "        self.zero_hashes[i + 1] = sha256(concat(self.zero_hashes[i], self.zero_hashes[i]))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2362,8 +2189,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       25,
       41
-    ],
-    "line": "        self.zero_hashes[i + 1] = sha256(concat(self.zero_hashes[i], self.zero_hashes[i]))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -2375,8 +2201,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       25,
       47
-    ],
-    "line": "        self.zero_hashes[i + 1] = sha256(concat(self.zero_hashes[i], self.zero_hashes[i]))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2388,8 +2213,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       25,
       48
-    ],
-    "line": "        self.zero_hashes[i + 1] = sha256(concat(self.zero_hashes[i], self.zero_hashes[i]))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -2401,8 +2225,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       25,
       52
-    ],
-    "line": "        self.zero_hashes[i + 1] = sha256(concat(self.zero_hashes[i], self.zero_hashes[i]))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2414,8 +2237,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       25,
       53
-    ],
-    "line": "        self.zero_hashes[i + 1] = sha256(concat(self.zero_hashes[i], self.zero_hashes[i]))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -2427,8 +2249,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       25,
       64
-    ],
-    "line": "        self.zero_hashes[i + 1] = sha256(concat(self.zero_hashes[i], self.zero_hashes[i]))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2440,8 +2261,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       25,
       65
-    ],
-    "line": "        self.zero_hashes[i + 1] = sha256(concat(self.zero_hashes[i], self.zero_hashes[i]))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -2453,8 +2273,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       25,
       66
-    ],
-    "line": "        self.zero_hashes[i + 1] = sha256(concat(self.zero_hashes[i], self.zero_hashes[i]))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2466,8 +2285,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       25,
       67
-    ],
-    "line": "        self.zero_hashes[i + 1] = sha256(concat(self.zero_hashes[i], self.zero_hashes[i]))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2479,8 +2297,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       25,
       68
-    ],
-    "line": "        self.zero_hashes[i + 1] = sha256(concat(self.zero_hashes[i], self.zero_hashes[i]))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -2492,8 +2309,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       25,
       73
-    ],
-    "line": "        self.zero_hashes[i + 1] = sha256(concat(self.zero_hashes[i], self.zero_hashes[i]))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2505,8 +2321,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       25,
       74
-    ],
-    "line": "        self.zero_hashes[i + 1] = sha256(concat(self.zero_hashes[i], self.zero_hashes[i]))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -2518,8 +2333,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       25,
       85
-    ],
-    "line": "        self.zero_hashes[i + 1] = sha256(concat(self.zero_hashes[i], self.zero_hashes[i]))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2531,8 +2345,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       25,
       86
-    ],
-    "line": "        self.zero_hashes[i + 1] = sha256(concat(self.zero_hashes[i], self.zero_hashes[i]))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -2544,8 +2357,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       25,
       87
-    ],
-    "line": "        self.zero_hashes[i + 1] = sha256(concat(self.zero_hashes[i], self.zero_hashes[i]))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2557,8 +2369,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       25,
       88
-    ],
-    "line": "        self.zero_hashes[i + 1] = sha256(concat(self.zero_hashes[i], self.zero_hashes[i]))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2570,8 +2381,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       25,
       89
-    ],
-    "line": "        self.zero_hashes[i + 1] = sha256(concat(self.zero_hashes[i], self.zero_hashes[i]))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2583,8 +2393,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       25,
       90
-    ],
-    "line": "        self.zero_hashes[i + 1] = sha256(concat(self.zero_hashes[i], self.zero_hashes[i]))\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -2596,8 +2405,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       26,
       0
-    ],
-    "line": "        self.zero_hashes[i + 1] = sha256(concat(self.zero_hashes[i], self.zero_hashes[i]))\n"
+    ]
   },
   {
     "typ": "NL",
@@ -2609,8 +2417,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       27,
       0
-    ],
-    "line": "\n"
+    ]
   },
   {
     "typ": "NL",
@@ -2622,8 +2429,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       28,
       0
-    ],
-    "line": "\n"
+    ]
   },
   {
     "typ": "DEDENT",
@@ -2635,8 +2441,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       28,
       0
-    ],
-    "line": "@private\n"
+    ]
   },
   {
     "typ": "DEDENT",
@@ -2648,8 +2453,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       28,
       0
-    ],
-    "line": "@private\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2661,8 +2465,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       28,
       1
-    ],
-    "line": "@private\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -2674,8 +2477,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       28,
       8
-    ],
-    "line": "@private\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -2687,8 +2489,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       29,
       0
-    ],
-    "line": "@private\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2700,8 +2501,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       29,
       1
-    ],
-    "line": "@constant\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -2713,8 +2513,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       29,
       9
-    ],
-    "line": "@constant\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -2726,8 +2525,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       30,
       0
-    ],
-    "line": "@constant\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -2739,8 +2537,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       30,
       3
-    ],
-    "line": "def to_little_endian_64(value: uint256) -> bytes[8]:\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -2752,8 +2549,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       30,
       23
-    ],
-    "line": "def to_little_endian_64(value: uint256) -> bytes[8]:\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2765,8 +2561,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       30,
       24
-    ],
-    "line": "def to_little_endian_64(value: uint256) -> bytes[8]:\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -2778,8 +2573,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       30,
       29
-    ],
-    "line": "def to_little_endian_64(value: uint256) -> bytes[8]:\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2791,8 +2585,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       30,
       30
-    ],
-    "line": "def to_little_endian_64(value: uint256) -> bytes[8]:\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -2804,8 +2597,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       30,
       38
-    ],
-    "line": "def to_little_endian_64(value: uint256) -> bytes[8]:\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2817,8 +2609,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       30,
       39
-    ],
-    "line": "def to_little_endian_64(value: uint256) -> bytes[8]:\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2830,8 +2621,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       30,
       42
-    ],
-    "line": "def to_little_endian_64(value: uint256) -> bytes[8]:\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -2843,8 +2633,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       30,
       48
-    ],
-    "line": "def to_little_endian_64(value: uint256) -> bytes[8]:\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2856,8 +2645,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       30,
       49
-    ],
-    "line": "def to_little_endian_64(value: uint256) -> bytes[8]:\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -2869,8 +2657,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       30,
       50
-    ],
-    "line": "def to_little_endian_64(value: uint256) -> bytes[8]:\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2882,8 +2669,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       30,
       51
-    ],
-    "line": "def to_little_endian_64(value: uint256) -> bytes[8]:\n"
+    ]
   },
   {
     "typ": "OP",
@@ -2895,8 +2681,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       30,
       52
-    ],
-    "line": "def to_little_endian_64(value: uint256) -> bytes[8]:\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -2908,8 +2693,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       31,
       0
-    ],
-    "line": "def to_little_endian_64(value: uint256) -> bytes[8]:\n"
+    ]
   },
   {
     "typ": "COMMENT",
@@ -2921,8 +2705,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       31,
       57
-    ],
-    "line": "    # Reversing bytes using bitwise uint256 manipulations\n"
+    ]
   },
   {
     "typ": "NL",
@@ -2934,8 +2717,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       32,
       0
-    ],
-    "line": "    # Reversing bytes using bitwise uint256 manipulations\n"
+    ]
   },
   {
     "typ": "COMMENT",
@@ -2947,8 +2729,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       32,
       74
-    ],
-    "line": "    # Note: array accesses of bytes[] are not currently supported in Vyper\n"
+    ]
   },
   {
     "typ": "NL",
@@ -2960,8 +2741,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       33,
       0
-    ],
-    "line": "    # Note: array accesses of bytes[] are not currently supported in Vyper\n"
+    ]
   },
   {
     "typ": "COMMENT",
@@ -2973,8 +2753,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       33,
       61
-    ],
-    "line": "    # Note: this function is only called when `value < 2**64`\n"
+    ]
   },
   {
     "typ": "NL",
@@ -2986,8 +2765,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       34,
       0
-    ],
-    "line": "    # Note: this function is only called when `value < 2**64`\n"
+    ]
   },
   {
     "typ": "INDENT",
@@ -2999,8 +2777,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       34,
       4
-    ],
-    "line": "    y: uint256 = 0\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -3012,8 +2789,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       34,
       5
-    ],
-    "line": "    y: uint256 = 0\n"
+    ]
   },
   {
     "typ": "OP",
@@ -3025,8 +2801,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       34,
       6
-    ],
-    "line": "    y: uint256 = 0\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -3038,8 +2813,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       34,
       14
-    ],
-    "line": "    y: uint256 = 0\n"
+    ]
   },
   {
     "typ": "OP",
@@ -3051,8 +2825,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       34,
       16
-    ],
-    "line": "    y: uint256 = 0\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -3064,8 +2837,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       34,
       18
-    ],
-    "line": "    y: uint256 = 0\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -3077,8 +2849,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       35,
       0
-    ],
-    "line": "    y: uint256 = 0\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -3090,8 +2861,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       35,
       5
-    ],
-    "line": "    x: uint256 = value\n"
+    ]
   },
   {
     "typ": "OP",
@@ -3103,8 +2873,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       35,
       6
-    ],
-    "line": "    x: uint256 = value\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -3116,8 +2885,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       35,
       14
-    ],
-    "line": "    x: uint256 = value\n"
+    ]
   },
   {
     "typ": "OP",
@@ -3129,8 +2897,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       35,
       16
-    ],
-    "line": "    x: uint256 = value\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -3142,8 +2909,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       35,
       22
-    ],
-    "line": "    x: uint256 = value\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -3155,8 +2921,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       36,
       0
-    ],
-    "line": "    x: uint256 = value\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -3168,8 +2933,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       36,
       7
-    ],
-    "line": "    for _ in range(8):\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -3181,8 +2945,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       36,
       9
-    ],
-    "line": "    for _ in range(8):\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -3194,8 +2957,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       36,
       12
-    ],
-    "line": "    for _ in range(8):\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -3207,8 +2969,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       36,
       18
-    ],
-    "line": "    for _ in range(8):\n"
+    ]
   },
   {
     "typ": "OP",
@@ -3220,8 +2981,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       36,
       19
-    ],
-    "line": "    for _ in range(8):\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -3233,8 +2993,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       36,
       20
-    ],
-    "line": "    for _ in range(8):\n"
+    ]
   },
   {
     "typ": "OP",
@@ -3246,8 +3005,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       36,
       21
-    ],
-    "line": "    for _ in range(8):\n"
+    ]
   },
   {
     "typ": "OP",
@@ -3259,8 +3017,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       36,
       22
-    ],
-    "line": "    for _ in range(8):\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -3272,8 +3029,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       37,
       0
-    ],
-    "line": "    for _ in range(8):\n"
+    ]
   },
   {
     "typ": "INDENT",
@@ -3285,8 +3041,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       37,
       8
-    ],
-    "line": "        y = shift(y, 8)\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -3298,8 +3053,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       37,
       9
-    ],
-    "line": "        y = shift(y, 8)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -3311,8 +3065,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       37,
       11
-    ],
-    "line": "        y = shift(y, 8)\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -3324,8 +3077,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       37,
       17
-    ],
-    "line": "        y = shift(y, 8)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -3337,8 +3089,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       37,
       18
-    ],
-    "line": "        y = shift(y, 8)\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -3350,8 +3101,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       37,
       19
-    ],
-    "line": "        y = shift(y, 8)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -3363,8 +3113,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       37,
       20
-    ],
-    "line": "        y = shift(y, 8)\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -3376,8 +3125,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       37,
       22
-    ],
-    "line": "        y = shift(y, 8)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -3389,8 +3137,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       37,
       23
-    ],
-    "line": "        y = shift(y, 8)\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -3402,8 +3149,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       38,
       0
-    ],
-    "line": "        y = shift(y, 8)\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -3415,8 +3161,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       38,
       9
-    ],
-    "line": "        y = y + bitwise_and(x, 255)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -3428,8 +3173,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       38,
       11
-    ],
-    "line": "        y = y + bitwise_and(x, 255)\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -3441,8 +3185,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       38,
       13
-    ],
-    "line": "        y = y + bitwise_and(x, 255)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -3454,8 +3197,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       38,
       15
-    ],
-    "line": "        y = y + bitwise_and(x, 255)\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -3467,8 +3209,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       38,
       27
-    ],
-    "line": "        y = y + bitwise_and(x, 255)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -3480,8 +3221,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       38,
       28
-    ],
-    "line": "        y = y + bitwise_and(x, 255)\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -3493,8 +3233,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       38,
       29
-    ],
-    "line": "        y = y + bitwise_and(x, 255)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -3506,8 +3245,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       38,
       30
-    ],
-    "line": "        y = y + bitwise_and(x, 255)\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -3519,8 +3257,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       38,
       34
-    ],
-    "line": "        y = y + bitwise_and(x, 255)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -3532,8 +3269,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       38,
       35
-    ],
-    "line": "        y = y + bitwise_and(x, 255)\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -3545,8 +3281,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       39,
       0
-    ],
-    "line": "        y = y + bitwise_and(x, 255)\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -3558,8 +3293,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       39,
       9
-    ],
-    "line": "        x = shift(x, -8)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -3571,8 +3305,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       39,
       11
-    ],
-    "line": "        x = shift(x, -8)\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -3584,8 +3317,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       39,
       17
-    ],
-    "line": "        x = shift(x, -8)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -3597,8 +3329,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       39,
       18
-    ],
-    "line": "        x = shift(x, -8)\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -3610,8 +3341,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       39,
       19
-    ],
-    "line": "        x = shift(x, -8)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -3623,8 +3353,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       39,
       20
-    ],
-    "line": "        x = shift(x, -8)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -3636,8 +3365,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       39,
       22
-    ],
-    "line": "        x = shift(x, -8)\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -3649,8 +3377,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       39,
       23
-    ],
-    "line": "        x = shift(x, -8)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -3662,8 +3389,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       39,
       24
-    ],
-    "line": "        x = shift(x, -8)\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -3675,8 +3401,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       40,
       0
-    ],
-    "line": "        x = shift(x, -8)\n"
+    ]
   },
   {
     "typ": "DEDENT",
@@ -3688,8 +3413,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       40,
       4
-    ],
-    "line": "    return slice(convert(y, bytes32), start=24, len=8)\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -3701,8 +3425,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       40,
       10
-    ],
-    "line": "    return slice(convert(y, bytes32), start=24, len=8)\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -3714,8 +3437,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       40,
       16
-    ],
-    "line": "    return slice(convert(y, bytes32), start=24, len=8)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -3727,8 +3449,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       40,
       17
-    ],
-    "line": "    return slice(convert(y, bytes32), start=24, len=8)\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -3740,8 +3461,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       40,
       24
-    ],
-    "line": "    return slice(convert(y, bytes32), start=24, len=8)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -3753,8 +3473,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       40,
       25
-    ],
-    "line": "    return slice(convert(y, bytes32), start=24, len=8)\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -3766,8 +3485,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       40,
       26
-    ],
-    "line": "    return slice(convert(y, bytes32), start=24, len=8)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -3779,8 +3497,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       40,
       27
-    ],
-    "line": "    return slice(convert(y, bytes32), start=24, len=8)\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -3792,8 +3509,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       40,
       35
-    ],
-    "line": "    return slice(convert(y, bytes32), start=24, len=8)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -3805,8 +3521,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       40,
       36
-    ],
-    "line": "    return slice(convert(y, bytes32), start=24, len=8)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -3818,8 +3533,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       40,
       37
-    ],
-    "line": "    return slice(convert(y, bytes32), start=24, len=8)\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -3831,8 +3545,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       40,
       43
-    ],
-    "line": "    return slice(convert(y, bytes32), start=24, len=8)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -3844,8 +3557,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       40,
       44
-    ],
-    "line": "    return slice(convert(y, bytes32), start=24, len=8)\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -3857,8 +3569,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       40,
       46
-    ],
-    "line": "    return slice(convert(y, bytes32), start=24, len=8)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -3870,8 +3581,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       40,
       47
-    ],
-    "line": "    return slice(convert(y, bytes32), start=24, len=8)\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -3883,8 +3593,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       40,
       51
-    ],
-    "line": "    return slice(convert(y, bytes32), start=24, len=8)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -3896,8 +3605,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       40,
       52
-    ],
-    "line": "    return slice(convert(y, bytes32), start=24, len=8)\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -3909,8 +3617,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       40,
       53
-    ],
-    "line": "    return slice(convert(y, bytes32), start=24, len=8)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -3922,8 +3629,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       40,
       54
-    ],
-    "line": "    return slice(convert(y, bytes32), start=24, len=8)\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -3935,8 +3641,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       41,
       0
-    ],
-    "line": "    return slice(convert(y, bytes32), start=24, len=8)\n"
+    ]
   },
   {
     "typ": "NL",
@@ -3948,8 +3653,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       42,
       0
-    ],
-    "line": "\n"
+    ]
   },
   {
     "typ": "NL",
@@ -3961,8 +3665,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       43,
       0
-    ],
-    "line": "\n"
+    ]
   },
   {
     "typ": "DEDENT",
@@ -3974,8 +3677,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       43,
       0
-    ],
-    "line": "@public\n"
+    ]
   },
   {
     "typ": "OP",
@@ -3987,8 +3689,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       43,
       1
-    ],
-    "line": "@public\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -4000,8 +3701,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       43,
       7
-    ],
-    "line": "@public\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -4013,8 +3713,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       44,
       0
-    ],
-    "line": "@public\n"
+    ]
   },
   {
     "typ": "OP",
@@ -4026,8 +3725,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       44,
       1
-    ],
-    "line": "@constant\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -4039,8 +3737,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       44,
       9
-    ],
-    "line": "@constant\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -4052,8 +3749,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       45,
       0
-    ],
-    "line": "@constant\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -4065,8 +3761,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       45,
       3
-    ],
-    "line": "def get_hash_tree_root() -> bytes32:\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -4078,8 +3773,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       45,
       22
-    ],
-    "line": "def get_hash_tree_root() -> bytes32:\n"
+    ]
   },
   {
     "typ": "OP",
@@ -4091,8 +3785,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       45,
       23
-    ],
-    "line": "def get_hash_tree_root() -> bytes32:\n"
+    ]
   },
   {
     "typ": "OP",
@@ -4104,8 +3797,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       45,
       24
-    ],
-    "line": "def get_hash_tree_root() -> bytes32:\n"
+    ]
   },
   {
     "typ": "OP",
@@ -4117,8 +3809,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       45,
       27
-    ],
-    "line": "def get_hash_tree_root() -> bytes32:\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -4130,8 +3821,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       45,
       35
-    ],
-    "line": "def get_hash_tree_root() -> bytes32:\n"
+    ]
   },
   {
     "typ": "OP",
@@ -4143,8 +3833,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       45,
       36
-    ],
-    "line": "def get_hash_tree_root() -> bytes32:\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -4156,8 +3845,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       46,
       0
-    ],
-    "line": "def get_hash_tree_root() -> bytes32:\n"
+    ]
   },
   {
     "typ": "INDENT",
@@ -4169,8 +3857,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       46,
       4
-    ],
-    "line": "    zero_bytes32: bytes32 = 0x0000000000000000000000000000000000000000000000000000000000000000\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -4182,8 +3869,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       46,
       16
-    ],
-    "line": "    zero_bytes32: bytes32 = 0x0000000000000000000000000000000000000000000000000000000000000000\n"
+    ]
   },
   {
     "typ": "OP",
@@ -4195,8 +3881,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       46,
       17
-    ],
-    "line": "    zero_bytes32: bytes32 = 0x0000000000000000000000000000000000000000000000000000000000000000\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -4208,8 +3893,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       46,
       25
-    ],
-    "line": "    zero_bytes32: bytes32 = 0x0000000000000000000000000000000000000000000000000000000000000000\n"
+    ]
   },
   {
     "typ": "OP",
@@ -4221,8 +3905,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       46,
       27
-    ],
-    "line": "    zero_bytes32: bytes32 = 0x0000000000000000000000000000000000000000000000000000000000000000\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -4234,8 +3917,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       46,
       94
-    ],
-    "line": "    zero_bytes32: bytes32 = 0x0000000000000000000000000000000000000000000000000000000000000000\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -4247,8 +3929,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       47,
       0
-    ],
-    "line": "    zero_bytes32: bytes32 = 0x0000000000000000000000000000000000000000000000000000000000000000\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -4260,8 +3941,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       47,
       8
-    ],
-    "line": "    node: bytes32 = zero_bytes32\n"
+    ]
   },
   {
     "typ": "OP",
@@ -4273,8 +3953,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       47,
       9
-    ],
-    "line": "    node: bytes32 = zero_bytes32\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -4286,8 +3965,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       47,
       17
-    ],
-    "line": "    node: bytes32 = zero_bytes32\n"
+    ]
   },
   {
     "typ": "OP",
@@ -4299,8 +3977,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       47,
       19
-    ],
-    "line": "    node: bytes32 = zero_bytes32\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -4312,8 +3989,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       47,
       32
-    ],
-    "line": "    node: bytes32 = zero_bytes32\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -4325,8 +4001,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       48,
       0
-    ],
-    "line": "    node: bytes32 = zero_bytes32\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -4338,8 +4013,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       48,
       8
-    ],
-    "line": "    size: uint256 = self.deposit_count\n"
+    ]
   },
   {
     "typ": "OP",
@@ -4351,8 +4025,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       48,
       9
-    ],
-    "line": "    size: uint256 = self.deposit_count\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -4364,8 +4037,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       48,
       17
-    ],
-    "line": "    size: uint256 = self.deposit_count\n"
+    ]
   },
   {
     "typ": "OP",
@@ -4377,8 +4049,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       48,
       19
-    ],
-    "line": "    size: uint256 = self.deposit_count\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -4390,8 +4061,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       48,
       24
-    ],
-    "line": "    size: uint256 = self.deposit_count\n"
+    ]
   },
   {
     "typ": "OP",
@@ -4403,8 +4073,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       48,
       25
-    ],
-    "line": "    size: uint256 = self.deposit_count\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -4416,8 +4085,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       48,
       38
-    ],
-    "line": "    size: uint256 = self.deposit_count\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -4429,8 +4097,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       49,
       0
-    ],
-    "line": "    size: uint256 = self.deposit_count\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -4442,8 +4109,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       49,
       7
-    ],
-    "line": "    for height in range(DEPOSIT_CONTRACT_TREE_DEPTH):\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -4455,8 +4121,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       49,
       14
-    ],
-    "line": "    for height in range(DEPOSIT_CONTRACT_TREE_DEPTH):\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -4468,8 +4133,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       49,
       17
-    ],
-    "line": "    for height in range(DEPOSIT_CONTRACT_TREE_DEPTH):\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -4481,8 +4145,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       49,
       23
-    ],
-    "line": "    for height in range(DEPOSIT_CONTRACT_TREE_DEPTH):\n"
+    ]
   },
   {
     "typ": "OP",
@@ -4494,8 +4157,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       49,
       24
-    ],
-    "line": "    for height in range(DEPOSIT_CONTRACT_TREE_DEPTH):\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -4507,8 +4169,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       49,
       51
-    ],
-    "line": "    for height in range(DEPOSIT_CONTRACT_TREE_DEPTH):\n"
+    ]
   },
   {
     "typ": "OP",
@@ -4520,8 +4181,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       49,
       52
-    ],
-    "line": "    for height in range(DEPOSIT_CONTRACT_TREE_DEPTH):\n"
+    ]
   },
   {
     "typ": "OP",
@@ -4533,8 +4193,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       49,
       53
-    ],
-    "line": "    for height in range(DEPOSIT_CONTRACT_TREE_DEPTH):\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -4546,8 +4205,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       50,
       0
-    ],
-    "line": "    for height in range(DEPOSIT_CONTRACT_TREE_DEPTH):\n"
+    ]
   },
   {
     "typ": "INDENT",
@@ -4559,8 +4217,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       50,
       8
-    ],
-    "line": "        if bitwise_and(size, 1) == 1:  # More gas efficient than `size % 2 == 1`\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -4572,8 +4229,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       50,
       10
-    ],
-    "line": "        if bitwise_and(size, 1) == 1:  # More gas efficient than `size % 2 == 1`\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -4585,8 +4241,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       50,
       22
-    ],
-    "line": "        if bitwise_and(size, 1) == 1:  # More gas efficient than `size % 2 == 1`\n"
+    ]
   },
   {
     "typ": "OP",
@@ -4598,8 +4253,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       50,
       23
-    ],
-    "line": "        if bitwise_and(size, 1) == 1:  # More gas efficient than `size % 2 == 1`\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -4611,8 +4265,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       50,
       27
-    ],
-    "line": "        if bitwise_and(size, 1) == 1:  # More gas efficient than `size % 2 == 1`\n"
+    ]
   },
   {
     "typ": "OP",
@@ -4624,8 +4277,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       50,
       28
-    ],
-    "line": "        if bitwise_and(size, 1) == 1:  # More gas efficient than `size % 2 == 1`\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -4637,8 +4289,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       50,
       30
-    ],
-    "line": "        if bitwise_and(size, 1) == 1:  # More gas efficient than `size % 2 == 1`\n"
+    ]
   },
   {
     "typ": "OP",
@@ -4650,8 +4301,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       50,
       31
-    ],
-    "line": "        if bitwise_and(size, 1) == 1:  # More gas efficient than `size % 2 == 1`\n"
+    ]
   },
   {
     "typ": "OP",
@@ -4663,8 +4313,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       50,
       34
-    ],
-    "line": "        if bitwise_and(size, 1) == 1:  # More gas efficient than `size % 2 == 1`\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -4676,8 +4325,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       50,
       36
-    ],
-    "line": "        if bitwise_and(size, 1) == 1:  # More gas efficient than `size % 2 == 1`\n"
+    ]
   },
   {
     "typ": "OP",
@@ -4689,8 +4337,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       50,
       37
-    ],
-    "line": "        if bitwise_and(size, 1) == 1:  # More gas efficient than `size % 2 == 1`\n"
+    ]
   },
   {
     "typ": "COMMENT",
@@ -4702,8 +4349,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       50,
       80
-    ],
-    "line": "        if bitwise_and(size, 1) == 1:  # More gas efficient than `size % 2 == 1`\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -4715,8 +4361,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       51,
       0
-    ],
-    "line": "        if bitwise_and(size, 1) == 1:  # More gas efficient than `size % 2 == 1`\n"
+    ]
   },
   {
     "typ": "INDENT",
@@ -4728,8 +4373,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       51,
       12
-    ],
-    "line": "            node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -4741,8 +4385,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       51,
       16
-    ],
-    "line": "            node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -4754,8 +4397,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       51,
       18
-    ],
-    "line": "            node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -4767,8 +4409,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       51,
       25
-    ],
-    "line": "            node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -4780,8 +4421,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       51,
       26
-    ],
-    "line": "            node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -4793,8 +4433,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       51,
       32
-    ],
-    "line": "            node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -4806,8 +4445,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       51,
       33
-    ],
-    "line": "            node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -4819,8 +4457,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       51,
       37
-    ],
-    "line": "            node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -4832,8 +4469,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       51,
       38
-    ],
-    "line": "            node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -4845,8 +4481,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       51,
       44
-    ],
-    "line": "            node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -4858,8 +4493,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       51,
       45
-    ],
-    "line": "            node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -4871,8 +4505,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       51,
       51
-    ],
-    "line": "            node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -4884,8 +4517,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       51,
       52
-    ],
-    "line": "            node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -4897,8 +4529,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       51,
       53
-    ],
-    "line": "            node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -4910,8 +4541,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       51,
       58
-    ],
-    "line": "            node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -4923,8 +4553,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       51,
       59
-    ],
-    "line": "            node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -4936,8 +4565,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       51,
       60
-    ],
-    "line": "            node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -4949,8 +4577,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       52,
       0
-    ],
-    "line": "            node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "DEDENT",
@@ -4962,8 +4589,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       52,
       8
-    ],
-    "line": "        else:\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -4975,8 +4601,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       52,
       12
-    ],
-    "line": "        else:\n"
+    ]
   },
   {
     "typ": "OP",
@@ -4988,8 +4613,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       52,
       13
-    ],
-    "line": "        else:\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -5001,8 +4625,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       53,
       0
-    ],
-    "line": "        else:\n"
+    ]
   },
   {
     "typ": "INDENT",
@@ -5014,8 +4637,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       53,
       12
-    ],
-    "line": "            node = sha256(concat(node, self.zero_hashes[height]))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -5027,8 +4649,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       53,
       16
-    ],
-    "line": "            node = sha256(concat(node, self.zero_hashes[height]))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5040,8 +4661,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       53,
       18
-    ],
-    "line": "            node = sha256(concat(node, self.zero_hashes[height]))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -5053,8 +4673,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       53,
       25
-    ],
-    "line": "            node = sha256(concat(node, self.zero_hashes[height]))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5066,8 +4685,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       53,
       26
-    ],
-    "line": "            node = sha256(concat(node, self.zero_hashes[height]))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -5079,8 +4697,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       53,
       32
-    ],
-    "line": "            node = sha256(concat(node, self.zero_hashes[height]))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5092,8 +4709,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       53,
       33
-    ],
-    "line": "            node = sha256(concat(node, self.zero_hashes[height]))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -5105,8 +4721,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       53,
       37
-    ],
-    "line": "            node = sha256(concat(node, self.zero_hashes[height]))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5118,8 +4733,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       53,
       38
-    ],
-    "line": "            node = sha256(concat(node, self.zero_hashes[height]))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -5131,8 +4745,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       53,
       43
-    ],
-    "line": "            node = sha256(concat(node, self.zero_hashes[height]))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5144,8 +4757,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       53,
       44
-    ],
-    "line": "            node = sha256(concat(node, self.zero_hashes[height]))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -5157,8 +4769,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       53,
       55
-    ],
-    "line": "            node = sha256(concat(node, self.zero_hashes[height]))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5170,8 +4781,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       53,
       56
-    ],
-    "line": "            node = sha256(concat(node, self.zero_hashes[height]))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -5183,8 +4793,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       53,
       62
-    ],
-    "line": "            node = sha256(concat(node, self.zero_hashes[height]))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5196,8 +4805,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       53,
       63
-    ],
-    "line": "            node = sha256(concat(node, self.zero_hashes[height]))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5209,8 +4817,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       53,
       64
-    ],
-    "line": "            node = sha256(concat(node, self.zero_hashes[height]))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5222,8 +4829,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       53,
       65
-    ],
-    "line": "            node = sha256(concat(node, self.zero_hashes[height]))\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -5235,8 +4841,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       54,
       0
-    ],
-    "line": "            node = sha256(concat(node, self.zero_hashes[height]))\n"
+    ]
   },
   {
     "typ": "DEDENT",
@@ -5248,8 +4853,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       54,
       8
-    ],
-    "line": "        size /= 2\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -5261,8 +4865,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       54,
       12
-    ],
-    "line": "        size /= 2\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5274,8 +4877,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       54,
       15
-    ],
-    "line": "        size /= 2\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -5287,8 +4889,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       54,
       17
-    ],
-    "line": "        size /= 2\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -5300,8 +4901,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       0
-    ],
-    "line": "        size /= 2\n"
+    ]
   },
   {
     "typ": "DEDENT",
@@ -5313,8 +4913,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       4
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -5326,8 +4925,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       10
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -5339,8 +4937,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       17
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5352,8 +4949,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       18
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -5365,8 +4961,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       24
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5378,8 +4973,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       25
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -5391,8 +4985,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       29
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5404,8 +4997,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       30
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -5417,8 +5009,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       35
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5430,8 +5021,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       36
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -5443,8 +5033,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       55
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5456,8 +5045,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       56
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -5469,8 +5057,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       60
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5482,8 +5069,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       61
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -5495,8 +5081,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       74
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5508,8 +5093,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       75
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5521,8 +5105,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       76
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -5534,8 +5117,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       82
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5547,8 +5129,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       83
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -5560,8 +5141,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       95
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5573,8 +5153,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       96
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -5586,8 +5165,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       102
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5599,8 +5177,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       103
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -5612,8 +5189,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       104
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5625,8 +5201,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       105
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -5638,8 +5213,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       109
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5651,8 +5225,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       110
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -5664,8 +5237,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       112
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5677,8 +5249,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       113
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5690,8 +5261,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       114
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5703,8 +5273,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       55,
       115
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -5716,8 +5285,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       56,
       0
-    ],
-    "line": "    return sha256(concat(node, self.to_little_endian_64(self.deposit_count), slice(zero_bytes32, start=0, len=24)))\n"
+    ]
   },
   {
     "typ": "NL",
@@ -5729,8 +5297,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       57,
       0
-    ],
-    "line": "\n"
+    ]
   },
   {
     "typ": "NL",
@@ -5742,8 +5309,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       58,
       0
-    ],
-    "line": "\n"
+    ]
   },
   {
     "typ": "DEDENT",
@@ -5755,8 +5321,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       58,
       0
-    ],
-    "line": "@public\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5768,8 +5333,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       58,
       1
-    ],
-    "line": "@public\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -5781,8 +5345,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       58,
       7
-    ],
-    "line": "@public\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -5794,8 +5357,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       59,
       0
-    ],
-    "line": "@public\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5807,8 +5369,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       59,
       1
-    ],
-    "line": "@constant\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -5820,8 +5381,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       59,
       9
-    ],
-    "line": "@constant\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -5833,8 +5393,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       60,
       0
-    ],
-    "line": "@constant\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -5846,8 +5405,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       60,
       3
-    ],
-    "line": "def get_deposit_count() -> bytes[8]:\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -5859,8 +5417,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       60,
       21
-    ],
-    "line": "def get_deposit_count() -> bytes[8]:\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5872,8 +5429,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       60,
       22
-    ],
-    "line": "def get_deposit_count() -> bytes[8]:\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5885,8 +5441,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       60,
       23
-    ],
-    "line": "def get_deposit_count() -> bytes[8]:\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5898,8 +5453,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       60,
       26
-    ],
-    "line": "def get_deposit_count() -> bytes[8]:\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -5911,8 +5465,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       60,
       32
-    ],
-    "line": "def get_deposit_count() -> bytes[8]:\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5924,8 +5477,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       60,
       33
-    ],
-    "line": "def get_deposit_count() -> bytes[8]:\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -5937,8 +5489,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       60,
       34
-    ],
-    "line": "def get_deposit_count() -> bytes[8]:\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5950,8 +5501,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       60,
       35
-    ],
-    "line": "def get_deposit_count() -> bytes[8]:\n"
+    ]
   },
   {
     "typ": "OP",
@@ -5963,8 +5513,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       60,
       36
-    ],
-    "line": "def get_deposit_count() -> bytes[8]:\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -5976,8 +5525,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       61,
       0
-    ],
-    "line": "def get_deposit_count() -> bytes[8]:\n"
+    ]
   },
   {
     "typ": "INDENT",
@@ -5989,8 +5537,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       61,
       4
-    ],
-    "line": "    return self.to_little_endian_64(self.deposit_count)\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -6002,8 +5549,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       61,
       10
-    ],
-    "line": "    return self.to_little_endian_64(self.deposit_count)\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -6015,8 +5561,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       61,
       15
-    ],
-    "line": "    return self.to_little_endian_64(self.deposit_count)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -6028,8 +5573,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       61,
       16
-    ],
-    "line": "    return self.to_little_endian_64(self.deposit_count)\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -6041,8 +5585,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       61,
       35
-    ],
-    "line": "    return self.to_little_endian_64(self.deposit_count)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -6054,8 +5597,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       61,
       36
-    ],
-    "line": "    return self.to_little_endian_64(self.deposit_count)\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -6067,8 +5609,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       61,
       40
-    ],
-    "line": "    return self.to_little_endian_64(self.deposit_count)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -6080,8 +5621,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       61,
       41
-    ],
-    "line": "    return self.to_little_endian_64(self.deposit_count)\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -6093,8 +5633,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       61,
       54
-    ],
-    "line": "    return self.to_little_endian_64(self.deposit_count)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -6106,8 +5645,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       61,
       55
-    ],
-    "line": "    return self.to_little_endian_64(self.deposit_count)\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -6119,8 +5657,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       62,
       0
-    ],
-    "line": "    return self.to_little_endian_64(self.deposit_count)\n"
+    ]
   },
   {
     "typ": "NL",
@@ -6132,8 +5669,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       63,
       0
-    ],
-    "line": "\n"
+    ]
   },
   {
     "typ": "NL",
@@ -6145,8 +5681,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       64,
       0
-    ],
-    "line": "\n"
+    ]
   },
   {
     "typ": "DEDENT",
@@ -6158,8 +5693,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       64,
       0
-    ],
-    "line": "@payable\n"
+    ]
   },
   {
     "typ": "OP",
@@ -6171,8 +5705,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       64,
       1
-    ],
-    "line": "@payable\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -6184,8 +5717,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       64,
       8
-    ],
-    "line": "@payable\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -6197,8 +5729,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       65,
       0
-    ],
-    "line": "@payable\n"
+    ]
   },
   {
     "typ": "OP",
@@ -6210,8 +5741,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       65,
       1
-    ],
-    "line": "@public\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -6223,8 +5753,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       65,
       7
-    ],
-    "line": "@public\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -6236,8 +5765,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       66,
       0
-    ],
-    "line": "@public\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -6249,8 +5777,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       66,
       3
-    ],
-    "line": "def deposit(pubkey: bytes[PUBKEY_LENGTH],\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -6262,8 +5789,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       66,
       11
-    ],
-    "line": "def deposit(pubkey: bytes[PUBKEY_LENGTH],\n"
+    ]
   },
   {
     "typ": "OP",
@@ -6275,8 +5801,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       66,
       12
-    ],
-    "line": "def deposit(pubkey: bytes[PUBKEY_LENGTH],\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -6288,8 +5813,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       66,
       18
-    ],
-    "line": "def deposit(pubkey: bytes[PUBKEY_LENGTH],\n"
+    ]
   },
   {
     "typ": "OP",
@@ -6301,8 +5825,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       66,
       19
-    ],
-    "line": "def deposit(pubkey: bytes[PUBKEY_LENGTH],\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -6314,8 +5837,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       66,
       25
-    ],
-    "line": "def deposit(pubkey: bytes[PUBKEY_LENGTH],\n"
+    ]
   },
   {
     "typ": "OP",
@@ -6327,8 +5849,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       66,
       26
-    ],
-    "line": "def deposit(pubkey: bytes[PUBKEY_LENGTH],\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -6340,8 +5861,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       66,
       39
-    ],
-    "line": "def deposit(pubkey: bytes[PUBKEY_LENGTH],\n"
+    ]
   },
   {
     "typ": "OP",
@@ -6353,8 +5873,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       66,
       40
-    ],
-    "line": "def deposit(pubkey: bytes[PUBKEY_LENGTH],\n"
+    ]
   },
   {
     "typ": "OP",
@@ -6366,8 +5885,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       66,
       41
-    ],
-    "line": "def deposit(pubkey: bytes[PUBKEY_LENGTH],\n"
+    ]
   },
   {
     "typ": "NL",
@@ -6379,8 +5897,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       67,
       0
-    ],
-    "line": "def deposit(pubkey: bytes[PUBKEY_LENGTH],\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -6392,8 +5909,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       67,
       34
-    ],
-    "line": "            withdrawal_credentials: bytes[WITHDRAWAL_CREDENTIALS_LENGTH],\n"
+    ]
   },
   {
     "typ": "OP",
@@ -6405,8 +5921,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       67,
       35
-    ],
-    "line": "            withdrawal_credentials: bytes[WITHDRAWAL_CREDENTIALS_LENGTH],\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -6418,8 +5933,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       67,
       41
-    ],
-    "line": "            withdrawal_credentials: bytes[WITHDRAWAL_CREDENTIALS_LENGTH],\n"
+    ]
   },
   {
     "typ": "OP",
@@ -6431,8 +5945,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       67,
       42
-    ],
-    "line": "            withdrawal_credentials: bytes[WITHDRAWAL_CREDENTIALS_LENGTH],\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -6444,8 +5957,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       67,
       71
-    ],
-    "line": "            withdrawal_credentials: bytes[WITHDRAWAL_CREDENTIALS_LENGTH],\n"
+    ]
   },
   {
     "typ": "OP",
@@ -6457,8 +5969,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       67,
       72
-    ],
-    "line": "            withdrawal_credentials: bytes[WITHDRAWAL_CREDENTIALS_LENGTH],\n"
+    ]
   },
   {
     "typ": "OP",
@@ -6470,8 +5981,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       67,
       73
-    ],
-    "line": "            withdrawal_credentials: bytes[WITHDRAWAL_CREDENTIALS_LENGTH],\n"
+    ]
   },
   {
     "typ": "NL",
@@ -6483,8 +5993,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       68,
       0
-    ],
-    "line": "            withdrawal_credentials: bytes[WITHDRAWAL_CREDENTIALS_LENGTH],\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -6496,8 +6005,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       68,
       21
-    ],
-    "line": "            signature: bytes[SIGNATURE_LENGTH]):\n"
+    ]
   },
   {
     "typ": "OP",
@@ -6509,8 +6017,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       68,
       22
-    ],
-    "line": "            signature: bytes[SIGNATURE_LENGTH]):\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -6522,8 +6029,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       68,
       28
-    ],
-    "line": "            signature: bytes[SIGNATURE_LENGTH]):\n"
+    ]
   },
   {
     "typ": "OP",
@@ -6535,8 +6041,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       68,
       29
-    ],
-    "line": "            signature: bytes[SIGNATURE_LENGTH]):\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -6548,8 +6053,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       68,
       45
-    ],
-    "line": "            signature: bytes[SIGNATURE_LENGTH]):\n"
+    ]
   },
   {
     "typ": "OP",
@@ -6561,8 +6065,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       68,
       46
-    ],
-    "line": "            signature: bytes[SIGNATURE_LENGTH]):\n"
+    ]
   },
   {
     "typ": "OP",
@@ -6574,8 +6077,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       68,
       47
-    ],
-    "line": "            signature: bytes[SIGNATURE_LENGTH]):\n"
+    ]
   },
   {
     "typ": "OP",
@@ -6587,8 +6089,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       68,
       48
-    ],
-    "line": "            signature: bytes[SIGNATURE_LENGTH]):\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -6600,8 +6101,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       69,
       0
-    ],
-    "line": "            signature: bytes[SIGNATURE_LENGTH]):\n"
+    ]
   },
   {
     "typ": "COMMENT",
@@ -6613,8 +6113,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       69,
       90
-    ],
-    "line": "    # Avoid overflowing the Merkle tree (and prevent edge case in computing `self.branch`)\n"
+    ]
   },
   {
     "typ": "NL",
@@ -6626,8 +6125,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       70,
       0
-    ],
-    "line": "    # Avoid overflowing the Merkle tree (and prevent edge case in computing `self.branch`)\n"
+    ]
   },
   {
     "typ": "INDENT",
@@ -6639,8 +6137,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       70,
       4
-    ],
-    "line": "    assert self.deposit_count < MAX_DEPOSIT_COUNT\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -6652,8 +6149,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       70,
       10
-    ],
-    "line": "    assert self.deposit_count < MAX_DEPOSIT_COUNT\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -6665,8 +6161,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       70,
       15
-    ],
-    "line": "    assert self.deposit_count < MAX_DEPOSIT_COUNT\n"
+    ]
   },
   {
     "typ": "OP",
@@ -6678,8 +6173,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       70,
       16
-    ],
-    "line": "    assert self.deposit_count < MAX_DEPOSIT_COUNT\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -6691,8 +6185,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       70,
       29
-    ],
-    "line": "    assert self.deposit_count < MAX_DEPOSIT_COUNT\n"
+    ]
   },
   {
     "typ": "OP",
@@ -6704,8 +6197,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       70,
       31
-    ],
-    "line": "    assert self.deposit_count < MAX_DEPOSIT_COUNT\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -6717,8 +6209,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       70,
       49
-    ],
-    "line": "    assert self.deposit_count < MAX_DEPOSIT_COUNT\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -6730,8 +6221,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       71,
       0
-    ],
-    "line": "    assert self.deposit_count < MAX_DEPOSIT_COUNT\n"
+    ]
   },
   {
     "typ": "NL",
@@ -6743,8 +6233,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       72,
       0
-    ],
-    "line": "\n"
+    ]
   },
   {
     "typ": "COMMENT",
@@ -6756,8 +6245,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       72,
       27
-    ],
-    "line": "    # Validate deposit data\n"
+    ]
   },
   {
     "typ": "NL",
@@ -6769,8 +6257,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       73,
       0
-    ],
-    "line": "    # Validate deposit data\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -6782,8 +6269,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       73,
       18
-    ],
-    "line": "    deposit_amount: uint256 = msg.value / as_wei_value(1, \"gwei\")\n"
+    ]
   },
   {
     "typ": "OP",
@@ -6795,8 +6281,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       73,
       19
-    ],
-    "line": "    deposit_amount: uint256 = msg.value / as_wei_value(1, \"gwei\")\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -6808,8 +6293,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       73,
       27
-    ],
-    "line": "    deposit_amount: uint256 = msg.value / as_wei_value(1, \"gwei\")\n"
+    ]
   },
   {
     "typ": "OP",
@@ -6821,8 +6305,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       73,
       29
-    ],
-    "line": "    deposit_amount: uint256 = msg.value / as_wei_value(1, \"gwei\")\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -6834,8 +6317,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       73,
       33
-    ],
-    "line": "    deposit_amount: uint256 = msg.value / as_wei_value(1, \"gwei\")\n"
+    ]
   },
   {
     "typ": "OP",
@@ -6847,8 +6329,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       73,
       34
-    ],
-    "line": "    deposit_amount: uint256 = msg.value / as_wei_value(1, \"gwei\")\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -6860,8 +6341,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       73,
       39
-    ],
-    "line": "    deposit_amount: uint256 = msg.value / as_wei_value(1, \"gwei\")\n"
+    ]
   },
   {
     "typ": "OP",
@@ -6873,8 +6353,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       73,
       41
-    ],
-    "line": "    deposit_amount: uint256 = msg.value / as_wei_value(1, \"gwei\")\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -6886,8 +6365,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       73,
       54
-    ],
-    "line": "    deposit_amount: uint256 = msg.value / as_wei_value(1, \"gwei\")\n"
+    ]
   },
   {
     "typ": "OP",
@@ -6899,8 +6377,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       73,
       55
-    ],
-    "line": "    deposit_amount: uint256 = msg.value / as_wei_value(1, \"gwei\")\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -6912,8 +6389,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       73,
       56
-    ],
-    "line": "    deposit_amount: uint256 = msg.value / as_wei_value(1, \"gwei\")\n"
+    ]
   },
   {
     "typ": "OP",
@@ -6925,8 +6401,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       73,
       57
-    ],
-    "line": "    deposit_amount: uint256 = msg.value / as_wei_value(1, \"gwei\")\n"
+    ]
   },
   {
     "typ": "STRING",
@@ -6938,8 +6413,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       73,
       64
-    ],
-    "line": "    deposit_amount: uint256 = msg.value / as_wei_value(1, \"gwei\")\n"
+    ]
   },
   {
     "typ": "OP",
@@ -6951,8 +6425,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       73,
       65
-    ],
-    "line": "    deposit_amount: uint256 = msg.value / as_wei_value(1, \"gwei\")\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -6964,8 +6437,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       74,
       0
-    ],
-    "line": "    deposit_amount: uint256 = msg.value / as_wei_value(1, \"gwei\")\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -6977,8 +6449,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       74,
       10
-    ],
-    "line": "    assert deposit_amount >= MIN_DEPOSIT_AMOUNT\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -6990,8 +6461,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       74,
       25
-    ],
-    "line": "    assert deposit_amount >= MIN_DEPOSIT_AMOUNT\n"
+    ]
   },
   {
     "typ": "OP",
@@ -7003,8 +6473,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       74,
       28
-    ],
-    "line": "    assert deposit_amount >= MIN_DEPOSIT_AMOUNT\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -7016,8 +6485,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       74,
       47
-    ],
-    "line": "    assert deposit_amount >= MIN_DEPOSIT_AMOUNT\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -7029,8 +6497,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       75,
       0
-    ],
-    "line": "    assert deposit_amount >= MIN_DEPOSIT_AMOUNT\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -7042,8 +6509,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       75,
       10
-    ],
-    "line": "    assert len(pubkey) == PUBKEY_LENGTH\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -7055,8 +6521,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       75,
       14
-    ],
-    "line": "    assert len(pubkey) == PUBKEY_LENGTH\n"
+    ]
   },
   {
     "typ": "OP",
@@ -7068,8 +6533,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       75,
       15
-    ],
-    "line": "    assert len(pubkey) == PUBKEY_LENGTH\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -7081,8 +6545,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       75,
       21
-    ],
-    "line": "    assert len(pubkey) == PUBKEY_LENGTH\n"
+    ]
   },
   {
     "typ": "OP",
@@ -7094,8 +6557,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       75,
       22
-    ],
-    "line": "    assert len(pubkey) == PUBKEY_LENGTH\n"
+    ]
   },
   {
     "typ": "OP",
@@ -7107,8 +6569,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       75,
       25
-    ],
-    "line": "    assert len(pubkey) == PUBKEY_LENGTH\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -7120,8 +6581,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       75,
       39
-    ],
-    "line": "    assert len(pubkey) == PUBKEY_LENGTH\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -7133,8 +6593,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       76,
       0
-    ],
-    "line": "    assert len(pubkey) == PUBKEY_LENGTH\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -7146,8 +6605,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       76,
       10
-    ],
-    "line": "    assert len(withdrawal_credentials) == WITHDRAWAL_CREDENTIALS_LENGTH\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -7159,8 +6617,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       76,
       14
-    ],
-    "line": "    assert len(withdrawal_credentials) == WITHDRAWAL_CREDENTIALS_LENGTH\n"
+    ]
   },
   {
     "typ": "OP",
@@ -7172,8 +6629,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       76,
       15
-    ],
-    "line": "    assert len(withdrawal_credentials) == WITHDRAWAL_CREDENTIALS_LENGTH\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -7185,8 +6641,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       76,
       37
-    ],
-    "line": "    assert len(withdrawal_credentials) == WITHDRAWAL_CREDENTIALS_LENGTH\n"
+    ]
   },
   {
     "typ": "OP",
@@ -7198,8 +6653,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       76,
       38
-    ],
-    "line": "    assert len(withdrawal_credentials) == WITHDRAWAL_CREDENTIALS_LENGTH\n"
+    ]
   },
   {
     "typ": "OP",
@@ -7211,8 +6665,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       76,
       41
-    ],
-    "line": "    assert len(withdrawal_credentials) == WITHDRAWAL_CREDENTIALS_LENGTH\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -7224,8 +6677,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       76,
       71
-    ],
-    "line": "    assert len(withdrawal_credentials) == WITHDRAWAL_CREDENTIALS_LENGTH\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -7237,8 +6689,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       77,
       0
-    ],
-    "line": "    assert len(withdrawal_credentials) == WITHDRAWAL_CREDENTIALS_LENGTH\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -7250,8 +6701,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       77,
       10
-    ],
-    "line": "    assert len(signature) == SIGNATURE_LENGTH\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -7263,8 +6713,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       77,
       14
-    ],
-    "line": "    assert len(signature) == SIGNATURE_LENGTH\n"
+    ]
   },
   {
     "typ": "OP",
@@ -7276,8 +6725,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       77,
       15
-    ],
-    "line": "    assert len(signature) == SIGNATURE_LENGTH\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -7289,8 +6737,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       77,
       24
-    ],
-    "line": "    assert len(signature) == SIGNATURE_LENGTH\n"
+    ]
   },
   {
     "typ": "OP",
@@ -7302,8 +6749,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       77,
       25
-    ],
-    "line": "    assert len(signature) == SIGNATURE_LENGTH\n"
+    ]
   },
   {
     "typ": "OP",
@@ -7315,8 +6761,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       77,
       28
-    ],
-    "line": "    assert len(signature) == SIGNATURE_LENGTH\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -7328,8 +6773,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       77,
       45
-    ],
-    "line": "    assert len(signature) == SIGNATURE_LENGTH\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -7341,8 +6785,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       78,
       0
-    ],
-    "line": "    assert len(signature) == SIGNATURE_LENGTH\n"
+    ]
   },
   {
     "typ": "NL",
@@ -7354,8 +6797,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       79,
       0
-    ],
-    "line": "\n"
+    ]
   },
   {
     "typ": "COMMENT",
@@ -7367,8 +6809,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       79,
       29
-    ],
-    "line": "    # Emit `DepositEvent` log\n"
+    ]
   },
   {
     "typ": "NL",
@@ -7380,8 +6821,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       80,
       0
-    ],
-    "line": "    # Emit `DepositEvent` log\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -7393,8 +6833,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       80,
       10
-    ],
-    "line": "    amount: bytes[8] = self.to_little_endian_64(deposit_amount)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -7406,8 +6845,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       80,
       11
-    ],
-    "line": "    amount: bytes[8] = self.to_little_endian_64(deposit_amount)\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -7419,8 +6857,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       80,
       17
-    ],
-    "line": "    amount: bytes[8] = self.to_little_endian_64(deposit_amount)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -7432,8 +6869,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       80,
       18
-    ],
-    "line": "    amount: bytes[8] = self.to_little_endian_64(deposit_amount)\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -7445,8 +6881,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       80,
       19
-    ],
-    "line": "    amount: bytes[8] = self.to_little_endian_64(deposit_amount)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -7458,8 +6893,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       80,
       20
-    ],
-    "line": "    amount: bytes[8] = self.to_little_endian_64(deposit_amount)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -7471,8 +6905,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       80,
       22
-    ],
-    "line": "    amount: bytes[8] = self.to_little_endian_64(deposit_amount)\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -7484,8 +6917,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       80,
       27
-    ],
-    "line": "    amount: bytes[8] = self.to_little_endian_64(deposit_amount)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -7497,8 +6929,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       80,
       28
-    ],
-    "line": "    amount: bytes[8] = self.to_little_endian_64(deposit_amount)\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -7510,8 +6941,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       80,
       47
-    ],
-    "line": "    amount: bytes[8] = self.to_little_endian_64(deposit_amount)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -7523,8 +6953,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       80,
       48
-    ],
-    "line": "    amount: bytes[8] = self.to_little_endian_64(deposit_amount)\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -7536,8 +6965,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       80,
       62
-    ],
-    "line": "    amount: bytes[8] = self.to_little_endian_64(deposit_amount)\n"
+    ]
   },
   {
     "typ": "OP",
@@ -7549,8 +6977,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       80,
       63
-    ],
-    "line": "    amount: bytes[8] = self.to_little_endian_64(deposit_amount)\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -7562,8 +6989,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       81,
       0
-    ],
-    "line": "    amount: bytes[8] = self.to_little_endian_64(deposit_amount)\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -7575,8 +7001,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       81,
       7
-    ],
-    "line": "    log.DepositEvent(pubkey, withdrawal_credentials, amount, signature, self.to_little_endian_64(self.deposit_count))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -7588,8 +7013,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       81,
       8
-    ],
-    "line": "    log.DepositEvent(pubkey, withdrawal_credentials, amount, signature, self.to_little_endian_64(self.deposit_count))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -7601,8 +7025,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       81,
       20
-    ],
-    "line": "    log.DepositEvent(pubkey, withdrawal_credentials, amount, signature, self.to_little_endian_64(self.deposit_count))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -7614,8 +7037,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       81,
       21
-    ],
-    "line": "    log.DepositEvent(pubkey, withdrawal_credentials, amount, signature, self.to_little_endian_64(self.deposit_count))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -7627,8 +7049,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       81,
       27
-    ],
-    "line": "    log.DepositEvent(pubkey, withdrawal_credentials, amount, signature, self.to_little_endian_64(self.deposit_count))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -7640,8 +7061,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       81,
       28
-    ],
-    "line": "    log.DepositEvent(pubkey, withdrawal_credentials, amount, signature, self.to_little_endian_64(self.deposit_count))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -7653,8 +7073,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       81,
       51
-    ],
-    "line": "    log.DepositEvent(pubkey, withdrawal_credentials, amount, signature, self.to_little_endian_64(self.deposit_count))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -7666,8 +7085,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       81,
       52
-    ],
-    "line": "    log.DepositEvent(pubkey, withdrawal_credentials, amount, signature, self.to_little_endian_64(self.deposit_count))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -7679,8 +7097,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       81,
       59
-    ],
-    "line": "    log.DepositEvent(pubkey, withdrawal_credentials, amount, signature, self.to_little_endian_64(self.deposit_count))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -7692,8 +7109,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       81,
       60
-    ],
-    "line": "    log.DepositEvent(pubkey, withdrawal_credentials, amount, signature, self.to_little_endian_64(self.deposit_count))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -7705,8 +7121,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       81,
       70
-    ],
-    "line": "    log.DepositEvent(pubkey, withdrawal_credentials, amount, signature, self.to_little_endian_64(self.deposit_count))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -7718,8 +7133,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       81,
       71
-    ],
-    "line": "    log.DepositEvent(pubkey, withdrawal_credentials, amount, signature, self.to_little_endian_64(self.deposit_count))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -7731,8 +7145,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       81,
       76
-    ],
-    "line": "    log.DepositEvent(pubkey, withdrawal_credentials, amount, signature, self.to_little_endian_64(self.deposit_count))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -7744,8 +7157,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       81,
       77
-    ],
-    "line": "    log.DepositEvent(pubkey, withdrawal_credentials, amount, signature, self.to_little_endian_64(self.deposit_count))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -7757,8 +7169,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       81,
       96
-    ],
-    "line": "    log.DepositEvent(pubkey, withdrawal_credentials, amount, signature, self.to_little_endian_64(self.deposit_count))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -7770,8 +7181,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       81,
       97
-    ],
-    "line": "    log.DepositEvent(pubkey, withdrawal_credentials, amount, signature, self.to_little_endian_64(self.deposit_count))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -7783,8 +7193,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       81,
       101
-    ],
-    "line": "    log.DepositEvent(pubkey, withdrawal_credentials, amount, signature, self.to_little_endian_64(self.deposit_count))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -7796,8 +7205,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       81,
       102
-    ],
-    "line": "    log.DepositEvent(pubkey, withdrawal_credentials, amount, signature, self.to_little_endian_64(self.deposit_count))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -7809,8 +7217,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       81,
       115
-    ],
-    "line": "    log.DepositEvent(pubkey, withdrawal_credentials, amount, signature, self.to_little_endian_64(self.deposit_count))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -7822,8 +7229,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       81,
       116
-    ],
-    "line": "    log.DepositEvent(pubkey, withdrawal_credentials, amount, signature, self.to_little_endian_64(self.deposit_count))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -7835,8 +7241,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       81,
       117
-    ],
-    "line": "    log.DepositEvent(pubkey, withdrawal_credentials, amount, signature, self.to_little_endian_64(self.deposit_count))\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -7848,8 +7253,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       82,
       0
-    ],
-    "line": "    log.DepositEvent(pubkey, withdrawal_credentials, amount, signature, self.to_little_endian_64(self.deposit_count))\n"
+    ]
   },
   {
     "typ": "NL",
@@ -7861,8 +7265,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       83,
       0
-    ],
-    "line": "\n"
+    ]
   },
   {
     "typ": "COMMENT",
@@ -7874,8 +7277,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       83,
       42
-    ],
-    "line": "    # Compute `DepositData` hash tree root\n"
+    ]
   },
   {
     "typ": "NL",
@@ -7887,8 +7289,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       84,
       0
-    ],
-    "line": "    # Compute `DepositData` hash tree root\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -7900,8 +7301,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       84,
       16
-    ],
-    "line": "    zero_bytes32: bytes32 = 0x0000000000000000000000000000000000000000000000000000000000000000\n"
+    ]
   },
   {
     "typ": "OP",
@@ -7913,8 +7313,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       84,
       17
-    ],
-    "line": "    zero_bytes32: bytes32 = 0x0000000000000000000000000000000000000000000000000000000000000000\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -7926,8 +7325,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       84,
       25
-    ],
-    "line": "    zero_bytes32: bytes32 = 0x0000000000000000000000000000000000000000000000000000000000000000\n"
+    ]
   },
   {
     "typ": "OP",
@@ -7939,8 +7337,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       84,
       27
-    ],
-    "line": "    zero_bytes32: bytes32 = 0x0000000000000000000000000000000000000000000000000000000000000000\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -7952,8 +7349,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       84,
       94
-    ],
-    "line": "    zero_bytes32: bytes32 = 0x0000000000000000000000000000000000000000000000000000000000000000\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -7965,8 +7361,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       85,
       0
-    ],
-    "line": "    zero_bytes32: bytes32 = 0x0000000000000000000000000000000000000000000000000000000000000000\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -7978,8 +7373,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       85,
       15
-    ],
-    "line": "    pubkey_root: bytes32 = sha256(concat(pubkey, slice(zero_bytes32, start=0, len=64 - PUBKEY_LENGTH)))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -7991,8 +7385,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       85,
       16
-    ],
-    "line": "    pubkey_root: bytes32 = sha256(concat(pubkey, slice(zero_bytes32, start=0, len=64 - PUBKEY_LENGTH)))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -8004,8 +7397,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       85,
       24
-    ],
-    "line": "    pubkey_root: bytes32 = sha256(concat(pubkey, slice(zero_bytes32, start=0, len=64 - PUBKEY_LENGTH)))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8017,8 +7409,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       85,
       26
-    ],
-    "line": "    pubkey_root: bytes32 = sha256(concat(pubkey, slice(zero_bytes32, start=0, len=64 - PUBKEY_LENGTH)))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -8030,8 +7421,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       85,
       33
-    ],
-    "line": "    pubkey_root: bytes32 = sha256(concat(pubkey, slice(zero_bytes32, start=0, len=64 - PUBKEY_LENGTH)))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8043,8 +7433,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       85,
       34
-    ],
-    "line": "    pubkey_root: bytes32 = sha256(concat(pubkey, slice(zero_bytes32, start=0, len=64 - PUBKEY_LENGTH)))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -8056,8 +7445,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       85,
       40
-    ],
-    "line": "    pubkey_root: bytes32 = sha256(concat(pubkey, slice(zero_bytes32, start=0, len=64 - PUBKEY_LENGTH)))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8069,8 +7457,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       85,
       41
-    ],
-    "line": "    pubkey_root: bytes32 = sha256(concat(pubkey, slice(zero_bytes32, start=0, len=64 - PUBKEY_LENGTH)))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -8082,8 +7469,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       85,
       47
-    ],
-    "line": "    pubkey_root: bytes32 = sha256(concat(pubkey, slice(zero_bytes32, start=0, len=64 - PUBKEY_LENGTH)))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8095,8 +7481,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       85,
       48
-    ],
-    "line": "    pubkey_root: bytes32 = sha256(concat(pubkey, slice(zero_bytes32, start=0, len=64 - PUBKEY_LENGTH)))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -8108,8 +7493,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       85,
       54
-    ],
-    "line": "    pubkey_root: bytes32 = sha256(concat(pubkey, slice(zero_bytes32, start=0, len=64 - PUBKEY_LENGTH)))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8121,8 +7505,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       85,
       55
-    ],
-    "line": "    pubkey_root: bytes32 = sha256(concat(pubkey, slice(zero_bytes32, start=0, len=64 - PUBKEY_LENGTH)))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -8134,8 +7517,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       85,
       67
-    ],
-    "line": "    pubkey_root: bytes32 = sha256(concat(pubkey, slice(zero_bytes32, start=0, len=64 - PUBKEY_LENGTH)))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8147,8 +7529,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       85,
       68
-    ],
-    "line": "    pubkey_root: bytes32 = sha256(concat(pubkey, slice(zero_bytes32, start=0, len=64 - PUBKEY_LENGTH)))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -8160,8 +7541,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       85,
       74
-    ],
-    "line": "    pubkey_root: bytes32 = sha256(concat(pubkey, slice(zero_bytes32, start=0, len=64 - PUBKEY_LENGTH)))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8173,8 +7553,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       85,
       75
-    ],
-    "line": "    pubkey_root: bytes32 = sha256(concat(pubkey, slice(zero_bytes32, start=0, len=64 - PUBKEY_LENGTH)))\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -8186,8 +7565,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       85,
       76
-    ],
-    "line": "    pubkey_root: bytes32 = sha256(concat(pubkey, slice(zero_bytes32, start=0, len=64 - PUBKEY_LENGTH)))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8199,8 +7577,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       85,
       77
-    ],
-    "line": "    pubkey_root: bytes32 = sha256(concat(pubkey, slice(zero_bytes32, start=0, len=64 - PUBKEY_LENGTH)))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -8212,8 +7589,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       85,
       81
-    ],
-    "line": "    pubkey_root: bytes32 = sha256(concat(pubkey, slice(zero_bytes32, start=0, len=64 - PUBKEY_LENGTH)))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8225,8 +7601,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       85,
       82
-    ],
-    "line": "    pubkey_root: bytes32 = sha256(concat(pubkey, slice(zero_bytes32, start=0, len=64 - PUBKEY_LENGTH)))\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -8238,8 +7613,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       85,
       84
-    ],
-    "line": "    pubkey_root: bytes32 = sha256(concat(pubkey, slice(zero_bytes32, start=0, len=64 - PUBKEY_LENGTH)))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8251,8 +7625,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       85,
       86
-    ],
-    "line": "    pubkey_root: bytes32 = sha256(concat(pubkey, slice(zero_bytes32, start=0, len=64 - PUBKEY_LENGTH)))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -8264,8 +7637,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       85,
       100
-    ],
-    "line": "    pubkey_root: bytes32 = sha256(concat(pubkey, slice(zero_bytes32, start=0, len=64 - PUBKEY_LENGTH)))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8277,8 +7649,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       85,
       101
-    ],
-    "line": "    pubkey_root: bytes32 = sha256(concat(pubkey, slice(zero_bytes32, start=0, len=64 - PUBKEY_LENGTH)))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8290,8 +7661,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       85,
       102
-    ],
-    "line": "    pubkey_root: bytes32 = sha256(concat(pubkey, slice(zero_bytes32, start=0, len=64 - PUBKEY_LENGTH)))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8303,8 +7673,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       85,
       103
-    ],
-    "line": "    pubkey_root: bytes32 = sha256(concat(pubkey, slice(zero_bytes32, start=0, len=64 - PUBKEY_LENGTH)))\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -8316,8 +7685,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       86,
       0
-    ],
-    "line": "    pubkey_root: bytes32 = sha256(concat(pubkey, slice(zero_bytes32, start=0, len=64 - PUBKEY_LENGTH)))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -8329,8 +7697,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       86,
       18
-    ],
-    "line": "    signature_root: bytes32 = sha256(concat(\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8342,8 +7709,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       86,
       19
-    ],
-    "line": "    signature_root: bytes32 = sha256(concat(\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -8355,8 +7721,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       86,
       27
-    ],
-    "line": "    signature_root: bytes32 = sha256(concat(\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8368,8 +7733,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       86,
       29
-    ],
-    "line": "    signature_root: bytes32 = sha256(concat(\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -8381,8 +7745,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       86,
       36
-    ],
-    "line": "    signature_root: bytes32 = sha256(concat(\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8394,8 +7757,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       86,
       37
-    ],
-    "line": "    signature_root: bytes32 = sha256(concat(\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -8407,8 +7769,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       86,
       43
-    ],
-    "line": "    signature_root: bytes32 = sha256(concat(\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8420,8 +7781,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       86,
       44
-    ],
-    "line": "    signature_root: bytes32 = sha256(concat(\n"
+    ]
   },
   {
     "typ": "NL",
@@ -8433,8 +7793,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       87,
       0
-    ],
-    "line": "    signature_root: bytes32 = sha256(concat(\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -8446,8 +7805,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       87,
       14
-    ],
-    "line": "        sha256(slice(signature, start=0, len=64)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8459,8 +7817,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       87,
       15
-    ],
-    "line": "        sha256(slice(signature, start=0, len=64)),\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -8472,8 +7829,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       87,
       20
-    ],
-    "line": "        sha256(slice(signature, start=0, len=64)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8485,8 +7841,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       87,
       21
-    ],
-    "line": "        sha256(slice(signature, start=0, len=64)),\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -8498,8 +7853,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       87,
       30
-    ],
-    "line": "        sha256(slice(signature, start=0, len=64)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8511,8 +7865,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       87,
       31
-    ],
-    "line": "        sha256(slice(signature, start=0, len=64)),\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -8524,8 +7877,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       87,
       37
-    ],
-    "line": "        sha256(slice(signature, start=0, len=64)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8537,8 +7889,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       87,
       38
-    ],
-    "line": "        sha256(slice(signature, start=0, len=64)),\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -8550,8 +7901,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       87,
       39
-    ],
-    "line": "        sha256(slice(signature, start=0, len=64)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8563,8 +7913,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       87,
       40
-    ],
-    "line": "        sha256(slice(signature, start=0, len=64)),\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -8576,8 +7925,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       87,
       44
-    ],
-    "line": "        sha256(slice(signature, start=0, len=64)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8589,8 +7937,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       87,
       45
-    ],
-    "line": "        sha256(slice(signature, start=0, len=64)),\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -8602,8 +7949,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       87,
       47
-    ],
-    "line": "        sha256(slice(signature, start=0, len=64)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8615,8 +7961,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       87,
       48
-    ],
-    "line": "        sha256(slice(signature, start=0, len=64)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8628,8 +7973,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       87,
       49
-    ],
-    "line": "        sha256(slice(signature, start=0, len=64)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8641,8 +7985,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       87,
       50
-    ],
-    "line": "        sha256(slice(signature, start=0, len=64)),\n"
+    ]
   },
   {
     "typ": "NL",
@@ -8654,8 +7997,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       88,
       0
-    ],
-    "line": "        sha256(slice(signature, start=0, len=64)),\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -8667,8 +8009,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       88,
       14
-    ],
-    "line": "        sha256(concat(slice(signature, start=64, len=SIGNATURE_LENGTH - 64), zero_bytes32)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8680,8 +8021,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       88,
       15
-    ],
-    "line": "        sha256(concat(slice(signature, start=64, len=SIGNATURE_LENGTH - 64), zero_bytes32)),\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -8693,8 +8033,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       88,
       21
-    ],
-    "line": "        sha256(concat(slice(signature, start=64, len=SIGNATURE_LENGTH - 64), zero_bytes32)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8706,8 +8045,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       88,
       22
-    ],
-    "line": "        sha256(concat(slice(signature, start=64, len=SIGNATURE_LENGTH - 64), zero_bytes32)),\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -8719,8 +8057,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       88,
       27
-    ],
-    "line": "        sha256(concat(slice(signature, start=64, len=SIGNATURE_LENGTH - 64), zero_bytes32)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8732,8 +8069,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       88,
       28
-    ],
-    "line": "        sha256(concat(slice(signature, start=64, len=SIGNATURE_LENGTH - 64), zero_bytes32)),\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -8745,8 +8081,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       88,
       37
-    ],
-    "line": "        sha256(concat(slice(signature, start=64, len=SIGNATURE_LENGTH - 64), zero_bytes32)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8758,8 +8093,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       88,
       38
-    ],
-    "line": "        sha256(concat(slice(signature, start=64, len=SIGNATURE_LENGTH - 64), zero_bytes32)),\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -8771,8 +8105,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       88,
       44
-    ],
-    "line": "        sha256(concat(slice(signature, start=64, len=SIGNATURE_LENGTH - 64), zero_bytes32)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8784,8 +8117,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       88,
       45
-    ],
-    "line": "        sha256(concat(slice(signature, start=64, len=SIGNATURE_LENGTH - 64), zero_bytes32)),\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -8797,8 +8129,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       88,
       47
-    ],
-    "line": "        sha256(concat(slice(signature, start=64, len=SIGNATURE_LENGTH - 64), zero_bytes32)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8810,8 +8141,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       88,
       48
-    ],
-    "line": "        sha256(concat(slice(signature, start=64, len=SIGNATURE_LENGTH - 64), zero_bytes32)),\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -8823,8 +8153,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       88,
       52
-    ],
-    "line": "        sha256(concat(slice(signature, start=64, len=SIGNATURE_LENGTH - 64), zero_bytes32)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8836,8 +8165,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       88,
       53
-    ],
-    "line": "        sha256(concat(slice(signature, start=64, len=SIGNATURE_LENGTH - 64), zero_bytes32)),\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -8849,8 +8177,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       88,
       69
-    ],
-    "line": "        sha256(concat(slice(signature, start=64, len=SIGNATURE_LENGTH - 64), zero_bytes32)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8862,8 +8189,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       88,
       71
-    ],
-    "line": "        sha256(concat(slice(signature, start=64, len=SIGNATURE_LENGTH - 64), zero_bytes32)),\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -8875,8 +8201,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       88,
       74
-    ],
-    "line": "        sha256(concat(slice(signature, start=64, len=SIGNATURE_LENGTH - 64), zero_bytes32)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8888,8 +8213,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       88,
       75
-    ],
-    "line": "        sha256(concat(slice(signature, start=64, len=SIGNATURE_LENGTH - 64), zero_bytes32)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8901,8 +8225,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       88,
       76
-    ],
-    "line": "        sha256(concat(slice(signature, start=64, len=SIGNATURE_LENGTH - 64), zero_bytes32)),\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -8914,8 +8237,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       88,
       89
-    ],
-    "line": "        sha256(concat(slice(signature, start=64, len=SIGNATURE_LENGTH - 64), zero_bytes32)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8927,8 +8249,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       88,
       90
-    ],
-    "line": "        sha256(concat(slice(signature, start=64, len=SIGNATURE_LENGTH - 64), zero_bytes32)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8940,8 +8261,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       88,
       91
-    ],
-    "line": "        sha256(concat(slice(signature, start=64, len=SIGNATURE_LENGTH - 64), zero_bytes32)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8953,8 +8273,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       88,
       92
-    ],
-    "line": "        sha256(concat(slice(signature, start=64, len=SIGNATURE_LENGTH - 64), zero_bytes32)),\n"
+    ]
   },
   {
     "typ": "NL",
@@ -8966,8 +8285,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       89,
       0
-    ],
-    "line": "        sha256(concat(slice(signature, start=64, len=SIGNATURE_LENGTH - 64), zero_bytes32)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8979,8 +8297,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       89,
       5
-    ],
-    "line": "    ))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -8992,8 +8309,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       89,
       6
-    ],
-    "line": "    ))\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -9005,8 +8321,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       90,
       0
-    ],
-    "line": "    ))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -9018,8 +8333,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       90,
       8
-    ],
-    "line": "    node: bytes32 = sha256(concat(\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9031,8 +8345,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       90,
       9
-    ],
-    "line": "    node: bytes32 = sha256(concat(\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -9044,8 +8357,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       90,
       17
-    ],
-    "line": "    node: bytes32 = sha256(concat(\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9057,8 +8369,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       90,
       19
-    ],
-    "line": "    node: bytes32 = sha256(concat(\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -9070,8 +8381,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       90,
       26
-    ],
-    "line": "    node: bytes32 = sha256(concat(\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9083,8 +8393,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       90,
       27
-    ],
-    "line": "    node: bytes32 = sha256(concat(\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -9096,8 +8405,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       90,
       33
-    ],
-    "line": "    node: bytes32 = sha256(concat(\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9109,8 +8417,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       90,
       34
-    ],
-    "line": "    node: bytes32 = sha256(concat(\n"
+    ]
   },
   {
     "typ": "NL",
@@ -9122,8 +8429,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       91,
       0
-    ],
-    "line": "    node: bytes32 = sha256(concat(\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -9135,8 +8441,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       91,
       14
-    ],
-    "line": "        sha256(concat(pubkey_root, withdrawal_credentials)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9148,8 +8453,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       91,
       15
-    ],
-    "line": "        sha256(concat(pubkey_root, withdrawal_credentials)),\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -9161,8 +8465,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       91,
       21
-    ],
-    "line": "        sha256(concat(pubkey_root, withdrawal_credentials)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9174,8 +8477,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       91,
       22
-    ],
-    "line": "        sha256(concat(pubkey_root, withdrawal_credentials)),\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -9187,8 +8489,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       91,
       33
-    ],
-    "line": "        sha256(concat(pubkey_root, withdrawal_credentials)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9200,8 +8501,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       91,
       34
-    ],
-    "line": "        sha256(concat(pubkey_root, withdrawal_credentials)),\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -9213,8 +8513,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       91,
       57
-    ],
-    "line": "        sha256(concat(pubkey_root, withdrawal_credentials)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9226,8 +8525,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       91,
       58
-    ],
-    "line": "        sha256(concat(pubkey_root, withdrawal_credentials)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9239,8 +8537,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       91,
       59
-    ],
-    "line": "        sha256(concat(pubkey_root, withdrawal_credentials)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9252,8 +8549,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       91,
       60
-    ],
-    "line": "        sha256(concat(pubkey_root, withdrawal_credentials)),\n"
+    ]
   },
   {
     "typ": "NL",
@@ -9265,8 +8561,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       92,
       0
-    ],
-    "line": "        sha256(concat(pubkey_root, withdrawal_credentials)),\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -9278,8 +8573,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       92,
       14
-    ],
-    "line": "        sha256(concat(amount, slice(zero_bytes32, start=0, len=32 - AMOUNT_LENGTH), signature_root)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9291,8 +8585,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       92,
       15
-    ],
-    "line": "        sha256(concat(amount, slice(zero_bytes32, start=0, len=32 - AMOUNT_LENGTH), signature_root)),\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -9304,8 +8597,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       92,
       21
-    ],
-    "line": "        sha256(concat(amount, slice(zero_bytes32, start=0, len=32 - AMOUNT_LENGTH), signature_root)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9317,8 +8609,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       92,
       22
-    ],
-    "line": "        sha256(concat(amount, slice(zero_bytes32, start=0, len=32 - AMOUNT_LENGTH), signature_root)),\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -9330,8 +8621,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       92,
       28
-    ],
-    "line": "        sha256(concat(amount, slice(zero_bytes32, start=0, len=32 - AMOUNT_LENGTH), signature_root)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9343,8 +8633,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       92,
       29
-    ],
-    "line": "        sha256(concat(amount, slice(zero_bytes32, start=0, len=32 - AMOUNT_LENGTH), signature_root)),\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -9356,8 +8645,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       92,
       35
-    ],
-    "line": "        sha256(concat(amount, slice(zero_bytes32, start=0, len=32 - AMOUNT_LENGTH), signature_root)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9369,8 +8657,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       92,
       36
-    ],
-    "line": "        sha256(concat(amount, slice(zero_bytes32, start=0, len=32 - AMOUNT_LENGTH), signature_root)),\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -9382,8 +8669,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       92,
       48
-    ],
-    "line": "        sha256(concat(amount, slice(zero_bytes32, start=0, len=32 - AMOUNT_LENGTH), signature_root)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9395,8 +8681,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       92,
       49
-    ],
-    "line": "        sha256(concat(amount, slice(zero_bytes32, start=0, len=32 - AMOUNT_LENGTH), signature_root)),\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -9408,8 +8693,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       92,
       55
-    ],
-    "line": "        sha256(concat(amount, slice(zero_bytes32, start=0, len=32 - AMOUNT_LENGTH), signature_root)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9421,8 +8705,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       92,
       56
-    ],
-    "line": "        sha256(concat(amount, slice(zero_bytes32, start=0, len=32 - AMOUNT_LENGTH), signature_root)),\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -9434,8 +8717,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       92,
       57
-    ],
-    "line": "        sha256(concat(amount, slice(zero_bytes32, start=0, len=32 - AMOUNT_LENGTH), signature_root)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9447,8 +8729,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       92,
       58
-    ],
-    "line": "        sha256(concat(amount, slice(zero_bytes32, start=0, len=32 - AMOUNT_LENGTH), signature_root)),\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -9460,8 +8741,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       92,
       62
-    ],
-    "line": "        sha256(concat(amount, slice(zero_bytes32, start=0, len=32 - AMOUNT_LENGTH), signature_root)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9473,8 +8753,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       92,
       63
-    ],
-    "line": "        sha256(concat(amount, slice(zero_bytes32, start=0, len=32 - AMOUNT_LENGTH), signature_root)),\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -9486,8 +8765,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       92,
       65
-    ],
-    "line": "        sha256(concat(amount, slice(zero_bytes32, start=0, len=32 - AMOUNT_LENGTH), signature_root)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9499,8 +8777,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       92,
       67
-    ],
-    "line": "        sha256(concat(amount, slice(zero_bytes32, start=0, len=32 - AMOUNT_LENGTH), signature_root)),\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -9512,8 +8789,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       92,
       81
-    ],
-    "line": "        sha256(concat(amount, slice(zero_bytes32, start=0, len=32 - AMOUNT_LENGTH), signature_root)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9525,8 +8801,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       92,
       82
-    ],
-    "line": "        sha256(concat(amount, slice(zero_bytes32, start=0, len=32 - AMOUNT_LENGTH), signature_root)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9538,8 +8813,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       92,
       83
-    ],
-    "line": "        sha256(concat(amount, slice(zero_bytes32, start=0, len=32 - AMOUNT_LENGTH), signature_root)),\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -9551,8 +8825,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       92,
       98
-    ],
-    "line": "        sha256(concat(amount, slice(zero_bytes32, start=0, len=32 - AMOUNT_LENGTH), signature_root)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9564,8 +8837,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       92,
       99
-    ],
-    "line": "        sha256(concat(amount, slice(zero_bytes32, start=0, len=32 - AMOUNT_LENGTH), signature_root)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9577,8 +8849,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       92,
       100
-    ],
-    "line": "        sha256(concat(amount, slice(zero_bytes32, start=0, len=32 - AMOUNT_LENGTH), signature_root)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9590,8 +8861,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       92,
       101
-    ],
-    "line": "        sha256(concat(amount, slice(zero_bytes32, start=0, len=32 - AMOUNT_LENGTH), signature_root)),\n"
+    ]
   },
   {
     "typ": "NL",
@@ -9603,8 +8873,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       93,
       0
-    ],
-    "line": "        sha256(concat(amount, slice(zero_bytes32, start=0, len=32 - AMOUNT_LENGTH), signature_root)),\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9616,8 +8885,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       93,
       5
-    ],
-    "line": "    ))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9629,8 +8897,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       93,
       6
-    ],
-    "line": "    ))\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -9642,8 +8909,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       94,
       0
-    ],
-    "line": "    ))\n"
+    ]
   },
   {
     "typ": "NL",
@@ -9655,8 +8921,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       95,
       0
-    ],
-    "line": "\n"
+    ]
   },
   {
     "typ": "COMMENT",
@@ -9668,8 +8933,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       95,
       85
-    ],
-    "line": "    # Add `DepositData` hash tree root to Merkle tree (update a single `branch` node)\n"
+    ]
   },
   {
     "typ": "NL",
@@ -9681,8 +8945,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       96,
       0
-    ],
-    "line": "    # Add `DepositData` hash tree root to Merkle tree (update a single `branch` node)\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -9694,8 +8957,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       96,
       8
-    ],
-    "line": "    self.deposit_count += 1\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9707,8 +8969,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       96,
       9
-    ],
-    "line": "    self.deposit_count += 1\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -9720,8 +8981,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       96,
       22
-    ],
-    "line": "    self.deposit_count += 1\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9733,8 +8993,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       96,
       25
-    ],
-    "line": "    self.deposit_count += 1\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -9746,8 +9005,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       96,
       27
-    ],
-    "line": "    self.deposit_count += 1\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -9759,8 +9017,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       97,
       0
-    ],
-    "line": "    self.deposit_count += 1\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -9772,8 +9029,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       97,
       8
-    ],
-    "line": "    size: uint256 = self.deposit_count\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9785,8 +9041,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       97,
       9
-    ],
-    "line": "    size: uint256 = self.deposit_count\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -9798,8 +9053,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       97,
       17
-    ],
-    "line": "    size: uint256 = self.deposit_count\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9811,8 +9065,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       97,
       19
-    ],
-    "line": "    size: uint256 = self.deposit_count\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -9824,8 +9077,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       97,
       24
-    ],
-    "line": "    size: uint256 = self.deposit_count\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9837,8 +9089,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       97,
       25
-    ],
-    "line": "    size: uint256 = self.deposit_count\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -9850,8 +9101,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       97,
       38
-    ],
-    "line": "    size: uint256 = self.deposit_count\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -9863,8 +9113,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       98,
       0
-    ],
-    "line": "    size: uint256 = self.deposit_count\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -9876,8 +9125,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       98,
       7
-    ],
-    "line": "    for height in range(DEPOSIT_CONTRACT_TREE_DEPTH):\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -9889,8 +9137,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       98,
       14
-    ],
-    "line": "    for height in range(DEPOSIT_CONTRACT_TREE_DEPTH):\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -9902,8 +9149,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       98,
       17
-    ],
-    "line": "    for height in range(DEPOSIT_CONTRACT_TREE_DEPTH):\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -9915,8 +9161,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       98,
       23
-    ],
-    "line": "    for height in range(DEPOSIT_CONTRACT_TREE_DEPTH):\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9928,8 +9173,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       98,
       24
-    ],
-    "line": "    for height in range(DEPOSIT_CONTRACT_TREE_DEPTH):\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -9941,8 +9185,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       98,
       51
-    ],
-    "line": "    for height in range(DEPOSIT_CONTRACT_TREE_DEPTH):\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9954,8 +9197,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       98,
       52
-    ],
-    "line": "    for height in range(DEPOSIT_CONTRACT_TREE_DEPTH):\n"
+    ]
   },
   {
     "typ": "OP",
@@ -9967,8 +9209,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       98,
       53
-    ],
-    "line": "    for height in range(DEPOSIT_CONTRACT_TREE_DEPTH):\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -9980,8 +9221,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       99,
       0
-    ],
-    "line": "    for height in range(DEPOSIT_CONTRACT_TREE_DEPTH):\n"
+    ]
   },
   {
     "typ": "INDENT",
@@ -9993,8 +9233,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       99,
       8
-    ],
-    "line": "        if bitwise_and(size, 1) == 1:  # More gas efficient than `size % 2 == 1`\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -10006,8 +9245,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       99,
       10
-    ],
-    "line": "        if bitwise_and(size, 1) == 1:  # More gas efficient than `size % 2 == 1`\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -10019,8 +9257,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       99,
       22
-    ],
-    "line": "        if bitwise_and(size, 1) == 1:  # More gas efficient than `size % 2 == 1`\n"
+    ]
   },
   {
     "typ": "OP",
@@ -10032,8 +9269,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       99,
       23
-    ],
-    "line": "        if bitwise_and(size, 1) == 1:  # More gas efficient than `size % 2 == 1`\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -10045,8 +9281,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       99,
       27
-    ],
-    "line": "        if bitwise_and(size, 1) == 1:  # More gas efficient than `size % 2 == 1`\n"
+    ]
   },
   {
     "typ": "OP",
@@ -10058,8 +9293,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       99,
       28
-    ],
-    "line": "        if bitwise_and(size, 1) == 1:  # More gas efficient than `size % 2 == 1`\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -10071,8 +9305,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       99,
       30
-    ],
-    "line": "        if bitwise_and(size, 1) == 1:  # More gas efficient than `size % 2 == 1`\n"
+    ]
   },
   {
     "typ": "OP",
@@ -10084,8 +9317,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       99,
       31
-    ],
-    "line": "        if bitwise_and(size, 1) == 1:  # More gas efficient than `size % 2 == 1`\n"
+    ]
   },
   {
     "typ": "OP",
@@ -10097,8 +9329,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       99,
       34
-    ],
-    "line": "        if bitwise_and(size, 1) == 1:  # More gas efficient than `size % 2 == 1`\n"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -10110,8 +9341,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       99,
       36
-    ],
-    "line": "        if bitwise_and(size, 1) == 1:  # More gas efficient than `size % 2 == 1`\n"
+    ]
   },
   {
     "typ": "OP",
@@ -10123,8 +9353,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       99,
       37
-    ],
-    "line": "        if bitwise_and(size, 1) == 1:  # More gas efficient than `size % 2 == 1`\n"
+    ]
   },
   {
     "typ": "COMMENT",
@@ -10136,8 +9365,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       99,
       80
-    ],
-    "line": "        if bitwise_and(size, 1) == 1:  # More gas efficient than `size % 2 == 1`\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -10149,8 +9377,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       100,
       0
-    ],
-    "line": "        if bitwise_and(size, 1) == 1:  # More gas efficient than `size % 2 == 1`\n"
+    ]
   },
   {
     "typ": "INDENT",
@@ -10162,8 +9389,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       100,
       12
-    ],
-    "line": "            self.branch[height] = node\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -10175,8 +9401,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       100,
       16
-    ],
-    "line": "            self.branch[height] = node\n"
+    ]
   },
   {
     "typ": "OP",
@@ -10188,8 +9413,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       100,
       17
-    ],
-    "line": "            self.branch[height] = node\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -10201,8 +9425,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       100,
       23
-    ],
-    "line": "            self.branch[height] = node\n"
+    ]
   },
   {
     "typ": "OP",
@@ -10214,8 +9437,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       100,
       24
-    ],
-    "line": "            self.branch[height] = node\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -10227,8 +9449,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       100,
       30
-    ],
-    "line": "            self.branch[height] = node\n"
+    ]
   },
   {
     "typ": "OP",
@@ -10240,8 +9461,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       100,
       31
-    ],
-    "line": "            self.branch[height] = node\n"
+    ]
   },
   {
     "typ": "OP",
@@ -10253,8 +9473,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       100,
       33
-    ],
-    "line": "            self.branch[height] = node\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -10266,8 +9485,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       100,
       38
-    ],
-    "line": "            self.branch[height] = node\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -10279,8 +9497,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       101,
       0
-    ],
-    "line": "            self.branch[height] = node\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -10292,8 +9509,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       101,
       17
-    ],
-    "line": "            break\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -10305,8 +9521,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       102,
       0
-    ],
-    "line": "            break\n"
+    ]
   },
   {
     "typ": "DEDENT",
@@ -10318,8 +9533,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       102,
       8
-    ],
-    "line": "        node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -10331,8 +9545,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       102,
       12
-    ],
-    "line": "        node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -10344,8 +9557,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       102,
       14
-    ],
-    "line": "        node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -10357,8 +9569,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       102,
       21
-    ],
-    "line": "        node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -10370,8 +9581,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       102,
       22
-    ],
-    "line": "        node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -10383,8 +9593,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       102,
       28
-    ],
-    "line": "        node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -10396,8 +9605,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       102,
       29
-    ],
-    "line": "        node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -10409,8 +9617,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       102,
       33
-    ],
-    "line": "        node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -10422,8 +9629,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       102,
       34
-    ],
-    "line": "        node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -10435,8 +9641,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       102,
       40
-    ],
-    "line": "        node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -10448,8 +9653,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       102,
       41
-    ],
-    "line": "        node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -10461,8 +9665,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       102,
       47
-    ],
-    "line": "        node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -10474,8 +9677,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       102,
       48
-    ],
-    "line": "        node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -10487,8 +9689,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       102,
       49
-    ],
-    "line": "        node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -10500,8 +9701,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       102,
       54
-    ],
-    "line": "        node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -10513,8 +9713,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       102,
       55
-    ],
-    "line": "        node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "OP",
@@ -10526,8 +9725,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       102,
       56
-    ],
-    "line": "        node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -10539,8 +9737,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       103,
       0
-    ],
-    "line": "        node = sha256(concat(self.branch[height], node))\n"
+    ]
   },
   {
     "typ": "NAME",
@@ -10552,8 +9749,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       103,
       12
-    ],
-    "line": "        size /= 2"
+    ]
   },
   {
     "typ": "OP",
@@ -10565,8 +9761,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       103,
       15
-    ],
-    "line": "        size /= 2"
+    ]
   },
   {
     "typ": "NUMBER",
@@ -10578,8 +9773,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       103,
       17
-    ],
-    "line": "        size /= 2"
+    ]
   },
   {
     "typ": "NEWLINE",
@@ -10591,8 +9785,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       103,
       17
-    ],
-    "line": ""
+    ]
   },
   {
     "typ": "DEDENT",
@@ -10604,8 +9797,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       103,
       17
-    ],
-    "line": ""
+    ]
   },
   {
     "typ": "DEDENT",
@@ -10617,8 +9809,7 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       103,
       17
-    ],
-    "line": ""
+    ]
   },
   {
     "typ": "ENDMARKER",
@@ -10630,7 +9821,6 @@ def deposit(pubkey: bytes[PUBKEY_LENGTH],
     "end": [
       103,
       17
-    ],
-    "line": ""
+    ]
   }
 ]

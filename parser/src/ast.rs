@@ -87,8 +87,8 @@ pub enum TypeDesc {
     },
 }
 
-impl<'a> From<&'a Token<'a>> for Spanned<TypeDesc> {
-    fn from(token: &'a Token<'a>) -> Self {
+impl From<&Token> for Spanned<TypeDesc> {
+    fn from(token: &Token) -> Self {
         Spanned {
             node: TypeDesc::Base {
                 base: token.maybe_to_string().unwrap(),
@@ -119,7 +119,7 @@ pub enum Operator {
     BitAnd,
 }
 
-impl<'a> TryFrom<&Token<'a>> for Operator {
+impl TryFrom<&Token> for Operator {
     type Error = &'static str;
 
     #[cfg_attr(tarpaulin, skip)]
@@ -151,7 +151,7 @@ pub enum UnaryOp {
     USub,
 }
 
-impl<'a> TryFrom<&Token<'a>> for UnaryOp {
+impl TryFrom<&Token> for UnaryOp {
     type Error = &'static str;
 
     #[cfg_attr(tarpaulin, skip)]

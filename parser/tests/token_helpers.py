@@ -54,7 +54,6 @@ def get_token_dict(tok: TokenInfo) -> OrderedDict:
         ('string', tok.string),
         ('start', tok.start),
         ('end', end),
-        ('line', tok.line),
     ))
 
 
@@ -75,4 +74,11 @@ def get_token_json(source_code: bytes) -> str:
 
 
 if __name__ == '__main__':
-    sys.stdout.write(get_token_json(sys.stdin.read().encode('utf-8')))
+    source_code = sys.stdin.read().split('\n---\n')[0]
+    token_json = get_token_json(source_code.encode('utf-8'))
+
+    sys.stdout.write(f"""
+{source_code}
+---
+{token_json}
+"""[1:])
