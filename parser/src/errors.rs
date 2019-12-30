@@ -5,7 +5,7 @@ use crate::{
     ParseErrorInfo,
 };
 
-/// Format a verbose error into a debug trace message.
+/// Format an error into a debug trace message.
 ///
 /// Inspired by nom internals:
 /// https://github.com/Geal/nom/blob/c326e077b83c62f81b717c80a281cb453cb914e7/src/error.rs#L141
