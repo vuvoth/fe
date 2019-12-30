@@ -93,7 +93,11 @@ impl ParseBuffer {
     }
 
     fn begin(&self) -> Cursor {
-        Cursor::new(&self.tokens[0], &self.tokens[self.tokens.len() - 1], self)
+        Cursor {
+            ptr: &self.tokens[0],
+            end: &self.tokens[self.tokens.len() - 1],
+            buf: self,
+        }
     }
 
     pub fn apply<P, O>(&self, parser: P) -> ParseResult<O>
@@ -106,13 +110,12 @@ impl ParseBuffer {
 
 impl Cursor {
     #[inline]
-    pub fn new(ptr: *const Token, end: *const Token, buf: *const ParseBuffer) -> Self {
-        Cursor { ptr, end, buf }
-    }
-
-    #[inline]
-    fn bump(self) -> Self {
-        unsafe { Self::new(self.ptr.offset(1), self.end, self.buf) }
+    unsafe fn bump(self) -> Self {
+        Cursor {
+            ptr: self.ptr.offset(1),
+            end: self.end,
+            buf: self.buf,
+        }
     }
 
     #[inline]
@@ -121,7 +124,7 @@ impl Cursor {
     }
 
     #[inline]
-    fn token(self) -> Option<Token> {
+    fn tok(self) -> Option<Token> {
         if self.eof() {
             None
         } else {
@@ -130,12 +133,12 @@ impl Cursor {
     }
 
     #[inline]
-    fn next(&self) -> ParseResult<Token> {
-        match self.token() {
+    pub fn next_tok(&self) -> ParseResult<Token> {
+        match self.tok() {
             None => Err(ParseError::at_eof(
                 "reached end of parse buffer".to_string(),
             )),
-            Some(tok) => Ok((self.bump(), tok)),
+            Some(tok) => Ok((unsafe { self.bump() }, tok)),
         }
     }
 }
@@ -214,7 +217,7 @@ where
             Ok((input, results))
         }
         Err(err) => {
-            let (_, tok) = input.next()?;
+            let (_, tok) = input.next_tok()?;
 
             Err(err.add_msg(
                 "many1: expected at least one occurrence".to_string(),

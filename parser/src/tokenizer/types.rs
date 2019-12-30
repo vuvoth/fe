@@ -77,12 +77,10 @@ pub enum TokenKind {
 
 impl TokenKind {
     pub fn maybe_to_symbol(&self) -> Option<Symbol> {
-        use TokenKind::*;
-
-        Some(match self {
-            Name(s) => *s,
+        match self {
+            Self::Name(s) => Some(*s),
             _ => return None,
-        })
+        }
     }
 }
 

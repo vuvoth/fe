@@ -30,7 +30,7 @@ use crate::{
 /// Parse a token of a specific kind.
 pub fn token(kind: TokenKind) -> impl Fn(Cursor) -> ParseResult<Token> {
     move |input| {
-        let (input, tok) = input.next()?;
+        let (input, tok) = input.next_tok()?;
 
         if tok.kind == kind {
             Ok((input, tok))
@@ -43,8 +43,9 @@ pub fn token(kind: TokenKind) -> impl Fn(Cursor) -> ParseResult<Token> {
     }
 }
 
+/// Parse a name token.
 pub fn name_token(input: Cursor) -> ParseResult<Token> {
-    let (input, tok) = input.next()?;
+    let (input, tok) = input.next_tok()?;
 
     match tok.kind {
         Name(_) => Ok((input, tok)),
@@ -55,6 +56,7 @@ pub fn name_token(input: Cursor) -> ParseResult<Token> {
     }
 }
 
+/// Parse a name token that contains a specific symbol.
 pub fn name_string(string: &str) -> impl Fn(Cursor) -> ParseResult<Token> {
     token(Name(Symbol::new(string)))
 }
