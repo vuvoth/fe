@@ -31,14 +31,11 @@ pub struct ParseErrorInfo {
 }
 
 #[derive(Debug, PartialEq)]
-pub enum ParseError {
-    One(ParseErrorInfo),
-    Many(Vec<ParseErrorInfo>),
-}
+pub struct ParseError(Vec<ParseErrorInfo>);
 
 impl ParseError {
     pub fn new(msg: String, loc: Location) -> Self {
-        Self::One(ParseErrorInfo { msg, loc })
+        Self(vec![ParseErrorInfo { msg, loc }])
     }
 
     pub fn at_eof(msg: String) -> Self {
@@ -49,17 +46,9 @@ impl ParseError {
         Self::new(msg, Location::Span(span))
     }
 
-    pub fn add_msg(self, msg: String, loc: Location) -> Self {
-        let mut infos: Vec<ParseErrorInfo> = vec![];
-
-        match self {
-            Self::One(info) => infos.push(info),
-            Self::Many(mut other_infos) => infos.append(&mut other_infos),
-        }
-
-        infos.push(ParseErrorInfo { msg, loc });
-
-        Self::Many(infos)
+    pub fn add_msg(mut self, msg: String, loc: Location) -> Self {
+        self.0.push(ParseErrorInfo { msg, loc });
+        self
     }
 }
 

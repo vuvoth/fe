@@ -2,7 +2,6 @@ use crate::string_utils::StringPositions;
 use crate::{
     Location,
     ParseError,
-    ParseErrorInfo,
 };
 
 /// Format an error into a debug trace message.
@@ -17,48 +16,26 @@ pub fn format_debug_error(input: &str, err: ParseError) -> String {
 
     let mut result = String::new();
 
-    match err {
-        ParseError::One(ParseErrorInfo { msg, loc }) => {
-            let pos = match loc {
-                Location::Eof => string_positions.get_last().unwrap(),
-                Location::Span(span) => match string_positions.get_pos(span.start) {
-                    Some(pos) => pos,
-                    None => string_positions.get_last().unwrap(),
-                },
-            };
+    for (i, info) in err.0.iter().enumerate() {
+        let msg = &info.msg;
+        let loc = info.loc;
 
-            result += &format!("at line {} col {}, {}:\n", pos.line, pos.col, msg);
+        let pos = match loc {
+            Location::Eof => string_positions.get_last().unwrap(),
+            Location::Span(span) => match string_positions.get_pos(span.start) {
+                Some(pos) => pos,
+                None => string_positions.get_last().unwrap(),
+            },
+        };
 
-            result += &lines[pos.line - 1];
-            result += "\n";
-            if pos.col > 0 {
-                result += &repeat(' ').take(pos.col).collect::<String>();
-            }
-            result += "^\n\n";
+        result += &format!("{}: at line {} col {}, {}:\n", i, pos.line, pos.col, msg);
+
+        result += &lines[pos.line - 1];
+        result += "\n";
+        if pos.col > 0 {
+            result += &repeat(' ').take(pos.col).collect::<String>();
         }
-        ParseError::Many(infos) => {
-            for (i, info) in infos.iter().enumerate() {
-                let msg = &info.msg;
-                let loc = info.loc;
-
-                let pos = match loc {
-                    Location::Eof => string_positions.get_last().unwrap(),
-                    Location::Span(span) => match string_positions.get_pos(span.start) {
-                        Some(pos) => pos,
-                        None => string_positions.get_last().unwrap(),
-                    },
-                };
-
-                result += &format!("{}: at line {} col {}, {}:\n", i, pos.line, pos.col, msg);
-
-                result += &lines[pos.line - 1];
-                result += "\n";
-                if pos.col > 0 {
-                    result += &repeat(' ').take(pos.col).collect::<String>();
-                }
-                result += "^\n\n";
-            }
-        }
+        result += "^\n\n";
     }
 
     result
