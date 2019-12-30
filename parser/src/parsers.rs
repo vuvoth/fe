@@ -1,173 +1,73 @@
 use std::convert::TryFrom;
 
-use nom::branch::alt;
-use nom::combinator::{
-    map,
-    opt,
-    verify,
-};
-use nom::error::{
-    ErrorKind,
-    ParseError,
-};
-use nom::multi::{
-    many0,
-    many1,
-};
-use nom::sequence::{
-    pair,
-    preceded,
-    separated_pair,
-    terminated,
-};
-use nom::IResult;
-
 use crate::ast::ModuleStmt::*;
 use crate::ast::*;
-use crate::errors::make_error;
 use crate::span::{
     Span,
     Spanned,
 };
 use crate::symbol::Symbol;
-use crate::tokenizer::tokenize::{
-    tokenize,
-    TokenizeError,
-};
 use crate::tokenizer::types::{
     Token,
     TokenKind,
     TokenKind::*,
 };
+use crate::{
+    alt,
+    many0,
+    many1,
+    map,
+    opt,
+    pair,
+    preceded,
+    separated_pair,
+    terminated,
+    Cursor,
+    ParseError,
+    ParseResult,
+};
 
-pub type TokenSlice<'a> = &'a [Token];
-pub type TokenResult<'a, O, E> = IResult<TokenSlice<'a>, O, E>;
+/// Parse a token of a specific kind.
+pub fn token(kind: TokenKind) -> impl Fn(Cursor) -> ParseResult<Token> {
+    move |input| {
+        let (input, tok) = input.next()?;
 
-/// Tokenize the given source code in `source` and filter out tokens not
-/// relevant to parsing.
-pub fn get_parse_tokens<'a>(source: &'a str) -> Result<Vec<Token>, TokenizeError> {
-    let tokens = tokenize(source)?;
-
-    Ok(tokens
-        .into_iter()
-        .filter(|t| match t.kind {
-            Comment => false,
-            WhitespaceNewline => false,
-            _ => true,
-        })
-        .collect())
-}
-
-/// Parse a single token from a token slice.
-pub fn one_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
-    match input.iter().next() {
-        None => make_error(input, ErrorKind::Eof),
-        Some(token) => Ok((&input[1..], token)),
+        if tok.kind == kind {
+            Ok((input, tok))
+        } else {
+            Err(ParseError::at_span(
+                format!("expected {:?}, found {:?}", kind, tok.kind),
+                tok.span,
+            ))
+        }
     }
 }
 
-/// Parse a token of a specific kind from a token slice.
-pub fn token<'a, E>(kind: TokenKind) -> impl Fn(TokenSlice<'a>) -> TokenResult<&Token, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
-    verify(one_token, move |t: &Token| t.kind == kind)
+pub fn name_token(input: Cursor) -> ParseResult<Token> {
+    let (input, tok) = input.next()?;
+
+    match tok.kind {
+        Name(_) => Ok((input, tok)),
+        _ => Err(ParseError::at_span(
+            format!("expected name token, found {:?}", tok.kind),
+            tok.span,
+        )),
+    }
 }
 
-/// Parse a name token from a token slice.
-pub fn name_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
-    verify(one_token, move |t: &Token| match t.kind {
-        Name(_) => true,
-        _ => false,
-    })(input)
-}
-
-/// Parse a name token containing a specific string from a token slice.
-pub fn name_string<'a, E>(string: &'a str) -> impl Fn(TokenSlice<'a>) -> TokenResult<&Token, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
-    verify(one_token, move |t: &Token| match t.kind {
-        Name(s) if s == Symbol::new(string) => true,
-        _ => false,
-    })
-}
-
-/// Parse a number token from a token slice.
-pub fn num_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
-    verify(one_token, move |t: &Token| match t.kind {
-        Num => true,
-        _ => false,
-    })(input)
-}
-
-/// Parse a string token from a token slice.
-pub fn str_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
-    verify(one_token, move |t: &Token| match t.kind {
-        Str => true,
-        _ => false,
-    })(input)
-}
-
-/// Parse an indent token from a token slice.
-pub fn indent_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
-    token(Indent)(input)
-}
-
-/// Parse a dedent token from a token slice.
-pub fn dedent_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
-    token(Dedent)(input)
-}
-
-/// Parse a grammatically significant newline token from a token slice.
-pub fn newline_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
-    token(Newline)(input)
-}
-
-/// Parse an endmarker token from a token slice.
-pub fn endmarker_token<'a, E>(input: TokenSlice<'a>) -> TokenResult<&Token, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
-    token(EndMarker)(input)
+pub fn name_string(string: &str) -> impl Fn(Cursor) -> ParseResult<Token> {
+    token(Name(Symbol::new(string)))
 }
 
 /// Parse a module definition.
-pub fn file_input<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<Module>, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
+pub fn file_input(input: Cursor) -> ParseResult<Spanned<Module>> {
     alt((empty_file_input, non_empty_file_input))(input)
 }
 
 /// Parse an empty module definition.
-pub fn empty_file_input<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<Module>, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
+pub fn empty_file_input(input: Cursor) -> ParseResult<Spanned<Module>> {
     // ENDMARKER
-    let (input, end_tok) = endmarker_token(input)?;
+    let (input, end_tok) = token(EndMarker)(input)?;
 
     Ok((
         input,
@@ -179,15 +79,12 @@ where
 }
 
 /// Parse a non-empty module definition.
-pub fn non_empty_file_input<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<Module>, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
+pub fn non_empty_file_input(input: Cursor) -> ParseResult<Spanned<Module>> {
     // module_stmt+
     let (input, body) = many1(module_stmt)(input)?;
 
     // ENDMARKER
-    let (input, _) = endmarker_token(input)?;
+    let (input, _) = token(EndMarker)(input)?;
 
     let span = {
         let first = body.first().unwrap();
@@ -206,26 +103,17 @@ where
 }
 
 /// Parse a module statement, such as a contract definition.
-pub fn module_stmt<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<ModuleStmt>, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
+pub fn module_stmt(input: Cursor) -> ParseResult<Spanned<ModuleStmt>> {
     alt((import_stmt, contract_def))(input)
 }
 
 /// Parse an import statement.
-pub fn import_stmt<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<ModuleStmt>, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
-    terminated(alt((simple_import, from_import)), newline_token)(input)
+pub fn import_stmt(input: Cursor) -> ParseResult<Spanned<ModuleStmt>> {
+    terminated(alt((simple_import, from_import)), token(Newline))(input)
 }
 
 /// Parse an import statement beginning with the "import" keyword.
-pub fn simple_import<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<ModuleStmt>, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
+pub fn simple_import(input: Cursor) -> ParseResult<Spanned<ModuleStmt>> {
     let (input, import_kw) = name_string("import")(input)?;
     let (input, first_name) = simple_import_name(input)?;
     let (input, mut other_names) = many0(preceded(token(Comma), simple_import_name))(input)?;
@@ -235,7 +123,7 @@ where
 
     let span = {
         let last = result.last().unwrap();
-        Span::from_pair(import_kw, last)
+        Span::from_pair(&import_kw, last)
     };
 
     Ok((
@@ -247,17 +135,14 @@ where
     ))
 }
 
-pub fn simple_import_name<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<SimpleImportName>, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
+pub fn simple_import_name(input: Cursor) -> ParseResult<Spanned<SimpleImportName>> {
     let (input, path) = dotted_name(input)?;
     let (input, alias_tok) = opt(preceded(name_string("as"), name_token))(input)?;
 
     let (span, alias) = {
         match alias_tok {
             Some(tok) => (
-                Span::from_pair(&path, tok),
+                Span::from_pair(&path, &tok),
                 Some(tok.maybe_to_symbol().unwrap()),
             ),
             _ => (path.span, None),
@@ -277,19 +162,13 @@ where
 }
 
 /// Parse an import statement beginning with the "from" keyword.
-pub fn from_import<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<ModuleStmt>, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
+pub fn from_import(input: Cursor) -> ParseResult<Spanned<ModuleStmt>> {
     alt((from_import_parent_alt, from_import_sub_alt))(input)
 }
 
 /// Parse a "from" import with a path that contains only parent module
 /// components.
-pub fn from_import_parent_alt<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<ModuleStmt>, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
+pub fn from_import_parent_alt(input: Cursor) -> ParseResult<Spanned<ModuleStmt>> {
     let (input, from_kw) = name_string("from")(input)?;
     let (input, parent_level) = dots_to_int(input)?;
     let (input, _) = name_string("import")(input)?;
@@ -302,7 +181,7 @@ where
         },
         span: parent_level.span,
     };
-    let span = Span::from_pair(from_kw, names.span);
+    let span = Span::from_pair(&from_kw, names.span);
 
     Ok((
         input,
@@ -314,16 +193,13 @@ where
 }
 
 /// Parse a "from" import with a path that contains sub module components.
-pub fn from_import_sub_alt<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<ModuleStmt>, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
+pub fn from_import_sub_alt(input: Cursor) -> ParseResult<Spanned<ModuleStmt>> {
     let (input, from_kw) = name_string("from")(input)?;
     let (input, path) = from_import_sub_path(input)?;
     let (input, _) = name_string("import")(input)?;
     let (input, names) = from_import_names(input)?;
 
-    let span = Span::from_pair(from_kw, names.span);
+    let span = Span::from_pair(&from_kw, names.span);
 
     Ok((
         input,
@@ -335,10 +211,7 @@ where
 }
 
 /// Parse a path containing sub module components in a "from" import statement.
-pub fn from_import_sub_path<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<FromImportPath>, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
+pub fn from_import_sub_path(input: Cursor) -> ParseResult<Spanned<FromImportPath>> {
     let (input, opt_parent_level) = opt(dots_to_int)(input)?;
     let (input, dotted_name) = dotted_name(input)?;
 
@@ -365,10 +238,7 @@ where
 }
 
 /// Parse the names to be imported by a "from" import statement.
-pub fn from_import_names<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<FromImportNames>, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
+pub fn from_import_names(input: Cursor) -> ParseResult<Spanned<FromImportNames>> {
     alt((
         from_import_names_star,
         from_import_names_parens,
@@ -377,12 +247,7 @@ where
 }
 
 /// Parse a wildcard token ("*") in a "from" import statement.
-pub fn from_import_names_star<'a, E>(
-    input: TokenSlice<'a>,
-) -> TokenResult<Spanned<FromImportNames>, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
+pub fn from_import_names_star(input: Cursor) -> ParseResult<Spanned<FromImportNames>> {
     let (input, star) = token(Star)(input)?;
 
     Ok((
@@ -396,12 +261,7 @@ where
 
 /// Parse a parenthesized list of names to be imported by a "from" import
 /// statement.
-pub fn from_import_names_parens<'a, E>(
-    input: TokenSlice<'a>,
-) -> TokenResult<Spanned<FromImportNames>, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
+pub fn from_import_names_parens(input: Cursor) -> ParseResult<Spanned<FromImportNames>> {
     let (input, o_paren) = token(OpenParen)(input)?;
     let (input, names) = from_import_names_list(input)?;
     let (input, c_paren) = token(CloseParen)(input)?;
@@ -410,18 +270,13 @@ where
         input,
         Spanned {
             node: names.node,
-            span: Span::from_pair(o_paren, c_paren),
+            span: Span::from_pair(&o_paren, &c_paren),
         },
     ))
 }
 
 /// Parse a list of names to be imported by a "from" import statement.
-pub fn from_import_names_list<'a, E>(
-    input: TokenSlice<'a>,
-) -> TokenResult<Spanned<FromImportNames>, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
+pub fn from_import_names_list(input: Cursor) -> ParseResult<Spanned<FromImportNames>> {
     let (input, first_name) = from_import_name(input)?;
     let (input, mut other_names) = many0(preceded(token(Comma), from_import_name))(input)?;
     let (input, comma_tok) = opt(token(Comma))(input)?;
@@ -432,7 +287,7 @@ where
     let span = {
         let first = names.first().unwrap();
         match comma_tok {
-            Some(tok) => Span::from_pair(first, tok),
+            Some(tok) => Span::from_pair(first, &tok),
             None => {
                 let last = names.last().unwrap();
                 Span::from_pair(first, last)
@@ -450,10 +305,7 @@ where
 }
 
 /// Parse an import name with an optional alias in a "from" import statement.
-pub fn from_import_name<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<FromImportName>, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
+pub fn from_import_name(input: Cursor) -> ParseResult<Spanned<FromImportName>> {
     let (input, name_tok) = name_token(input)?;
     let (input, alias_tok) = opt(preceded(name_string("as"), name_token))(input)?;
 
@@ -461,7 +313,7 @@ where
     let (span, alias) = {
         match alias_tok {
             Some(tok) => (
-                Span::from_pair(name_tok, tok),
+                Span::from_pair(&name_tok, &tok),
                 Some(tok.maybe_to_symbol().unwrap()),
             ),
             _ => (name_tok.span, None),
@@ -478,10 +330,7 @@ where
 }
 
 /// Parse a dotted import name.
-pub fn dotted_name<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<Vec<Symbol>>, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
+pub fn dotted_name(input: Cursor) -> ParseResult<Spanned<Vec<Symbol>>> {
     let (input, first_part) = name_token(input)?;
     let (input, other_parts) = many0(preceded(token(Dot), name_token))(input)?;
 
@@ -492,7 +341,7 @@ where
         first_part.span
     } else {
         let last_part = other_parts.last().unwrap();
-        Span::from_pair(first_part, *last_part)
+        Span::from_pair(&first_part, last_part)
     };
 
     Ok((input, Spanned { node: path, span }))
@@ -500,10 +349,7 @@ where
 
 /// Parse preceding dots used to indicate parent module imports in import
 /// statements.
-pub fn dots_to_int<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<usize>, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
+pub fn dots_to_int(input: Cursor) -> ParseResult<Spanned<usize>> {
     let (input, toks) = many1(alt((token(Dot), token(Ellipsis))))(input)?;
 
     let value = toks
@@ -516,30 +362,27 @@ where
         let first = toks.first().unwrap();
         let last = toks.last().unwrap();
 
-        Span::from_pair(*first, *last)
+        Span::from_pair(first, last)
     };
 
     Ok((input, Spanned { node: value, span }))
 }
 
 /// Parse a contract definition statement.
-pub fn contract_def<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<ModuleStmt>, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
+pub fn contract_def(input: Cursor) -> ParseResult<Spanned<ModuleStmt>> {
     // "contract" name ":" NEWLINE
     let (input, contract_kw) = name_string("contract")(input)?;
     let (input, name) = name_token(input)?;
     let (input, _) = token(Colon)(input)?;
-    let (input, _) = newline_token(input)?;
+    let (input, _) = token(Newline)(input)?;
 
     // INDENT contract_stmt+ DEDENT
-    let (input, _) = indent_token(input)?;
+    let (input, _) = token(Indent)(input)?;
     let (input, body) = many1(contract_stmt)(input)?;
-    let (input, _) = dedent_token(input)?;
+    let (input, _) = token(Dedent)(input)?;
 
     let last_stmt = body.last().unwrap();
-    let span = Span::from_pair(contract_kw, last_stmt);
+    let span = Span::from_pair(&contract_kw, last_stmt);
 
     Ok((
         input,
@@ -554,31 +397,25 @@ where
 }
 
 /// Parse a contract statement.
-pub fn contract_stmt<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<ContractStmt>, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
+pub fn contract_stmt(input: Cursor) -> ParseResult<Spanned<ContractStmt>> {
     event_def(input)
 }
 
 /// Parse an event definition statement.
-pub fn event_def<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<ContractStmt>, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
+pub fn event_def(input: Cursor) -> ParseResult<Spanned<ContractStmt>> {
     // "event" name ":" NEWLINE
     let (input, event_kw) = name_string("event")(input)?;
     let (input, name) = name_token(input)?;
     let (input, _) = token(Colon)(input)?;
-    let (input, _) = newline_token(input)?;
+    let (input, _) = token(Newline)(input)?;
 
     // INDENT event_field+ DEDENT
-    let (input, _) = indent_token(input)?;
+    let (input, _) = token(Indent)(input)?;
     let (input, fields) = many1(event_field)(input)?;
-    let (input, _) = dedent_token(input)?;
+    let (input, _) = token(Dedent)(input)?;
 
     let last_field = fields.last().unwrap();
-    let span = Span::from_pair(event_kw, last_field);
+    let span = Span::from_pair(&event_kw, last_field);
 
     Ok((
         input,
@@ -593,23 +430,20 @@ where
 }
 
 /// Parse an event field definition.
-pub fn event_field<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<EventField>, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
+pub fn event_field(input: Cursor) -> ParseResult<Spanned<EventField>> {
     let (input, name) = name_token(input)?;
     let (input, _) = token(Colon)(input)?;
     let (input, typ) = name_token(input)?;
-    let (input, _) = newline_token(input)?;
+    let (input, _) = token(Newline)(input)?;
 
-    let span = Span::from_pair(name, typ);
+    let span = Span::from_pair(&name, &typ);
 
     Ok((
         input,
         Spanned {
             node: EventField {
                 name: name.maybe_to_symbol().unwrap(),
-                typ: typ.into(),
+                typ: (&typ).into(),
             },
             span,
         },
@@ -617,10 +451,7 @@ where
 }
 
 /// Parse a constant expression that can be evaluated at compile-time.
-pub fn const_expr<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<ConstExpr>, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
+pub fn const_expr(input: Cursor) -> ParseResult<Spanned<ConstExpr>> {
     let (input, head) = const_term(input)?;
     let (input, tail) = many0(alt((
         pair(token(Plus), const_term),
@@ -634,7 +465,7 @@ where
         left_expr = Spanned {
             node: ConstExpr::BinOp {
                 left: Box::new(left_expr),
-                op: Operator::try_from(op_tok).unwrap(),
+                op: Operator::try_from(&op_tok).unwrap(),
                 right: Box::new(right_expr),
             },
             span,
@@ -646,10 +477,7 @@ where
 
 /// Parse a constant term that may appear as the operand of an addition or
 /// subtraction.
-pub fn const_term<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<ConstExpr>, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
+pub fn const_term(input: Cursor) -> ParseResult<Spanned<ConstExpr>> {
     let (input, head) = const_factor(input)?;
     let (input, tail) = many0(alt((
         pair(token(Star), const_factor),
@@ -664,7 +492,7 @@ where
         left_expr = Spanned {
             node: ConstExpr::BinOp {
                 left: Box::new(left_expr),
-                op: Operator::try_from(op_tok).unwrap(),
+                op: Operator::try_from(&op_tok).unwrap(),
                 right: Box::new(right_expr),
             },
             span,
@@ -676,19 +504,16 @@ where
 
 /// Parse a constant factor that may appear as the operand of a multiplication,
 /// division, modulus, or unary op or as the exponent of a power expression.
-pub fn const_factor<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<ConstExpr>, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
+pub fn const_factor(input: Cursor) -> ParseResult<Spanned<ConstExpr>> {
     let unary_op = map(
         pair(alt((token(Plus), token(Minus), token(Tilde))), const_factor),
         |res| {
             let (op_tok, operand) = res;
-            let span = Span::from_pair(op_tok, &operand);
+            let span = Span::from_pair(&op_tok, &operand);
 
             Spanned {
                 node: ConstExpr::UnaryOp {
-                    op: UnaryOp::try_from(op_tok).unwrap(),
+                    op: UnaryOp::try_from(&op_tok).unwrap(),
                     operand: Box::new(operand),
                 },
                 span,
@@ -701,10 +526,7 @@ where
 
 /// Parse a constant power expression that may appear in the position of a
 /// constant factor.
-pub fn const_power<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<ConstExpr>, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
+pub fn const_power(input: Cursor) -> ParseResult<Spanned<ConstExpr>> {
     let bin_op = map(
         separated_pair(const_atom, token(StarStar), const_factor),
         |res| {
@@ -727,10 +549,7 @@ where
 
 /// Parse a constant atom expression that may appear in the position of a
 /// constant power or as the base of a constant power expression.
-pub fn const_atom<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<ConstExpr>, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
+pub fn const_atom(input: Cursor) -> ParseResult<Spanned<ConstExpr>> {
     alt((
         const_group,
         map(name_token, |t| Spanned {
@@ -739,7 +558,7 @@ where
             },
             span: t.span,
         }),
-        map(num_token, |t| Spanned {
+        map(token(Num), |t| Spanned {
             node: ConstExpr::Num,
             span: t.span,
         }),
@@ -748,10 +567,7 @@ where
 
 /// Parse a parenthesized constant group that may appear in the position of a
 /// constant atom.
-pub fn const_group<'a, E>(input: TokenSlice<'a>) -> TokenResult<Spanned<ConstExpr>, E>
-where
-    E: ParseError<TokenSlice<'a>>,
-{
+pub fn const_group(input: Cursor) -> ParseResult<Spanned<ConstExpr>> {
     let (input, o_paren) = token(OpenParen)(input)?;
     let (input, spanned_expr) = const_expr(input)?;
     let (input, c_paren) = token(CloseParen)(input)?;
@@ -760,7 +576,7 @@ where
         input,
         Spanned {
             node: spanned_expr.node,
-            span: Span::from_pair(o_paren, c_paren),
+            span: Span::from_pair(&o_paren, &c_paren),
         },
     ))
 }
