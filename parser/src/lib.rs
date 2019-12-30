@@ -18,7 +18,7 @@ use tokenizer::{
     TokenizeError,
 };
 
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Clone, Copy)]
 pub enum Location {
     Span(Span),
     Eof,
@@ -235,14 +235,103 @@ where
     }
 }
 
+pub fn many0<O, P>(parser: P) -> impl Fn(Cursor) -> ParseResult<Vec<O>>
+where
+    P: Fn(Cursor) -> ParseResult<O>,
+{
+    move |input| {
+        if input.eof() {
+            return Err(ParseError::at_eof("many0: can't parse at eof".to_string()));
+        }
+
+        let mut input = input;
+        let mut results = vec![];
+
+        loop {
+            match parser(input) {
+                Ok((next_input, next)) => {
+                    input = next_input;
+                    results.push(next);
+                }
+                Err(_) => break,
+            }
+        }
+
+        Ok((input, results))
+    }
+}
+
+pub fn preceded<O1, O2, F, G>(f: F, g: G) -> impl Fn(Cursor) -> ParseResult<O2>
+where
+    F: Fn(Cursor) -> ParseResult<O1>,
+    G: Fn(Cursor) -> ParseResult<O2>,
+{
+    move |input| {
+        let (input, _) = f(input)?;
+        let (input, result) = g(input)?;
+        Ok((input, result))
+    }
+}
+
 pub fn terminated<O1, O2, F, G>(f: F, g: G) -> impl Fn(Cursor) -> ParseResult<O1>
 where
     F: Fn(Cursor) -> ParseResult<O1>,
     G: Fn(Cursor) -> ParseResult<O2>,
 {
     move |input| {
-        let (input, content) = f(input)?;
+        let (input, result) = f(input)?;
         let (input, _) = g(input)?;
-        Ok((input, content))
+        Ok((input, result))
+    }
+}
+
+pub fn pair<O1, O2, F, G>(f: F, g: G) -> impl Fn(Cursor) -> ParseResult<(O1, O2)>
+where
+    F: Fn(Cursor) -> ParseResult<O1>,
+    G: Fn(Cursor) -> ParseResult<O2>,
+{
+    move |input| {
+        let (input, result_1) = f(input)?;
+        let (input, result_2) = g(input)?;
+        Ok((input, (result_1, result_2)))
+    }
+}
+
+pub fn separated_pair<O1, O2, O3, F, G, H>(
+    f: F,
+    g: G,
+    h: H,
+) -> impl Fn(Cursor) -> ParseResult<(O1, O3)>
+where
+    F: Fn(Cursor) -> ParseResult<O1>,
+    G: Fn(Cursor) -> ParseResult<O2>,
+    H: Fn(Cursor) -> ParseResult<O3>,
+{
+    move |input| {
+        let (input, result_1) = f(input)?;
+        let (input, _) = g(input)?;
+        let (input, result_2) = h(input)?;
+        Ok((input, (result_1, result_2)))
+    }
+}
+
+pub fn opt<O, F>(f: F) -> impl Fn(Cursor) -> ParseResult<Option<O>>
+where
+    F: Fn(Cursor) -> ParseResult<O>,
+{
+    move |input| match f(input) {
+        Ok((input_ok, result)) => Ok((input_ok, Some(result))),
+        Err(_) => Ok((input, None)),
+    }
+}
+
+pub fn map<O1, O2, P, F>(parser: P, f: F) -> impl Fn(Cursor) -> ParseResult<O2>
+where
+    P: Fn(Cursor) -> ParseResult<O1>,
+    F: Fn(O1) -> O2,
+{
+    move |input| match parser(input) {
+        Ok((input_ok, result)) => Ok((input_ok, f(result))),
+        Err(err) => Err(err),
     }
 }
