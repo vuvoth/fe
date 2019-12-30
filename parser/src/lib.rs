@@ -31,12 +31,12 @@ pub struct ParseErrorInfo {
 }
 
 #[derive(Debug, PartialEq)]
-pub enum ParserError {
+pub enum ParseError {
     One(ParseErrorInfo),
     Many(Vec<ParseErrorInfo>),
 }
 
-impl ParserError {
+impl ParseError {
     pub fn new(msg: String, loc: Location) -> Self {
         Self::One(ParseErrorInfo { msg, loc })
     }
@@ -78,7 +78,7 @@ pub struct Cursor {
     buf: *const ParseBuffer,
 }
 
-pub type ParseResult<O> = Result<(Cursor, O), ParserError>;
+pub type ParseResult<O> = Result<(Cursor, O), ParseError>;
 
 impl ParseBuffer {
     pub fn from_source(source: String) -> Result<Self, TokenizeError> {
@@ -143,7 +143,7 @@ impl Cursor {
     #[inline]
     fn next(&self) -> ParseResult<Token> {
         match self.token() {
-            None => Err(ParserError::at_eof(
+            None => Err(ParseError::at_eof(
                 "reached end of parse buffer".to_string(),
             )),
             Some(tok) => Ok((self.bump(), tok)),
