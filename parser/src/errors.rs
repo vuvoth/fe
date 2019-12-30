@@ -26,6 +26,7 @@ pub fn format_debug_error(input: &str, err: ParseError) -> String {
                     None => string_positions.get_last().unwrap(),
                 },
             };
+
             result += &format!("at line {} col {}, {}:\n", pos.line, pos.col, msg);
 
             result += &lines[pos.line - 1];
@@ -47,6 +48,7 @@ pub fn format_debug_error(input: &str, err: ParseError) -> String {
                         None => string_positions.get_last().unwrap(),
                     },
                 };
+
                 result += &format!("{}: at line {} col {}, {}:\n", i, pos.line, pos.col, msg);
 
                 result += &lines[pos.line - 1];
