@@ -183,5 +183,7 @@ pub enum ConstExpr {
     Name {
         name: Symbol,
     },
-    Num,
+    Num {
+        num: String,
+    },
 }

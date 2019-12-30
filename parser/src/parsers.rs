@@ -561,7 +561,9 @@ pub fn const_atom(input: Cursor) -> ParseResult<Spanned<ConstExpr>> {
             span: t.span,
         }),
         map(token(Num), |t| Spanned {
-            node: ConstExpr::Num,
+            node: ConstExpr::Num {
+                num: unsafe { input.span_to_string(t.span) },
+            },
             span: t.span,
         }),
     ))(input)

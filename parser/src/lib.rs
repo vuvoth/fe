@@ -88,6 +88,7 @@ impl ParseBuffer {
         })
     }
 
+    #[inline]
     pub fn span_to_string(&self, span: Span) -> String {
         self.source[span.start..span.end].to_string()
     }
@@ -130,6 +131,11 @@ impl Cursor {
         } else {
             Some(unsafe { *self.ptr })
         }
+    }
+
+    #[inline]
+    pub unsafe fn span_to_string(&self, span: Span) -> String {
+        (*self.buf).span_to_string(span)
     }
 
     #[inline]

@@ -4,7 +4,9 @@ Spanned(
   node: UnaryOp(
     op: USub,
     operand: Spanned(
-      node: Num,
+      node: Num(
+        num: "1",
+      ),
       span: Span(
         start: 1,
         end: 2,

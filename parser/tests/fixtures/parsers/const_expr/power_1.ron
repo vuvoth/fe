@@ -3,7 +3,9 @@
 Spanned(
   node: BinOp(
     left: Spanned(
-      node: Num,
+      node: Num(
+        num: "2",
+      ),
       span: Span(
         start: 0,
         end: 1,
@@ -11,7 +13,9 @@ Spanned(
     ),
     op: Pow,
     right: Spanned(
-      node: Num,
+      node: Num(
+        num: "8",
+      ),
       span: Span(
         start: 5,
         end: 6,
