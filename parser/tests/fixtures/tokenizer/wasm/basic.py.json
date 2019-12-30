@@ -17,9 +17,7 @@ test = 'foo'
     }
   },
   {
-    "kind": {
-      "Comment": "# Test comment"
-    },
+    "kind": "Comment",
     "span": {
       "start": 1,
       "end": 15
@@ -127,9 +125,7 @@ test = 'foo'
     }
   },
   {
-    "kind": {
-      "Str": "'bar'"
-    },
+    "kind": "Str",
     "span": {
       "start": 79,
       "end": 84
@@ -212,9 +208,7 @@ test = 'foo'
     }
   },
   {
-    "kind": {
-      "Str": "'bar'"
-    },
+    "kind": "Str",
     "span": {
       "start": 116,
       "end": 121
@@ -265,9 +259,7 @@ test = 'foo'
     }
   },
   {
-    "kind": {
-      "Str": "'foo'"
-    },
+    "kind": "Str",
     "span": {
       "start": 130,
       "end": 135
