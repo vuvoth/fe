@@ -89,26 +89,16 @@ macro_rules! assert_parser_ok {
     }};
 }
 
-/// Assert that `$parser` succeeds and parses all tokens when applied to the
-/// given input.  Expected results are defined as serializations.  Print a debug
-/// trace if parsing fails.
 macro_rules! assert_fixtures_parsed {
-    ($parser:expr, $($path:expr),+,) => {{
-        assert_fixtures_parsed!($parser, $($path),+)
-    }};
-    ($parser:expr, $($path:expr),+) => {{
-        let test_files = vec![
-            $(($path, include_test_example!($path))),+
-        ];
-
-        for (filename, (inp, expected_ser)) in test_files {
-            let tokens = get_parse_tokens(inp).unwrap();
+    ($parser:expr) => {{
+        move |filename: &str, input: &str, expected_ser: &str| {
+            let tokens = get_parse_tokens(input).unwrap();
             let actual: TokenResult<_, VerboseError<_>> = $parser(&tokens[..]);
 
             if let Err(err) = &actual {
                 match err {
                     NomErr::Error(e) | NomErr::Failure(e) => {
-                        println!("Parsing trace:\n{}", format_debug_error(inp, e.clone()));
+                        println!("Parsing trace:\n{}", format_debug_error(input, e.clone()));
                     }
                     _ => (),
                 }
@@ -131,8 +121,8 @@ macro_rules! assert_fixtures_parsed {
 #[test]
 #[wasm_bindgen_test]
 fn test_const_expr_ok() {
-    assert_fixtures_parsed!(
-        standalone(const_expr),
+    do_with_fixtures!(
+        assert_fixtures_parsed!(standalone(const_expr)),
         "fixtures/parsers/const_expr/number_1.ron",
         "fixtures/parsers/const_expr/number_2.ron",
         "fixtures/parsers/const_expr/name_1.ron",
@@ -190,8 +180,8 @@ fn test_file_input_empty_file() {
 #[test]
 #[wasm_bindgen_test]
 fn test_file_input() {
-    assert_fixtures_parsed!(
-        file_input,
+    do_with_fixtures!(
+        assert_fixtures_parsed!(file_input),
         "fixtures/parsers/file_input/one_stmt_no_whitespace.ron",
         "fixtures/parsers/file_input/one_stmt_leading_whitespace.ron",
         "fixtures/parsers/file_input/one_stmt_leading_trailing.ron",
@@ -206,8 +196,8 @@ fn test_file_input() {
 #[test]
 #[wasm_bindgen_test]
 fn test_import_stmt() {
-    assert_fixtures_parsed!(
-        terminated(many1(import_stmt), endmarker_token),
+    do_with_fixtures!(
+        assert_fixtures_parsed!(terminated(many1(import_stmt), endmarker_token)),
         "fixtures/parsers/import_stmt.ron",
     );
 }
@@ -215,8 +205,8 @@ fn test_import_stmt() {
 #[test]
 #[wasm_bindgen_test]
 fn test_simple_import() {
-    assert_fixtures_parsed!(
-        standalone_vec(simple_import),
+    do_with_fixtures!(
+        assert_fixtures_parsed!(standalone_vec(simple_import)),
         "fixtures/parsers/simple_import.ron",
     );
 }
@@ -224,8 +214,8 @@ fn test_simple_import() {
 #[test]
 #[wasm_bindgen_test]
 fn test_simple_import_name() {
-    assert_fixtures_parsed!(
-        standalone_vec(simple_import_name),
+    do_with_fixtures!(
+        assert_fixtures_parsed!(standalone_vec(simple_import_name)),
         "fixtures/parsers/simple_import_name.ron",
     );
 }
@@ -233,8 +223,8 @@ fn test_simple_import_name() {
 #[test]
 #[wasm_bindgen_test]
 fn test_from_import() {
-    assert_fixtures_parsed!(
-        standalone_vec(from_import),
+    do_with_fixtures!(
+        assert_fixtures_parsed!(standalone_vec(from_import)),
         "fixtures/parsers/from_import.ron",
     );
 }
@@ -242,8 +232,8 @@ fn test_from_import() {
 #[test]
 #[wasm_bindgen_test]
 fn test_from_import_sub_path() {
-    assert_fixtures_parsed!(
-        standalone_vec(from_import_sub_path),
+    do_with_fixtures!(
+        assert_fixtures_parsed!(standalone_vec(from_import_sub_path)),
         "fixtures/parsers/from_import_sub_path.ron",
     );
 }
@@ -251,8 +241,8 @@ fn test_from_import_sub_path() {
 #[test]
 #[wasm_bindgen_test]
 fn test_from_import_names() {
-    assert_fixtures_parsed!(
-        standalone_vec(from_import_names),
+    do_with_fixtures!(
+        assert_fixtures_parsed!(standalone_vec(from_import_names)),
         "fixtures/parsers/from_import_names.ron",
     );
 }
@@ -260,8 +250,8 @@ fn test_from_import_names() {
 #[test]
 #[wasm_bindgen_test]
 fn test_from_import_names_list() {
-    assert_fixtures_parsed!(
-        standalone_vec(from_import_names_list),
+    do_with_fixtures!(
+        assert_fixtures_parsed!(standalone_vec(from_import_names_list)),
         "fixtures/parsers/from_import_names_list.ron",
     );
 }
@@ -269,8 +259,8 @@ fn test_from_import_names_list() {
 #[test]
 #[wasm_bindgen_test]
 fn test_from_import_name() {
-    assert_fixtures_parsed!(
-        standalone_vec(from_import_name),
+    do_with_fixtures!(
+        assert_fixtures_parsed!(standalone_vec(from_import_name)),
         "fixtures/parsers/from_import_name.ron",
     );
 }
@@ -278,8 +268,8 @@ fn test_from_import_name() {
 #[test]
 #[wasm_bindgen_test]
 fn test_dotted_name() {
-    assert_fixtures_parsed!(
-        standalone_vec(dotted_name),
+    do_with_fixtures!(
+        assert_fixtures_parsed!(standalone_vec(dotted_name)),
         "fixtures/parsers/dotted_name.ron",
     );
 }
@@ -287,8 +277,8 @@ fn test_dotted_name() {
 #[test]
 #[wasm_bindgen_test]
 fn test_dots_to_int() {
-    assert_fixtures_parsed!(
-        standalone_vec(dots_to_int),
+    do_with_fixtures!(
+        assert_fixtures_parsed!(standalone_vec(dots_to_int)),
         "fixtures/parsers/dots_to_int.ron",
     );
 }
