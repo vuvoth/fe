@@ -1,22 +1,7 @@
 extern crate wasm_bindgen_test;
 
-#[macro_use]
-mod utils;
-
-use nom::error::{
-    ErrorKind,
-    ParseError,
-    VerboseError,
-};
-use nom::multi::many1;
-use nom::sequence::terminated;
-use nom::Err as NomErr;
 use wasm_bindgen_test::wasm_bindgen_test;
 
-use utils::{
-    parse_test_example,
-    to_ron_string_pretty,
-};
 use vyper_parser::ast::Module;
 use vyper_parser::errors::format_debug_error;
 use vyper_parser::parsers::*;
@@ -24,23 +9,37 @@ use vyper_parser::span::{
     Span,
     Spanned,
 };
+use vyper_parser::tokenizer::TokenKind;
+use vyper_parser::{
+    many1,
+    terminated,
+    Cursor,
+    ParseBuffer,
+    ParseResult,
+};
 
-type SimpleError<I> = (I, ErrorKind);
+#[macro_use]
+mod utils;
+use utils::{
+    parse_test_example,
+    to_ron_string_pretty,
+};
 
 /// Convert a parser into one that can function as a standalone file parser.
 /// File tokenizations always include a trailing `NEWLINE` and `ENDMARKER`
 /// token.  Parsers defined lower in the grammar tree are not intended to handle
 /// that kind of tokenization.  This combinator modifies lower-level parsers to
 /// handle such tokenizations to facilitate unit testing.
-fn standalone<'a, O, E, F>(parser: F) -> impl Fn(TokenSlice<'a>) -> TokenResult<'a, O, E>
+fn standalone<O, P>(parser: P) -> impl Fn(Cursor) -> ParseResult<O>
 where
-    E: ParseError<TokenSlice<'a>>,
-    F: Fn(TokenSlice<'a>) -> TokenResult<'a, O, E>,
+    P: Fn(Cursor) -> ParseResult<O>,
 {
-    move |input: TokenSlice<'a>| {
+    use TokenKind::*;
+
+    move |input| {
         let (input, o) = parser(input)?;
-        let (input, _) = newline_token(input)?;
-        let (input, _) = endmarker_token(input)?;
+        let (input, _) = token(Newline)(input)?;
+        let (input, _) = token(EndMarker)(input)?;
 
         Ok((input, o))
     }
@@ -49,14 +48,15 @@ where
 /// Convert a parser into one that can function as a standalone parser that
 /// applies itself one or more times to an input and returns all outputs in a
 /// vector.
-fn standalone_vec<'a, O, E, F>(parser: F) -> impl Fn(TokenSlice<'a>) -> TokenResult<'a, Vec<O>, E>
+fn standalone_vec<P, O>(parser: P) -> impl Fn(Cursor) -> ParseResult<Vec<O>>
 where
-    E: ParseError<TokenSlice<'a>>,
-    F: Fn(TokenSlice<'a>) -> TokenResult<'a, O, E> + Copy,
+    P: Fn(Cursor) -> ParseResult<O> + Copy,
 {
-    move |input: TokenSlice<'a>| {
-        let (input, o) = many1(terminated(parser, newline_token))(input)?;
-        let (input, _) = endmarker_token(input)?;
+    use TokenKind::*;
+
+    move |input| {
+        let (input, o) = many1(terminated(parser, token(Newline)))(input)?;
+        let (input, _) = token(EndMarker)(input)?;
 
         Ok((input, o))
     }
@@ -69,51 +69,39 @@ macro_rules! assert_parser_ok {
         assert_parser_ok!($parser, $examples);
     }};
     ($parser:expr, $examples:expr) => {{
-        for (inp, expected) in $examples {
-            let tokens = get_parse_tokens(inp).unwrap();
-            let actual: TokenResult<_, SimpleError<_>> = $parser(&tokens[..]);
+        for (input, expected) in $examples {
+            let (input, actual) = ParseBuffer::from_source(input.to_string())
+                .unwrap()
+                .apply($parser)
+                .unwrap();
 
+            assert!(input.eof());
             assert_eq!(actual, expected);
-        }
-    }};
-    ($parser:expr, $examples:expr, $expected:expr,) => {{
-        assert_parser_ok!($parser, $examples, $expected);
-    }};
-    ($parser:expr, $examples:expr, $expected:expr) => {{
-        for inp in $examples {
-            let tokens = get_parse_tokens(inp).unwrap();
-            let actual: TokenResult<_, SimpleError<_>> = $parser(&tokens[..]);
-
-            assert_eq!(actual, $expected);
         }
     }};
 }
 
-macro_rules! assert_fixtures_parsed {
+macro_rules! assert_fixture_parsed_with {
     ($parser:expr) => {{
         move |filename: &str, input: &str, expected_ser: &str| {
-            let tokens = get_parse_tokens(input).unwrap();
-            let actual: TokenResult<_, VerboseError<_>> = $parser(&tokens[..]);
+            let actual = ParseBuffer::from_source(input.to_string())
+                .unwrap()
+                .apply($parser);
 
-            if let Err(err) = &actual {
-                match err {
-                    NomErr::Error(e) | NomErr::Failure(e) => {
-                        println!("Parsing trace:\n{}", format_debug_error(input, e.clone()));
-                    }
-                    _ => (),
+            match actual {
+                Err(err) => panic!("{:?}", format_debug_error(input, err)),
+                Ok((cursor, ast)) => {
+                    let actual_ser = to_ron_string_pretty(&ast).unwrap();
+
+                    assert!(cursor.eof());
+                    assert_strings_eq!(
+                        actual_ser,
+                        expected_ser,
+                        "\nParsing results did not match for {}",
+                        filename,
+                    );
                 }
             }
-
-            let (actual_remaining, actual_ast) = actual.unwrap();
-            let actual_ser = to_ron_string_pretty(&actual_ast).unwrap();
-
-            assert_eq!(actual_remaining, empty_slice!());
-            assert_strings_eq!(
-                actual_ser,
-                expected_ser,
-                "\nParsing results did not match for {}",
-                filename,
-            );
         }
     }};
 }
@@ -122,7 +110,7 @@ macro_rules! assert_fixtures_parsed {
 #[wasm_bindgen_test]
 fn test_const_expr_ok() {
     do_with_fixtures!(
-        assert_fixtures_parsed!(standalone(const_expr)),
+        assert_fixture_parsed_with!(standalone(const_expr)),
         "fixtures/parsers/const_expr/number_1.ron",
         "fixtures/parsers/const_expr/number_2.ron",
         "fixtures/parsers/const_expr/name_1.ron",
@@ -145,33 +133,24 @@ fn test_file_input_empty_file() {
         vec![
             (
                 "",
-                Ok((
-                    empty_slice!(),
-                    Spanned {
-                        node: Module { body: vec![] },
-                        span: Span::new(0, 0),
-                    }
-                ))
+                Spanned {
+                    node: Module { body: vec![] },
+                    span: Span::new(0, 0),
+                },
             ),
             (
                 "  \t ",
-                Ok((
-                    empty_slice!(),
-                    Spanned {
-                        node: Module { body: vec![] },
-                        span: Span::new(4, 4),
-                    }
-                ))
+                Spanned {
+                    node: Module { body: vec![] },
+                    span: Span::new(4, 4),
+                },
             ),
             (
                 " \n\n   \t \n \t ",
-                Ok((
-                    empty_slice!(),
-                    Spanned {
-                        node: Module { body: vec![] },
-                        span: Span::new(12, 12),
-                    }
-                ))
+                Spanned {
+                    node: Module { body: vec![] },
+                    span: Span::new(12, 12),
+                },
             ),
         ],
     );
@@ -181,7 +160,7 @@ fn test_file_input_empty_file() {
 #[wasm_bindgen_test]
 fn test_file_input() {
     do_with_fixtures!(
-        assert_fixtures_parsed!(file_input),
+        assert_fixture_parsed_with!(file_input),
         "fixtures/parsers/file_input/one_stmt_no_whitespace.ron",
         "fixtures/parsers/file_input/one_stmt_leading_whitespace.ron",
         "fixtures/parsers/file_input/one_stmt_leading_trailing.ron",
@@ -197,7 +176,7 @@ fn test_file_input() {
 #[wasm_bindgen_test]
 fn test_import_stmt() {
     do_with_fixtures!(
-        assert_fixtures_parsed!(terminated(many1(import_stmt), endmarker_token)),
+        assert_fixture_parsed_with!(terminated(many1(import_stmt), token(TokenKind::EndMarker))),
         "fixtures/parsers/import_stmt.ron",
     );
 }
@@ -206,7 +185,7 @@ fn test_import_stmt() {
 #[wasm_bindgen_test]
 fn test_simple_import() {
     do_with_fixtures!(
-        assert_fixtures_parsed!(standalone_vec(simple_import)),
+        assert_fixture_parsed_with!(standalone_vec(simple_import)),
         "fixtures/parsers/simple_import.ron",
     );
 }
@@ -215,7 +194,7 @@ fn test_simple_import() {
 #[wasm_bindgen_test]
 fn test_simple_import_name() {
     do_with_fixtures!(
-        assert_fixtures_parsed!(standalone_vec(simple_import_name)),
+        assert_fixture_parsed_with!(standalone_vec(simple_import_name)),
         "fixtures/parsers/simple_import_name.ron",
     );
 }
@@ -224,7 +203,7 @@ fn test_simple_import_name() {
 #[wasm_bindgen_test]
 fn test_from_import() {
     do_with_fixtures!(
-        assert_fixtures_parsed!(standalone_vec(from_import)),
+        assert_fixture_parsed_with!(standalone_vec(from_import)),
         "fixtures/parsers/from_import.ron",
     );
 }
@@ -233,7 +212,7 @@ fn test_from_import() {
 #[wasm_bindgen_test]
 fn test_from_import_sub_path() {
     do_with_fixtures!(
-        assert_fixtures_parsed!(standalone_vec(from_import_sub_path)),
+        assert_fixture_parsed_with!(standalone_vec(from_import_sub_path)),
         "fixtures/parsers/from_import_sub_path.ron",
     );
 }
@@ -242,7 +221,7 @@ fn test_from_import_sub_path() {
 #[wasm_bindgen_test]
 fn test_from_import_names() {
     do_with_fixtures!(
-        assert_fixtures_parsed!(standalone_vec(from_import_names)),
+        assert_fixture_parsed_with!(standalone_vec(from_import_names)),
         "fixtures/parsers/from_import_names.ron",
     );
 }
@@ -251,7 +230,7 @@ fn test_from_import_names() {
 #[wasm_bindgen_test]
 fn test_from_import_names_list() {
     do_with_fixtures!(
-        assert_fixtures_parsed!(standalone_vec(from_import_names_list)),
+        assert_fixture_parsed_with!(standalone_vec(from_import_names_list)),
         "fixtures/parsers/from_import_names_list.ron",
     );
 }
@@ -260,7 +239,7 @@ fn test_from_import_names_list() {
 #[wasm_bindgen_test]
 fn test_from_import_name() {
     do_with_fixtures!(
-        assert_fixtures_parsed!(standalone_vec(from_import_name)),
+        assert_fixture_parsed_with!(standalone_vec(from_import_name)),
         "fixtures/parsers/from_import_name.ron",
     );
 }
@@ -269,7 +248,7 @@ fn test_from_import_name() {
 #[wasm_bindgen_test]
 fn test_dotted_name() {
     do_with_fixtures!(
-        assert_fixtures_parsed!(standalone_vec(dotted_name)),
+        assert_fixture_parsed_with!(standalone_vec(dotted_name)),
         "fixtures/parsers/dotted_name.ron",
     );
 }
@@ -278,7 +257,7 @@ fn test_dotted_name() {
 #[wasm_bindgen_test]
 fn test_dots_to_int() {
     do_with_fixtures!(
-        assert_fixtures_parsed!(standalone_vec(dots_to_int)),
+        assert_fixture_parsed_with!(standalone_vec(dots_to_int)),
         "fixtures/parsers/dots_to_int.ron",
     );
 }
