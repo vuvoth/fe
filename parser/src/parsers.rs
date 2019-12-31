@@ -137,6 +137,7 @@ pub fn simple_import(input: Cursor) -> ParseResult<Spanned<ModuleStmt>> {
     ))
 }
 
+/// Parse a name that is being imported by a simple import statement.
 pub fn simple_import_name(input: Cursor) -> ParseResult<Spanned<SimpleImportName>> {
     let (input, path) = dotted_name(input)?;
     let (input, alias_tok) = opt(preceded(name_string("as"), name_token))(input)?;
@@ -331,14 +332,19 @@ pub fn from_import_name(input: Cursor) -> ParseResult<Spanned<FromImportName>> {
     ))
 }
 
+/// Parse a type description such as "bool", "map<address, uint256>", etc.
 pub fn type_desc(input: Cursor) -> ParseResult<Spanned<TypeDesc>> {
     alt((map_type, base_type))(input)
 }
 
+/// Parse a map type such as "map<address, uint256>" etc.
 pub fn map_type(input: Cursor) -> ParseResult<Spanned<TypeDesc>> {
     alt((map_type_double, map_type_single))(input)
 }
 
+/// Parse a map type that ends with a right-shift token.
+///
+/// Example: map<address, map<address, bool>>
 pub fn map_type_double(input: Cursor) -> ParseResult<Spanned<TypeDesc>> {
     let (input, map_kw_1) = name_string("map")(input)?;
     let (input, _) = token(Lt)(input)?;
@@ -373,6 +379,9 @@ pub fn map_type_double(input: Cursor) -> ParseResult<Spanned<TypeDesc>> {
     ))
 }
 
+/// Parse a map type that ends with a greater-than token.
+///
+/// Example: map<address, bool>
 pub fn map_type_single(input: Cursor) -> ParseResult<Spanned<TypeDesc>> {
     let (input, map_kw) = name_string("map")(input)?;
     let (input, _) = token(Lt)(input)?;
@@ -393,6 +402,8 @@ pub fn map_type_single(input: Cursor) -> ParseResult<Spanned<TypeDesc>> {
     ))
 }
 
+/// Parse a base type such as "bool", "uint129[10]", etc.  This does not include
+/// map types.
 pub fn base_type(input: Cursor) -> ParseResult<Spanned<TypeDesc>> {
     let (input, base) = name_token(input)?;
     let (input, dims) = arr_list(input)?;
@@ -418,10 +429,12 @@ pub fn base_type(input: Cursor) -> ParseResult<Spanned<TypeDesc>> {
     Ok((input, result))
 }
 
+/// Parse an array dimension list such as "[10][2]".
 pub fn arr_list(input: Cursor) -> ParseResult<Vec<Spanned<usize>>> {
     many0(arr_dim)(input)
 }
 
+/// Parse a single array dimension such as "[10]".
 pub fn arr_dim(input: Cursor) -> ParseResult<Spanned<usize>> {
     let (input, l_bracket) = token(OpenBracket)(input)?;
     let (input, num_tok) = token(Num)(input)?;
