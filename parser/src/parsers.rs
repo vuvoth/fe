@@ -351,14 +351,14 @@ pub fn map_type_double(input: Cursor) -> ParseResult<Spanned<TypeDesc>> {
     let (input, _) = token(Comma)(input)?;
 
     let (input, to) = type_desc(input)?;
-    let (input, r_bracket) = token(Shr)(input)?;
+    let (input, r_brackets) = token(Shr)(input)?;
 
     let inner_map = Spanned {
         node: TypeDesc::Map {
             from: Box::new(from_2),
             to: Box::new(to),
         },
-        span: Span::new(map_kw_2.span.start, r_bracket.span.end - 1),
+        span: Span::new(map_kw_2.span.start, r_brackets.span.end - 1),
     };
 
     Ok((
@@ -368,7 +368,7 @@ pub fn map_type_double(input: Cursor) -> ParseResult<Spanned<TypeDesc>> {
                 from: Box::new(from_1),
                 to: Box::new(inner_map),
             },
-            span: Span::from_pair(&map_kw_1, &r_bracket),
+            span: Span::from_pair(&map_kw_1, &r_brackets),
         },
     ))
 }
