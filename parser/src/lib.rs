@@ -331,13 +331,13 @@ where
     }
 }
 
-pub fn map<O1, O2, P, F>(parser: P, f: F) -> impl Fn(Cursor) -> ParseResult<O2>
+pub fn map<O1, O2, P, F>(parser: P, mapper: F) -> impl Fn(Cursor) -> ParseResult<O2>
 where
     P: Fn(Cursor) -> ParseResult<O1>,
     F: Fn(O1) -> O2,
 {
     move |input| match parser(input) {
-        Ok((input_ok, result)) => Ok((input_ok, f(result))),
+        Ok((input_ok, result)) => Ok((input_ok, mapper(result))),
         Err(err) => Err(err),
     }
 }
