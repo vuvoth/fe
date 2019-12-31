@@ -56,7 +56,7 @@ pub fn name_token(input: Cursor) -> ParseResult<Token> {
     }
 }
 
-/// Parse a name token.
+/// Parse a num token.
 pub fn num_token(input: Cursor) -> ParseResult<Token> {
     let (input, tok) = input.next_tok()?;
 
