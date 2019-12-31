@@ -261,3 +261,48 @@ fn test_dots_to_int() {
         "fixtures/parsers/dots_to_int.ron",
     );
 }
+
+#[test]
+#[wasm_bindgen_test]
+fn test_type_desc() {
+    do_with_fixtures!(
+        assert_fixture_parsed_with!(standalone_vec(type_desc)),
+        "fixtures/parsers/type_desc.ron",
+    );
+}
+
+#[test]
+#[wasm_bindgen_test]
+fn test_map_type() {
+    do_with_fixtures!(
+        assert_fixture_parsed_with!(standalone_vec(map_type)),
+        "fixtures/parsers/map_type.ron",
+    );
+}
+
+#[test]
+#[wasm_bindgen_test]
+fn test_base_type() {
+    do_with_fixtures!(
+        assert_fixture_parsed_with!(standalone_vec(base_type)),
+        "fixtures/parsers/base_type.ron",
+    );
+}
+
+#[test]
+#[wasm_bindgen_test]
+fn test_arr_list() {
+    do_with_fixtures!(
+        assert_fixture_parsed_with!(standalone(arr_list)),
+        "fixtures/parsers/arr_list.ron",
+    );
+}
+
+#[test]
+#[wasm_bindgen_test]
+fn test_arr_dim() {
+    do_with_fixtures!(
+        assert_fixture_parsed_with!(standalone_vec(arr_dim)),
+        "fixtures/parsers/arr_dim.ron",
+    );
+}

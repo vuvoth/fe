@@ -331,6 +331,129 @@ pub fn from_import_name(input: Cursor) -> ParseResult<Spanned<FromImportName>> {
     ))
 }
 
+pub fn type_desc(input: Cursor) -> ParseResult<Spanned<TypeDesc>> {
+    alt((map_type, base_type))(input)
+}
+
+pub fn map_type(input: Cursor) -> ParseResult<Spanned<TypeDesc>> {
+    alt((map_type_double, map_type_single))(input)
+}
+
+pub fn map_type_double(input: Cursor) -> ParseResult<Spanned<TypeDesc>> {
+    let (input, map_kw_1) = name_string("map")(input)?;
+    let (input, _) = token(Lt)(input)?;
+    let (input, from_1) = base_type(input)?;
+    let (input, _) = token(Comma)(input)?;
+
+    let (input, map_kw_2) = name_string("map")(input)?;
+    let (input, _) = token(Lt)(input)?;
+    let (input, from_2) = base_type(input)?;
+    let (input, _) = token(Comma)(input)?;
+
+    let (input, to) = type_desc(input)?;
+    let (input, r_bracket) = token(Shr)(input)?;
+
+    let inner_map = Spanned {
+        node: TypeDesc::Map {
+            from: Box::new(from_2),
+            to: Box::new(to),
+        },
+        span: Span::new(map_kw_2.span.start, r_bracket.span.end - 1),
+    };
+
+    Ok((
+        input,
+        Spanned {
+            node: TypeDesc::Map {
+                from: Box::new(from_1),
+                to: Box::new(inner_map),
+            },
+            span: Span::from_pair(&map_kw_1, &r_bracket),
+        },
+    ))
+}
+
+pub fn map_type_single(input: Cursor) -> ParseResult<Spanned<TypeDesc>> {
+    let (input, map_kw) = name_string("map")(input)?;
+    let (input, _) = token(Lt)(input)?;
+    let (input, from) = base_type(input)?;
+    let (input, _) = token(Comma)(input)?;
+    let (input, to) = type_desc(input)?;
+    let (input, r_bracket) = token(Gt)(input)?;
+
+    Ok((
+        input,
+        Spanned {
+            node: TypeDesc::Map {
+                from: Box::new(from),
+                to: Box::new(to),
+            },
+            span: Span::from_pair(&map_kw, &r_bracket),
+        },
+    ))
+}
+
+pub fn base_type(input: Cursor) -> ParseResult<Spanned<TypeDesc>> {
+    let (input, base) = name_token(input)?;
+    let (input, dims) = arr_list(input)?;
+
+    let mut result = Spanned {
+        node: TypeDesc::Base {
+            base: base.maybe_to_symbol().unwrap(),
+        },
+        span: (&base).into(),
+    };
+    for dim in dims {
+        let span = Span::from_pair(&result, &dim);
+
+        result = Spanned {
+            node: TypeDesc::Array {
+                typ: Box::new(result),
+                dimension: dim.node,
+            },
+            span,
+        };
+    }
+
+    Ok((input, result))
+}
+
+pub fn arr_list(input: Cursor) -> ParseResult<Vec<Spanned<usize>>> {
+    many0(arr_dim)(input)
+}
+
+pub fn arr_dim(input: Cursor) -> ParseResult<Spanned<usize>> {
+    let (input, l_bracket) = token(OpenBracket)(input)?;
+    let (input, num_tok) = token(Num)(input)?;
+    let (input, r_bracket) = token(CloseBracket)(input)?;
+
+    let num_lit = unsafe { input.span_to_string(num_tok.span) };
+
+    let n: usize = match num_lit.parse() {
+        Ok(n) => n,
+        Err(_) => {
+            return Err(ParseError::at_span(
+                format!("invalid integer literal \"{}\"", num_lit),
+                num_tok.span,
+            ))
+        }
+    };
+    if n < 1 {
+        return Err(ParseError::at_span(
+            "array dimension must be positive".to_string(),
+            num_tok.span,
+        ));
+    }
+
+    Ok((
+        input,
+        Spanned {
+            node: n,
+            span: Span::from_pair(&l_bracket, &r_bracket),
+        },
+    ))
+}
+
 /// Parse a dotted import name.
 pub fn dotted_name(input: Cursor) -> ParseResult<Spanned<Vec<Symbol>>> {
     let (input, first_part) = name_token(input)?;
