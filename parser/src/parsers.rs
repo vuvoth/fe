@@ -56,9 +56,32 @@ pub fn name_token(input: Cursor) -> ParseResult<Token> {
     }
 }
 
+/// Parse a name token.
+pub fn num_token(input: Cursor) -> ParseResult<Token> {
+    let (input, tok) = input.next_tok()?;
+
+    match tok.kind {
+        Num(_) => Ok((input, tok)),
+        _ => Err(ParseError::at_span(
+            format!("expected name token, found {:?}", tok.kind),
+            tok.span,
+        )),
+    }
+}
+
 /// Parse a name token that contains a specific symbol.
-pub fn name_string(string: &str) -> impl Fn(Cursor) -> ParseResult<Token> {
-    token(Name(Symbol::new(string)))
+pub fn name_string<'a>(string: &'a str) -> impl Fn(Cursor) -> ParseResult<Token> + 'a {
+    move |input| {
+        let (input, tok) = input.next_tok()?;
+
+        match tok.kind {
+            Name(s) if unsafe { s.as_str().unwrap() } == string => Ok((input, tok)),
+            _ => Err(ParseError::at_span(
+                format!("expected name \"{}\", found {:?}", string, tok.kind),
+                tok.span,
+            )),
+        }
+    }
 }
 
 /// Parse a module definition.
@@ -437,7 +460,7 @@ pub fn arr_list(input: Cursor) -> ParseResult<Vec<Spanned<usize>>> {
 /// Parse a single array dimension such as "[10]".
 pub fn arr_dim(input: Cursor) -> ParseResult<Spanned<usize>> {
     let (input, l_bracket) = token(OpenBracket)(input)?;
-    let (input, num_tok) = token(Num)(input)?;
+    let (input, num_tok) = num_token(input)?;
     let (input, r_bracket) = token(CloseBracket)(input)?;
 
     let num_lit = unsafe { input.span_to_string(num_tok.span) };
@@ -696,7 +719,7 @@ pub fn const_atom(input: Cursor) -> ParseResult<Spanned<ConstExpr>> {
             },
             span: t.span,
         }),
-        map(token(Num), |t| Spanned {
+        map(num_token, |t| Spanned {
             node: ConstExpr::Num {
                 num: unsafe { input.span_to_string(t.span) },
             },

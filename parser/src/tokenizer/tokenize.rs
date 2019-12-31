@@ -2,13 +2,13 @@ use std::convert::TryFrom;
 
 use regex::Regex;
 
+use crate::slice::Slice;
 use crate::span::Span;
 use crate::string_utils::{
     lines_with_endings,
     lstrip_slice,
     rstrip_slice,
 };
-use crate::symbol::Symbol;
 use crate::tokenizer::regex::{
     compile_anchored,
     get_pseudotoken_pattern,
@@ -125,7 +125,9 @@ pub fn tokenize(input: &str) -> Result<Box<[Token]>, TokenizeError> {
                 line_pos = tok_end;
 
                 result.push(Token {
-                    kind: Str,
+                    kind: Str(Slice::from_str(
+                        &input[contstr_start_val..line_start + tok_end],
+                    )),
                     span: Span::new(contstr_start_val, line_start + tok_end),
                 });
 
@@ -183,7 +185,7 @@ pub fn tokenize(input: &str) -> Result<Box<[Token]>, TokenizeError> {
                         let comment_token_len = comment_token.len();
 
                         result.push(Token {
-                            kind: Comment,
+                            kind: Comment(Slice::from_str(comment_token)),
                             span: Span::new(
                                 line_start + line_pos,
                                 line_start + line_pos + comment_token_len,
@@ -249,7 +251,7 @@ pub fn tokenize(input: &str) -> Result<Box<[Token]>, TokenizeError> {
 
                 if initial.is_ascii_digit() || (initial == '.' && token != "." && token != "...") {
                     result.push(Token {
-                        kind: Num,
+                        kind: Num(Slice::from_str(token)),
                         span: Span::new(soff, eoff),
                     });
                 } else if initial == '\r' || initial == '\n' {
@@ -263,7 +265,7 @@ pub fn tokenize(input: &str) -> Result<Box<[Token]>, TokenizeError> {
                     });
                 } else if initial == '#' {
                     result.push(Token {
-                        kind: Comment,
+                        kind: Comment(Slice::from_str(token)),
                         span: Span::new(soff, eoff),
                     });
                 } else if triple_quoted.contains(token) {
@@ -273,7 +275,7 @@ pub fn tokenize(input: &str) -> Result<Box<[Token]>, TokenizeError> {
                         line_pos = endmatch.end();
 
                         result.push(Token {
-                            kind: Str,
+                            kind: Str(Slice::from_str(token)),
                             span: Span::new(soff, line_start + line_pos),
                         });
                     } else {
@@ -291,13 +293,13 @@ pub fn tokenize(input: &str) -> Result<Box<[Token]>, TokenizeError> {
                         needcont = true;
                     } else {
                         result.push(Token {
-                            kind: Str,
+                            kind: Str(Slice::from_str(token)),
                             span: Span::new(soff, eoff),
                         });
                     }
                 } else if is_identifier_char(initial) {
                     result.push(Token {
-                        kind: Name(Symbol::new(token)),
+                        kind: Name(Slice::from_str(token)),
                         span: Span::new(soff, eoff),
                     });
                 } else if initial == '\\' {

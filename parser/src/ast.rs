@@ -161,7 +161,7 @@ impl TryFrom<&Token> for UnaryOp {
 
         match tok.kind {
             Tilde => Ok(Self::Invert),
-            Name(s) if s == Symbol::new("not") => Ok(Self::Not),
+            Name(s) if unsafe { s.as_str().unwrap() } == "not" => Ok(Self::Not),
             Plus => Ok(Self::UAdd),
             Minus => Ok(Self::USub),
             _ => Err("unrecognized unary operator token"),

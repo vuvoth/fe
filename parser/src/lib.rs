@@ -5,6 +5,7 @@ extern crate regex;
 pub mod ast;
 pub mod errors;
 pub mod parsers;
+pub mod slice;
 pub mod span;
 pub mod string_utils;
 pub mod symbol;
@@ -73,7 +74,7 @@ impl ParseBuffer {
         let tokens: Vec<_> = Vec::from(tokens)
             .into_iter()
             .filter(|t| match t.kind {
-                TokenKind::Comment => false,
+                TokenKind::Comment(_) => false,
                 TokenKind::WhitespaceNewline => false,
                 _ => true,
             })
