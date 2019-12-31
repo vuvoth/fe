@@ -62,8 +62,8 @@ where
     }
 }
 
-/// Assert `$parser` succeeds when applied to the given input in `$examples`
-/// with the expected output specified in `$examples` or `$expected`.
+/// Assert `$parser` succeeds when applied to the given inputs and expected
+/// outputs in `$examples`.
 macro_rules! assert_parser_ok {
     ($parser:expr, $examples:expr,) => {{
         assert_parser_ok!($parser, $examples);
@@ -81,6 +81,7 @@ macro_rules! assert_parser_ok {
     }};
 }
 
+/// Build a fixture parsing assertion callback for the given parser `$parser`.
 macro_rules! assert_fixture_parsed_with {
     ($parser:expr) => {{
         move |filename: &str, input: &str, expected_ser: &str| {
