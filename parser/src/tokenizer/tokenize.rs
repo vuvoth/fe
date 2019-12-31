@@ -38,7 +38,7 @@ pub struct TokenizeError {
     pub offset: usize,
 }
 
-/// Parse a source string into a vector of tokens.
+/// Parse a source string into a list of tokens.
 ///
 /// Arguments:
 ///
@@ -49,7 +49,7 @@ pub struct TokenizeError {
 /// A vector of tokens.
 #[allow(clippy::cognitive_complexity)]
 #[allow(clippy::trivial_regex)]
-pub fn tokenize(input: &str) -> Result<Vec<Token>, TokenizeError> {
+pub fn tokenize(input: &str) -> Result<Box<[Token]>, TokenizeError> {
     // Static values/helpers
     let pseudo_token_re = compile_anchored(&get_pseudotoken_pattern());
 
@@ -375,5 +375,5 @@ pub fn tokenize(input: &str) -> Result<Vec<Token>, TokenizeError> {
         span: Span::new(input_len, input_len),
     });
 
-    Ok(result)
+    Ok(result.into_boxed_slice())
 }

@@ -18,18 +18,22 @@ use tokenizer::{
     TokenizeError,
 };
 
+/// The location of a parser error.
 #[derive(Debug, PartialEq, Clone, Copy)]
 pub enum Location {
     Span(Span),
     Eof,
 }
 
+/// An individual piece of information about a parse error.
 #[derive(Debug, PartialEq)]
 pub struct ParseErrorInfo {
     msg: String,
     loc: Location,
 }
 
+/// A collection of error messages describing an error that occurred during
+/// parsing.
 #[derive(Debug, PartialEq)]
 pub struct ParseError(Vec<ParseErrorInfo>);
 
@@ -52,28 +56,21 @@ impl ParseError {
     }
 }
 
+/// The primary container of information about the content being parsed during a
+/// parsing operation.
 pub struct ParseBuffer {
-    /// The token buffer being parsed.
+    /// The token list being parsed.
     tokens: Box<[Token]>,
 
-    /// The original source code from which the token buffer was generated.
+    /// The original source code from which the token list was generated.
     source: String,
 }
-
-#[derive(Debug, Clone, Copy)]
-pub struct Cursor {
-    ptr: *const Token,
-    end: *const Token,
-    buf: *const ParseBuffer,
-}
-
-pub type ParseResult<O> = Result<(Cursor, O), ParseError>;
 
 impl ParseBuffer {
     pub fn from_source(source: String) -> Result<Self, TokenizeError> {
         let tokens = tokenize(source.as_str())?;
 
-        let tokens: Vec<_> = tokens
+        let tokens: Vec<_> = Vec::from(tokens)
             .into_iter()
             .filter(|t| match t.kind {
                 TokenKind::Comment => false,
@@ -107,6 +104,14 @@ impl ParseBuffer {
     {
         parser(self.begin())
     }
+}
+
+/// Indicates a parsing position in some parse buffer `buf`.
+#[derive(Debug, Clone, Copy)]
+pub struct Cursor {
+    ptr: *const Token,
+    end: *const Token,
+    buf: *const ParseBuffer,
 }
 
 impl Cursor {
@@ -148,6 +153,9 @@ impl Cursor {
         }
     }
 }
+
+/// The result of a parsing function.
+pub type ParseResult<O> = Result<(Cursor, O), ParseError>;
 
 macro_rules! succ {
   (0, $macro:ident ! ($($args:tt)*)) => ($macro!(1, $($args)*));
