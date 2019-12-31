@@ -117,7 +117,7 @@ pub struct Cursor {
 
 impl Cursor {
     #[inline]
-    unsafe fn bump(self) -> Self {
+    unsafe fn bump(&self) -> Self {
         Cursor {
             ptr: self.ptr.offset(1),
             end: self.end,
@@ -126,12 +126,12 @@ impl Cursor {
     }
 
     #[inline]
-    pub fn eof(self) -> bool {
+    pub fn eof(&self) -> bool {
         self.ptr > self.end
     }
 
     #[inline]
-    fn tok(self) -> Option<Token> {
+    fn tok(&self) -> Option<Token> {
         if self.eof() {
             None
         } else {
