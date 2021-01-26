@@ -2,6 +2,12 @@ struct House:
     price: u256
     size: u256
 
+contract Foo:
 
-contract City:
-    pub house: House
+    pub def bar() -> u256:
+        # Consider requiring KW syntax to instantiate structs
+        building: House = House(300, 500)
+        assert building.size == 500
+        assert building.price == 300
+        return building.size
+        

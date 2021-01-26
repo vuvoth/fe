@@ -4,6 +4,7 @@ use yultsur::*;
 pub mod abi;
 pub mod calls;
 pub mod data;
+pub mod structs;
 
 /// Returns all functions that should be available during runtime.
 pub fn std() -> Vec<yul::Statement> {
@@ -14,6 +15,7 @@ pub fn std() -> Vec<yul::Statement> {
         data::free(),
         data::ccopym(),
         data::load_data_string(),
+        data::encode_dummy_tuple(),
         data::mcopys(),
         data::scopym(),
         data::mcopym(),

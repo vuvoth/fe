@@ -50,6 +50,17 @@ pub fn ccopym() -> yul::Statement {
     }
 }
 
+pub fn encode_dummy_tuple() -> yul::Statement {
+    function_definition! {
+        function encode_dummy_tuple(val_1, val_2) -> mptr {
+            (mptr := alloc(32))
+            (mstore(mptr, val_1))
+            (let second_ptr := alloc(32))
+            (mstore(second_ptr, val_2))
+        }
+    }
+}
+
 /// Load a static string from data into a newly allocated segment of memory.
 pub fn load_data_string() -> yul::Statement {
     function_definition! {

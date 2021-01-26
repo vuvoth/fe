@@ -45,6 +45,23 @@ pub fn contract_call(contract_name: &str, func_name: &str) -> yul::Identifier {
     identifier! { (name) }
 }
 
+/// Generates a function name for to interact with a certain struct type
+pub fn struct_api(struct_name: &str, func_name: &str) -> yul::Identifier {
+    let name = format!("struct_{}_{}", struct_name, func_name);
+    identifier! { (name) }
+}
+
+/// Generates a function name for creating a certain struct type
+pub fn struct_api_new(struct_name: &str) -> yul::Identifier {
+    struct_api(struct_name, "new")
+}
+
+/// Generates a function name for reading a named property of a certain struct
+/// type
+pub fn struct_api_get(struct_name: &str, field_name: &str) -> yul::Identifier {
+    struct_api(struct_name, &format!("get_{}", field_name))
+}
+
 #[cfg(test)]
 mod tests {
     use crate::yul::names::{
