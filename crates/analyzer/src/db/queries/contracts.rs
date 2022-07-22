@@ -13,17 +13,18 @@ use fe_parser::ast;
 use indexmap::map::{Entry, IndexMap};
 use smol_str::SmolStr;
 use std::rc::Rc;
+use std::sync::Arc;
 
 /// A `Vec` of every function defined in the contract, including duplicates and
 /// the init function.
-pub fn contract_all_functions(db: &dyn AnalyzerDb, contract: ContractId) -> Rc<[FunctionId]> {
+pub fn contract_all_functions(db: &dyn AnalyzerDb, contract: ContractId) -> Arc<[FunctionId]> {
     let module = contract.module(db);
     let body = &contract.data(db).ast.kind.body;
     body.iter()
         .filter_map(|stmt| match stmt {
             ast::ContractStmt::Event(_) => None,
             ast::ContractStmt::Function(node) => {
-                Some(db.intern_function(Rc::new(items::Function::new(
+                Some(db.intern_function(Arc ::new(items::Function::new(
                     db,
                     node,
                     Some(Item::Type(TypeDef::Contract(contract))),
@@ -37,7 +38,7 @@ pub fn contract_all_functions(db: &dyn AnalyzerDb, contract: ContractId) -> Rc<[
 pub fn contract_function_map(
     db: &dyn AnalyzerDb,
     contract: ContractId,
-) -> Analysis<Rc<IndexMap<SmolStr, FunctionId>>> {
+) -> Analysis<Arc<IndexMap<SmolStr, FunctionId>>> {
     let scope = ItemScope::new(db, contract.module(db));
     let mut map = IndexMap::<SmolStr, FunctionId>::new();
 
@@ -88,7 +89,7 @@ pub fn contract_function_map(
         }
     }
     Analysis {
-        value: Rc::new(map),
+        value: Arc::new(map),
         diagnostics: scope.diagnostics.take().into(),
     }
 }
@@ -96,8 +97,8 @@ pub fn contract_function_map(
 pub fn contract_public_function_map(
     db: &dyn AnalyzerDb,
     contract: ContractId,
-) -> Rc<IndexMap<SmolStr, FunctionId>> {
-    Rc::new(
+) -> Arc<IndexMap<SmolStr, FunctionId>> {
+    Arc::new(
         contract
             .functions(db)
             .iter()
@@ -231,12 +232,12 @@ pub fn contract_call_function(
 
 /// A `Vec` of all events defined within the contract, including those with
 /// duplicate names.
-pub fn contract_all_events(db: &dyn AnalyzerDb, contract: ContractId) -> Rc<[EventId]> {
+pub fn contract_all_events(db: &dyn AnalyzerDb, contract: ContractId) -> Arc<[EventId]> {
     let body = &contract.data(db).ast.kind.body;
     body.iter()
         .filter_map(|stmt| match stmt {
             ast::ContractStmt::Function(_) => None,
-            ast::ContractStmt::Event(node) => Some(db.intern_event(Rc::new(items::Event {
+            ast::ContractStmt::Event(node) => Some(db.intern_event(Arc::new(items::Event {
                 ast: node.clone(),
                 module: contract.module(db),
                 contract: Some(contract),
@@ -248,7 +249,7 @@ pub fn contract_all_events(db: &dyn AnalyzerDb, contract: ContractId) -> Rc<[Eve
 pub fn contract_event_map(
     db: &dyn AnalyzerDb,
     contract: ContractId,
-) -> Analysis<Rc<IndexMap<SmolStr, EventId>>> {
+) -> Analysis<Arc<IndexMap<SmolStr, EventId>>> {
     let scope = ItemScope::new(db, contract.module(db));
     let mut map = IndexMap::<SmolStr, EventId>::new();
 
@@ -272,13 +273,13 @@ pub fn contract_event_map(
     }
 
     Analysis {
-        value: Rc::new(map),
+        value: Arc::new(map),
         diagnostics: scope.diagnostics.take().into(),
     }
 }
 
 /// All field ids, including those with duplicate names
-pub fn contract_all_fields(db: &dyn AnalyzerDb, contract: ContractId) -> Rc<[ContractFieldId]> {
+pub fn contract_all_fields(db: &dyn AnalyzerDb, contract: ContractId) -> Arc<[ContractFieldId]> {
     contract
         .data(db)
         .ast
@@ -286,7 +287,7 @@ pub fn contract_all_fields(db: &dyn AnalyzerDb, contract: ContractId) -> Rc<[Con
         .fields
         .iter()
         .map(|node| {
-            db.intern_contract_field(Rc::new(items::ContractField {
+            db.intern_contract_field(Arc::new(items::ContractField {
                 ast: node.clone(),
                 parent: contract,
             }))
@@ -297,7 +298,7 @@ pub fn contract_all_fields(db: &dyn AnalyzerDb, contract: ContractId) -> Rc<[Con
 pub fn contract_field_map(
     db: &dyn AnalyzerDb,
     contract: ContractId,
-) -> Analysis<Rc<IndexMap<SmolStr, ContractFieldId>>> {
+) -> Analysis<Arc<IndexMap<SmolStr, ContractFieldId>>> {
     let scope = ItemScope::new(db, contract.module(db));
     let mut map = IndexMap::<SmolStr, ContractFieldId>::new();
 
@@ -321,7 +322,7 @@ pub fn contract_field_map(
     }
 
     Analysis {
-        value: Rc::new(map),
+        value: Arc::new(map),
         diagnostics: scope.diagnostics.take().into(),
     }
 }

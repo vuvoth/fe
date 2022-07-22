@@ -1,4 +1,4 @@
-use std::rc::Rc;
+use std::{rc::Rc, sync::Arc};
 
 use fe_analyzer::display::Displayable;
 use fe_analyzer::namespace::items as analyzer_items;
@@ -33,7 +33,7 @@ pub fn mir_lowered_func_body(db: &dyn MirDb, func: ir::FunctionId) -> Rc<ir::Fun
 }
 
 impl ir::FunctionId {
-    pub fn signature(self, db: &dyn MirDb) -> Rc<FunctionSignature> {
+    pub fn signature(self, db: &dyn MirDb) -> Arc<FunctionSignature> {
         db.lookup_mir_intern_function(self)
     }
 

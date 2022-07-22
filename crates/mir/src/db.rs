@@ -1,4 +1,4 @@
-use std::rc::Rc;
+use std::{rc::Rc, sync::Arc};
 
 use fe_analyzer::{
     db::AnalyzerDbStorage,
@@ -14,11 +14,11 @@ mod queries;
 #[salsa::query_group(MirDbStorage)]
 pub trait MirDb: AnalyzerDb + Upcast<dyn AnalyzerDb> + UpcastMut<dyn AnalyzerDb> {
     #[salsa::interned]
-    fn mir_intern_const(&self, data: Rc<ir::Constant>) -> ir::ConstantId;
+    fn mir_intern_const(&self, data: Arc<ir::Constant>) -> ir::ConstantId;
     #[salsa::interned]
-    fn mir_intern_type(&self, data: Rc<ir::Type>) -> ir::TypeId;
+    fn mir_intern_type(&self, data: Arc<ir::Type>) -> ir::TypeId;
     #[salsa::interned]
-    fn mir_intern_function(&self, data: Rc<ir::FunctionSignature>) -> ir::FunctionId;
+    fn mir_intern_function(&self, data: Arc<ir::FunctionSignature>) -> ir::FunctionId;
 
     #[salsa::invoke(queries::module::mir_lower_module_all_functions)]
     fn mir_lower_module_all_functions(

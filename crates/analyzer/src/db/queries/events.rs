@@ -12,13 +12,14 @@ use fe_common::utils::humanize::pluralize_conditionally;
 use fe_parser::ast;
 use fe_parser::node::Node;
 use std::collections::HashMap;
-use std::rc::Rc;
+
+use std::sync::Arc;
 
 // Event fields aren't interned for now, but they probably should be. If/when
 // events are handled as normal type definitions, the current setup will run
 // into a salsa cycle if a user tries to define an event that contains itself.
 
-pub fn event_type(db: &dyn AnalyzerDb, event: EventId) -> Analysis<Rc<types::Event>> {
+pub fn event_type(db: &dyn AnalyzerDb, event: EventId) -> Analysis<Arc<types::Event>> {
     let mut scope = ItemScope::new(db, event.module(db));
 
     let ast::Event {
@@ -106,7 +107,7 @@ pub fn event_type(db: &dyn AnalyzerDb, event: EventId) -> Analysis<Rc<types::Eve
     }
 
     Analysis {
-        value: Rc::new(types::Event {
+        value: Arc::new(types::Event {
             name: event_name.kind.clone(),
             fields,
         }),

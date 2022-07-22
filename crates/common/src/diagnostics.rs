@@ -9,7 +9,8 @@ use lsp_types::{Diagnostic as LSPDiagnostic, Range as LSPRange};
 
 pub use cs::Severity;
 use std::ops::Range;
-use std::rc::Rc;
+
+use std::sync::Arc;
 use term::termcolor::{BufferWriter, ColorChoice};
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone)]
@@ -156,8 +157,8 @@ struct SourceDbWrapper<'a>(pub &'a dyn SourceDb);
 
 impl<'a> codespan_reporting::files::Files<'_> for SourceDbWrapper<'a> {
     type FileId = SourceFileId;
-    type Name = Rc<Utf8PathBuf>;
-    type Source = Rc<str>;
+    type Name = Arc<Utf8PathBuf>;
+    type Source = Arc<str>;
 
     fn name(&self, file: SourceFileId) -> Result<Self::Name, CsError> {
         Ok(file.path(self.0))

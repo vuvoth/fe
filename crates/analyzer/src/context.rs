@@ -25,16 +25,17 @@ use smol_str::SmolStr;
 use std::fmt::{self, Debug};
 use std::hash::Hash;
 use std::marker::PhantomData;
-use std::rc::Rc;
+
+use std::sync::Arc;
 use std::{cell::RefCell, collections::HashMap};
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone)]
 pub struct Analysis<T> {
     pub value: T,
-    pub diagnostics: Rc<[Diagnostic]>,
+    pub diagnostics: Arc<[Diagnostic]>,
 }
 impl<T> Analysis<T> {
-    pub fn new(value: T, diagnostics: Rc<[Diagnostic]>) -> Self {
+    pub fn new(value: T, diagnostics: Arc<[Diagnostic]>) -> Self {
         Self { value, diagnostics }
     }
     pub fn sink_diagnostics(&self, sink: &mut impl DiagnosticSink) {

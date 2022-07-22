@@ -2,10 +2,11 @@ use crate::namespace::items::{IngotId, IngotMode, ModuleId, ModuleSource};
 use crate::AnalyzerDb;
 use fe_common::files::{SourceFileId, Utf8Path, Utf8PathBuf};
 use indexmap::IndexSet;
-use std::rc::Rc;
 
-pub fn ingot_modules(db: &dyn AnalyzerDb, ingot: IngotId) -> Rc<[ModuleId]> {
-    let files: Vec<(SourceFileId, Rc<Utf8PathBuf>)> = db
+use std::sync::Arc;
+
+pub fn ingot_modules(db: &dyn AnalyzerDb, ingot: IngotId) -> Arc<[ModuleId]> {
+    let files: Vec<(SourceFileId, Arc<Utf8PathBuf>)> = db
         .ingot_files(ingot)
         .iter()
         .map(|f| (*f, f.path(db.upcast())))

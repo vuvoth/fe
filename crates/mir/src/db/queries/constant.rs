@@ -1,4 +1,4 @@
-use std::rc::Rc;
+use std::sync::Arc;
 
 use fe_analyzer::namespace::items as analyzer_items;
 
@@ -33,7 +33,7 @@ pub fn mir_lowered_constant(
 }
 
 impl ConstantId {
-    pub fn data(self, db: &dyn MirDb) -> Rc<Constant> {
+    pub fn data(self, db: &dyn MirDb) -> Arc<Constant> {
         db.lookup_mir_intern_const(self)
     }
 

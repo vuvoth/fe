@@ -6,9 +6,11 @@ use crate::context::{Analysis, AnalyzerContext};
 use crate::namespace::items::{Function, FunctionId, ImplId, Item};
 use crate::namespace::scopes::ItemScope;
 use crate::AnalyzerDb;
-use std::rc::Rc;
 
-pub fn impl_all_functions(db: &dyn AnalyzerDb, impl_: ImplId) -> Rc<[FunctionId]> {
+use std::sync::Arc;
+
+
+pub fn impl_all_functions(db: &dyn AnalyzerDb, impl_: ImplId) -> Arc<[FunctionId]> {
     let impl_data = impl_.data(db);
     impl_data
         .ast
@@ -16,7 +18,7 @@ pub fn impl_all_functions(db: &dyn AnalyzerDb, impl_: ImplId) -> Rc<[FunctionId]
         .functions
         .iter()
         .map(|node| {
-            db.intern_function(Rc::new(Function::new(
+            db.intern_function(Arc::new(Function::new(
                 db,
                 node,
                 Some(Item::Impl(impl_)),
@@ -29,7 +31,7 @@ pub fn impl_all_functions(db: &dyn AnalyzerDb, impl_: ImplId) -> Rc<[FunctionId]
 pub fn impl_function_map(
     db: &dyn AnalyzerDb,
     impl_: ImplId,
-) -> Analysis<Rc<IndexMap<SmolStr, FunctionId>>> {
+) -> Analysis<Arc<IndexMap<SmolStr, FunctionId>>> {
     let scope = ItemScope::new(db, impl_.module(db));
     let mut map = IndexMap::<SmolStr, FunctionId>::new();
 
@@ -50,5 +52,5 @@ pub fn impl_function_map(
             }
         }
     }
-    Analysis::new(Rc::new(map), scope.diagnostics.take().into())
+    Analysis::new(Arc::new(map), scope.diagnostics.take().into())
 }

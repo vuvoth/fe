@@ -16,6 +16,7 @@ use indexmap::{indexmap, IndexMap};
 use smol_str::SmolStr;
 use std::ops::Deref;
 use std::rc::Rc;
+use std::sync::Arc;
 use strum::IntoEnumIterator;
 
 /// A named item. This does not include things inside of
@@ -131,7 +132,7 @@ impl Item {
         }
     }
 
-    pub fn items(&self, db: &dyn AnalyzerDb) -> Rc<IndexMap<SmolStr, Item>> {
+    pub fn items(&self, db: &dyn AnalyzerDb) -> Arc<IndexMap<SmolStr, Item>> {
         match self {
             Item::Ingot(ingot) => ingot.items(db),
             Item::Module(module) => module.items(db),
@@ -143,7 +144,7 @@ impl Item {
             | Item::Function(_)
             | Item::Constant(_)
             | Item::BuiltinFunction(_)
-            | Item::Intrinsic(_) => Rc::new(indexmap! {}),
+            | Item::Intrinsic(_) => Arc::new(indexmap! {}),
         }
     }
 
@@ -216,7 +217,7 @@ impl Item {
                 None => {
                     return Analysis {
                         value: None,
-                        diagnostics: Rc::new([errors::error(
+                        diagnostics: Arc::new([errors::error(
                             "unresolved path item",
                             node.span,
                             "not found",
@@ -228,7 +229,7 @@ impl Item {
 
         Analysis {
             value: Some(curr_item),
-            diagnostics: Rc::new([]),
+            diagnostics: Arc::new([]),
         }
     }
 
@@ -341,7 +342,7 @@ impl IngotId {
                 .expect("`IngotId::from_files`: empty file list")
         };
 
-        let ingot = db.intern_ingot(Rc::new(Ingot {
+        let ingot = db.intern_ingot(Arc::new(Ingot {
             name: name.into(),
             mode,
             src_dir: file_path_prefix.as_str().into(),
@@ -361,19 +362,19 @@ impl IngotId {
             .collect();
 
         db.set_ingot_files(ingot, file_ids);
-        db.set_ingot_external_ingots(ingot, Rc::new(deps));
+        db.set_ingot_external_ingots(ingot, Arc::new(deps));
         ingot
     }
 
-    pub fn external_ingots(&self, db: &dyn AnalyzerDb) -> Rc<IndexMap<SmolStr, IngotId>> {
+    pub fn external_ingots(&self, db: &dyn AnalyzerDb) -> Arc<IndexMap<SmolStr, IngotId>> {
         db.ingot_external_ingots(*self)
     }
 
-    pub fn all_modules(&self, db: &dyn AnalyzerDb) -> Rc<[ModuleId]> {
+    pub fn all_modules(&self, db: &dyn AnalyzerDb) -> Arc<[ModuleId]> {
         db.ingot_modules(*self)
     }
 
-    pub fn data(&self, db: &dyn AnalyzerDb) -> Rc<Ingot> {
+    pub fn data(&self, db: &dyn AnalyzerDb) -> Arc<Ingot> {
         db.lookup_intern_ingot(*self)
     }
 
@@ -387,7 +388,7 @@ impl IngotId {
         db.ingot_root_module(*self)
     }
 
-    pub fn items(&self, db: &dyn AnalyzerDb) -> Rc<IndexMap<SmolStr, Item>> {
+    pub fn items(&self, db: &dyn AnalyzerDb) -> Arc<IndexMap<SmolStr, Item>> {
         self.root_module(db).expect("missing root module").items(db)
     }
 
@@ -475,7 +476,7 @@ impl ModuleId {
         )
     }
 
-    pub fn data(&self, db: &dyn AnalyzerDb) -> Rc<Module> {
+    pub fn data(&self, db: &dyn AnalyzerDb) -> Arc<Module> {
         db.lookup_intern_module(*self)
     }
 
@@ -487,7 +488,7 @@ impl ModuleId {
         db.module_file_path(*self)
     }
 
-    pub fn ast(&self, db: &dyn AnalyzerDb) -> Rc<ast::Module> {
+    pub fn ast(&self, db: &dyn AnalyzerDb) -> Arc<ast::Module> {
         db.module_parse(*self).value
     }
 
@@ -504,27 +505,27 @@ impl ModuleId {
     }
 
     /// Includes duplicate names
-    pub fn all_items(&self, db: &dyn AnalyzerDb) -> Rc<[Item]> {
+    pub fn all_items(&self, db: &dyn AnalyzerDb) -> Arc<[Item]> {
         db.module_all_items(*self)
     }
 
     /// Includes duplicate names
-    pub fn all_impls(&self, db: &dyn AnalyzerDb) -> Rc<[ImplId]> {
+    pub fn all_impls(&self, db: &dyn AnalyzerDb) -> Arc<[ImplId]> {
         db.module_all_impls(*self)
     }
 
-    pub fn impls(&self, db: &dyn AnalyzerDb) -> Rc<IndexMap<(TraitId, TypeId), ImplId>> {
+    pub fn impls(&self, db: &dyn AnalyzerDb) ->Arc<IndexMap<(TraitId, TypeId), ImplId>> {
         db.module_impl_map(*self).value
     }
 
     /// Returns a map of the named items in the module
-    pub fn items(&self, db: &dyn AnalyzerDb) -> Rc<IndexMap<SmolStr, Item>> {
+    pub fn items(&self, db: &dyn AnalyzerDb) -> Arc<IndexMap<SmolStr, Item>> {
         db.module_item_map(*self).value
     }
 
     /// Returns a `name -> (name_span, external_item)` map for all `use`
     /// statements in a module.
-    pub fn used_items(&self, db: &dyn AnalyzerDb) -> Rc<IndexMap<SmolStr, (Span, Item)>> {
+    pub fn used_items(&self, db: &dyn AnalyzerDb) -> Arc<IndexMap<SmolStr, (Span, Item)>> {
         db.module_used_item_map(*self).value
     }
 
@@ -574,7 +575,7 @@ impl ModuleId {
         } else {
             Analysis {
                 value: None,
-                diagnostics: Rc::new([errors::error(
+                diagnostics: Arc::new([errors::error(
                     "unresolved path item",
                     first_segment.span,
                     "not found",
@@ -597,7 +598,7 @@ impl ModuleId {
         } else {
             Analysis {
                 value: None,
-                diagnostics: Rc::new([errors::error(
+                diagnostics: Arc::new([errors::error(
                     "unresolved path item",
                     first_segment.span,
                     "not found",
@@ -640,7 +641,7 @@ impl ModuleId {
             Ok(None)
         }
     }
-    pub fn submodules(&self, db: &dyn AnalyzerDb) -> Rc<[ModuleId]> {
+    pub fn submodules(&self, db: &dyn AnalyzerDb) -> Arc<[ModuleId]> {
         db.module_submodules(*self)
     }
 
@@ -681,7 +682,7 @@ impl ModuleId {
     }
 
     /// All module constants.
-    pub fn all_constants(&self, db: &dyn AnalyzerDb) -> Rc<Vec<ModuleConstantId>> {
+    pub fn all_constants(&self, db: &dyn AnalyzerDb) -> Arc<Vec<ModuleConstantId>> {
         db.module_constants(*self)
     }
 
@@ -739,7 +740,7 @@ pub struct ModuleConstantId(pub(crate) u32);
 impl_intern_key!(ModuleConstantId);
 
 impl ModuleConstantId {
-    pub fn data(&self, db: &dyn AnalyzerDb) -> Rc<ModuleConstant> {
+    pub fn data(&self, db: &dyn AnalyzerDb) -> Arc<ModuleConstant> {
         db.lookup_intern_module_const(*self)
     }
     pub fn span(&self, db: &dyn AnalyzerDb) -> Span {
@@ -797,10 +798,10 @@ pub enum TypeDef {
     Primitive(types::Base),
 }
 impl TypeDef {
-    pub fn items(&self, db: &dyn AnalyzerDb) -> Rc<IndexMap<SmolStr, Item>> {
+    pub fn items(&self, db: &dyn AnalyzerDb) -> Arc<IndexMap<SmolStr, Item>> {
         match self {
             TypeDef::Struct(val) => {
-                Rc::new(
+                Arc::new(
                     val.functions(db)
                         .iter()
                         .filter_map(|(name, field)| {
@@ -890,7 +891,7 @@ pub struct TypeAliasId(pub(crate) u32);
 impl_intern_key!(TypeAliasId);
 
 impl TypeAliasId {
-    pub fn data(&self, db: &dyn AnalyzerDb) -> Rc<TypeAlias> {
+    pub fn data(&self, db: &dyn AnalyzerDb) -> Arc<TypeAlias> {
         db.lookup_intern_type_alias(*self)
     }
     pub fn span(&self, db: &dyn AnalyzerDb) -> Span {
@@ -930,7 +931,7 @@ pub struct Contract {
 pub struct ContractId(pub(crate) u32);
 impl_intern_key!(ContractId);
 impl ContractId {
-    pub fn data(&self, db: &dyn AnalyzerDb) -> Rc<Contract> {
+    pub fn data(&self, db: &dyn AnalyzerDb) -> Arc<Contract> {
         db.lookup_intern_contract(*self)
     }
     pub fn span(&self, db: &dyn AnalyzerDb) -> Span {
@@ -950,7 +951,7 @@ impl ContractId {
         self.data(db).module
     }
 
-    pub fn fields(&self, db: &dyn AnalyzerDb) -> Rc<IndexMap<SmolStr, ContractFieldId>> {
+    pub fn fields(&self, db: &dyn AnalyzerDb) -> Arc<IndexMap<SmolStr, ContractFieldId>> {
         db.contract_field_map(*self).value
     }
 
@@ -989,12 +990,12 @@ impl ContractId {
         db.contract_call_function(*self).value
     }
 
-    pub fn all_functions(&self, db: &dyn AnalyzerDb) -> Rc<[FunctionId]> {
+    pub fn all_functions(&self, db: &dyn AnalyzerDb) -> Arc<[FunctionId]> {
         db.contract_all_functions(*self)
     }
 
     /// User functions, public and not. Excludes `__init__` and `__call__`.
-    pub fn functions(&self, db: &dyn AnalyzerDb) -> Rc<IndexMap<SmolStr, FunctionId>> {
+    pub fn functions(&self, db: &dyn AnalyzerDb) -> Arc<IndexMap<SmolStr, FunctionId>> {
         db.contract_function_map(*self).value
     }
 
@@ -1005,7 +1006,7 @@ impl ContractId {
     }
 
     /// Excludes `__init__` and `__call__`.
-    pub fn public_functions(&self, db: &dyn AnalyzerDb) -> Rc<IndexMap<SmolStr, FunctionId>> {
+    pub fn public_functions(&self, db: &dyn AnalyzerDb) -> Arc<IndexMap<SmolStr, FunctionId>> {
         db.contract_public_function_map(*self)
     }
 
@@ -1015,7 +1016,7 @@ impl ContractId {
     }
 
     /// A map of events defined within the contract.
-    pub fn events(&self, db: &dyn AnalyzerDb) -> Rc<IndexMap<SmolStr, EventId>> {
+    pub fn events(&self, db: &dyn AnalyzerDb) -> Arc<IndexMap<SmolStr, EventId>> {
         db.contract_event_map(*self).value
     }
 
@@ -1073,7 +1074,7 @@ impl ContractFieldId {
     pub fn name(&self, db: &dyn AnalyzerDb) -> SmolStr {
         self.data(db).ast.name().into()
     }
-    pub fn data(&self, db: &dyn AnalyzerDb) -> Rc<ContractField> {
+    pub fn data(&self, db: &dyn AnalyzerDb) -> Arc<ContractField> {
         db.lookup_intern_contract_field(*self)
     }
     pub fn typ(&self, db: &dyn AnalyzerDb) -> Result<types::TypeId, TypeError> {
@@ -1096,7 +1097,7 @@ pub struct FunctionSigId(pub(crate) u32);
 impl_intern_key!(FunctionSigId);
 
 impl FunctionSigId {
-    pub fn data(&self, db: &dyn AnalyzerDb) -> Rc<FunctionSig> {
+    pub fn data(&self, db: &dyn AnalyzerDb) -> Arc<FunctionSig> {
         db.lookup_intern_function_sig(*self)
     }
 
@@ -1125,7 +1126,7 @@ impl FunctionSigId {
             None
         }
     }
-    pub fn signature(&self, db: &dyn AnalyzerDb) -> Rc<types::FunctionSignature> {
+    pub fn signature(&self, db: &dyn AnalyzerDb) -> Arc<types::FunctionSignature> {
         db.function_signature(*self).value
     }
 
@@ -1215,7 +1216,7 @@ impl Function {
         parent: Option<Item>,
         module: ModuleId,
     ) -> Self {
-        let sig = db.intern_function_sig(Rc::new(FunctionSig {
+        let sig = db.intern_function_sig(Arc::new(FunctionSig {
             ast: ast.kind.sig.clone(),
             parent,
             module,
@@ -1231,7 +1232,7 @@ impl Function {
 pub struct FunctionId(pub(crate) u32);
 impl_intern_key!(FunctionId);
 impl FunctionId {
-    pub fn data(&self, db: &dyn AnalyzerDb) -> Rc<Function> {
+    pub fn data(&self, db: &dyn AnalyzerDb) -> Arc<Function> {
         db.lookup_intern_function(*self)
     }
     pub fn span(&self, db: &dyn AnalyzerDb) -> Span {
@@ -1274,13 +1275,13 @@ impl FunctionId {
     pub fn unsafe_span(&self, db: &dyn AnalyzerDb) -> Option<Span> {
         self.sig(db).unsafe_span(db)
     }
-    pub fn signature(&self, db: &dyn AnalyzerDb) -> Rc<types::FunctionSignature> {
+    pub fn signature(&self, db: &dyn AnalyzerDb) -> Arc<types::FunctionSignature> {
         db.function_signature(self.data(db).sig).value
     }
     pub fn sig(&self, db: &dyn AnalyzerDb) -> FunctionSigId {
         self.data(db).sig
     }
-    pub fn body(&self, db: &dyn AnalyzerDb) -> Rc<context::FunctionBody> {
+    pub fn body(&self, db: &dyn AnalyzerDb) -> Arc<context::FunctionBody> {
         db.function_body(*self).value
     }
     pub fn dependency_graph(&self, db: &dyn AnalyzerDb) -> Rc<DepGraph> {
@@ -1369,7 +1370,7 @@ pub struct Struct {
 pub struct StructId(pub(crate) u32);
 impl_intern_key!(StructId);
 impl StructId {
-    pub fn data(&self, db: &dyn AnalyzerDb) -> Rc<Struct> {
+    pub fn data(&self, db: &dyn AnalyzerDb) -> Arc<Struct> {
         db.lookup_intern_struct(*self)
     }
     pub fn span(&self, db: &dyn AnalyzerDb) -> Span {
@@ -1409,15 +1410,15 @@ impl StructId {
         self.fields(db).get(name).copied()
     }
 
-    pub fn fields(&self, db: &dyn AnalyzerDb) -> Rc<IndexMap<SmolStr, StructFieldId>> {
+    pub fn fields(&self, db: &dyn AnalyzerDb) -> Arc<IndexMap<SmolStr, StructFieldId>> {
         db.struct_field_map(*self).value
     }
 
-    pub fn all_functions(&self, db: &dyn AnalyzerDb) -> Rc<[FunctionId]> {
+    pub fn all_functions(&self, db: &dyn AnalyzerDb) -> Arc<[FunctionId]> {
         db.struct_all_functions(*self)
     }
 
-    pub fn functions(&self, db: &dyn AnalyzerDb) -> Rc<IndexMap<SmolStr, FunctionId>> {
+    pub fn functions(&self, db: &dyn AnalyzerDb) -> Arc<IndexMap<SmolStr, FunctionId>> {
         db.struct_function_map(*self).value
     }
     pub fn function(&self, db: &dyn AnalyzerDb, name: &str) -> Option<FunctionId> {
@@ -1459,7 +1460,7 @@ impl StructFieldId {
     pub fn span(&self, db: &dyn AnalyzerDb) -> Span {
         self.data(db).ast.span
     }
-    pub fn data(&self, db: &dyn AnalyzerDb) -> Rc<StructField> {
+    pub fn data(&self, db: &dyn AnalyzerDb) -> Arc<StructField> {
         db.lookup_intern_struct_field(*self)
     }
     pub fn typ(&self, db: &dyn AnalyzerDb) -> Result<types::TypeId, TypeError> {
@@ -1486,7 +1487,7 @@ pub struct Impl {
 pub struct ImplId(pub(crate) u32);
 impl_intern_key!(ImplId);
 impl ImplId {
-    pub fn data(&self, db: &dyn AnalyzerDb) -> Rc<Impl> {
+    pub fn data(&self, db: &dyn AnalyzerDb) -> Arc<Impl> {
         db.lookup_intern_impl(*self)
     }
     pub fn span(&self, db: &dyn AnalyzerDb) -> Span {
@@ -1497,7 +1498,7 @@ impl ImplId {
         self.data(db).module
     }
 
-    pub fn all_functions(&self, db: &dyn AnalyzerDb) -> Rc<[FunctionId]> {
+    pub fn all_functions(&self, db: &dyn AnalyzerDb) -> Arc<[FunctionId]> {
         db.impl_all_functions(*self)
     }
 
@@ -1513,7 +1514,7 @@ impl ImplId {
         self.data(db).ast.clone()
     }
 
-    pub fn functions(&self, db: &dyn AnalyzerDb) -> Rc<IndexMap<SmolStr, FunctionId>> {
+    pub fn functions(&self, db: &dyn AnalyzerDb) -> Arc<IndexMap<SmolStr, FunctionId>> {
         db.impl_function_map(*self).value
     }
     pub fn function(&self, db: &dyn AnalyzerDb, name: &str) -> Option<FunctionId> {
@@ -1699,7 +1700,7 @@ pub struct Trait {
 pub struct TraitId(pub(crate) u32);
 impl_intern_key!(TraitId);
 impl TraitId {
-    pub fn data(&self, db: &dyn AnalyzerDb) -> Rc<Trait> {
+    pub fn data(&self, db: &dyn AnalyzerDb) -> Arc<Trait> {
         db.lookup_intern_trait(*self)
     }
     pub fn span(&self, db: &dyn AnalyzerDb) -> Span {
@@ -1734,11 +1735,11 @@ impl TraitId {
     pub fn parent(&self, db: &dyn AnalyzerDb) -> Item {
         Item::Module(self.data(db).module)
     }
-    pub fn all_functions(&self, db: &dyn AnalyzerDb) -> Rc<[FunctionSigId]> {
+    pub fn all_functions(&self, db: &dyn AnalyzerDb) -> Arc<[FunctionSigId]> {
         db.trait_all_functions(*self)
     }
 
-    pub fn functions(&self, db: &dyn AnalyzerDb) -> Rc<IndexMap<SmolStr, FunctionSigId>> {
+    pub fn functions(&self, db: &dyn AnalyzerDb) -> Arc<IndexMap<SmolStr, FunctionSigId>> {
         db.trait_function_map(*self).value
     }
 
@@ -1788,13 +1789,13 @@ impl EventId {
     pub fn name_span(&self, db: &dyn AnalyzerDb) -> Span {
         self.data(db).ast.kind.name.span
     }
-    pub fn data(&self, db: &dyn AnalyzerDb) -> Rc<Event> {
+    pub fn data(&self, db: &dyn AnalyzerDb) -> Arc<Event> {
         db.lookup_intern_event(*self)
     }
     pub fn is_public(&self, db: &dyn AnalyzerDb) -> bool {
         self.data(db).ast.kind.pub_qual.is_some()
     }
-    pub fn typ(&self, db: &dyn AnalyzerDb) -> Rc<types::Event> {
+    pub fn typ(&self, db: &dyn AnalyzerDb) -> Arc<types::Event> {
         db.event_type(*self).value
     }
     pub fn module(&self, db: &dyn AnalyzerDb) -> ModuleId {

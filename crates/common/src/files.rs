@@ -2,7 +2,8 @@ use crate::db::SourceDb;
 pub use camino::{Utf8Component, Utf8Path, Utf8PathBuf};
 pub use fe_library::include_dir;
 use std::ops::Range;
-use std::rc::Rc;
+
+use std::sync::Arc;
 
 // NOTE: all file paths are stored as utf8 strings.
 //  Non-utf8 paths (for user code) should be reported
@@ -19,7 +20,7 @@ pub struct File {
     /// Path of the file. May include `src/` dir or longer prefix;
     /// this prefix will be stored in the `Ingot::src_path`, and stripped
     /// off as needed.
-    pub path: Rc<Utf8PathBuf>,
+    pub path: Arc<Utf8PathBuf>,
 }
 
 #[derive(Debug, PartialEq, Eq, Hash, Copy, Clone)]
@@ -62,28 +63,28 @@ pub struct SourceFileId(pub(crate) u32);
 impl_intern_key!(SourceFileId);
 
 impl SourceFileId {
-    pub fn new_local(db: &mut dyn SourceDb, path: &str, content: Rc<str>) -> Self {
+    pub fn new_local(db: &mut dyn SourceDb, path: &str, content: Arc<str>) -> Self {
         Self::new(db, FileKind::Std, path, content)
     }
 
-    pub fn new_std(db: &mut dyn SourceDb, path: &str, content: Rc<str>) -> Self {
+    pub fn new_std(db: &mut dyn SourceDb, path: &str, content: Arc<str>) -> Self {
         Self::new(db, FileKind::Std, path, content)
     }
 
-    pub fn new(db: &mut dyn SourceDb, kind: FileKind, path: &str, content: Rc<str>) -> Self {
+    pub fn new(db: &mut dyn SourceDb, kind: FileKind, path: &str, content: Arc<str>) -> Self {
         let id = db.intern_file(File {
             kind,
-            path: Rc::new(path.into()),
+            path: Arc::new(path.into()),
         });
         db.set_file_content(id, content);
         id
     }
 
-    pub fn path(&self, db: &dyn SourceDb) -> Rc<Utf8PathBuf> {
+    pub fn path(&self, db: &dyn SourceDb) -> Arc<Utf8PathBuf> {
         db.lookup_intern_file(*self).path
     }
 
-    pub fn content(&self, db: &dyn SourceDb) -> Rc<str> {
+    pub fn content(&self, db: &dyn SourceDb) -> Arc<str> {
         db.file_content(*self)
     }
 

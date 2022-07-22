@@ -1,4 +1,4 @@
-use std::{rc::Rc, str::FromStr};
+use std::{str::FromStr, sync::Arc};
 
 use fe_analyzer::namespace::{items as analyzer_items, types as analyzer_types};
 
@@ -23,7 +23,7 @@ pub fn mir_lowered_event_type(db: &dyn MirDb, event: analyzer_items::EventId) ->
 }
 
 impl TypeId {
-    pub fn data(self, db: &dyn MirDb) -> Rc<Type> {
+    pub fn data(self, db: &dyn MirDb) -> Arc<Type> {
         db.lookup_mir_intern_type(self)
     }
 

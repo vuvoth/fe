@@ -17,6 +17,7 @@ use indexmap::indexmap;
 use indexmap::map::{Entry, IndexMap};
 use smol_str::SmolStr;
 use std::rc::Rc;
+use std::sync::Arc;
 
 pub fn module_file_path(db: &dyn AnalyzerDb, module: ModuleId) -> SmolStr {
     let full_path = match &module.data(db).source {
@@ -32,7 +33,7 @@ pub fn module_file_path(db: &dyn AnalyzerDb, module: ModuleId) -> SmolStr {
         .unwrap_or(full_path)
 }
 
-pub fn module_parse(db: &dyn AnalyzerDb, module: ModuleId) -> Analysis<Rc<ast::Module>> {
+pub fn module_parse(db: &dyn AnalyzerDb, module: ModuleId) -> Analysis<Arc<ast::Module>> {
     let data = module.data(db);
     match data.source {
         ModuleSource::File(file) => {
@@ -58,44 +59,44 @@ pub fn module_is_incomplete(db: &dyn AnalyzerDb, module: ModuleId) -> bool {
     }
 }
 
-pub fn module_all_items(db: &dyn AnalyzerDb, module: ModuleId) -> Rc<[Item]> {
+pub fn module_all_items(db: &dyn AnalyzerDb, module: ModuleId) -> Arc<[Item]> {
     let body = &module.ast(db).body;
     body.iter()
         .filter_map(|stmt| match stmt {
             ast::ModuleStmt::TypeAlias(node) => Some(Item::Type(TypeDef::Alias(
-                db.intern_type_alias(Rc::new(TypeAlias {
+                db.intern_type_alias(Arc::new(TypeAlias {
                     ast: node.clone(),
                     module,
                 })),
             ))),
             ast::ModuleStmt::Contract(node) => Some(Item::Type(TypeDef::Contract(
-                db.intern_contract(Rc::new(Contract {
+                db.intern_contract(Arc::new(Contract {
                     name: node.name().into(),
                     ast: node.clone(),
                     module,
                 })),
             ))),
             ast::ModuleStmt::Struct(node) => Some(Item::Type(TypeDef::Struct(db.intern_struct(
-                Rc::new(Struct {
+                Arc::new(Struct {
                     ast: node.clone(),
                     module,
                 }),
             )))),
             ast::ModuleStmt::Constant(node) => Some(Item::Constant(db.intern_module_const(
-                Rc::new(ModuleConstant {
+                Arc::new(ModuleConstant {
                     ast: node.clone(),
                     module,
                 }),
             ))),
             ast::ModuleStmt::Function(node) => Some(Item::Function(
-                db.intern_function(Rc::new(Function::new(db, node, None, module))),
+                db.intern_function(Arc::new(Function::new(db, node, None, module))),
             )),
-            ast::ModuleStmt::Trait(node) => Some(Item::Trait(db.intern_trait(Rc::new(Trait {
+            ast::ModuleStmt::Trait(node) => Some(Item::Trait(db.intern_trait(Arc::new(Trait {
                 ast: node.clone(),
                 module,
             })))),
             ast::ModuleStmt::Pragma(_) | ast::ModuleStmt::Use(_) | ast::ModuleStmt::Impl(_) => None,
-            ast::ModuleStmt::Event(node) => Some(Item::Event(db.intern_event(Rc::new(Event {
+            ast::ModuleStmt::Event(node) => Some(Item::Event(db.intern_event(Arc::new(Event {
                 ast: node.clone(),
                 module,
                 contract: None,
@@ -105,7 +106,7 @@ pub fn module_all_items(db: &dyn AnalyzerDb, module: ModuleId) -> Rc<[Item]> {
         .collect()
 }
 
-pub fn module_all_impls(db: &dyn AnalyzerDb, module: ModuleId) -> Rc<[ImplId]> {
+pub fn module_all_impls(db: &dyn AnalyzerDb, module: ModuleId) -> Arc<[ImplId]> {
     let body = &module.ast(db).body;
     body.iter()
         .filter_map(|stmt| match stmt {
@@ -119,7 +120,7 @@ pub fn module_all_impls(db: &dyn AnalyzerDb, module: ModuleId) -> Rc<[ImplId]> {
                 let receiver_type = type_desc(&mut scope, &impl_node.kind.receiver).unwrap();
 
                 if let Some(Item::Trait(val)) = treit {
-                    Some(db.intern_impl(Rc::new(Impl {
+                    Some(db.intern_impl(Arc::new(Impl {
                         trait_id: val,
                         receiver: receiver_type,
                         ast: impl_node.clone(),
@@ -137,7 +138,7 @@ pub fn module_all_impls(db: &dyn AnalyzerDb, module: ModuleId) -> Rc<[ImplId]> {
 pub fn module_item_map(
     db: &dyn AnalyzerDb,
     module: ModuleId,
-) -> Analysis<Rc<IndexMap<SmolStr, Item>>> {
+) -> Analysis<Arc<IndexMap<SmolStr, Item>>> {
     // we must check for conflicts with global item names
     let global_items = module.global_items(db);
 
@@ -235,7 +236,7 @@ pub fn module_item_map(
 pub fn module_impl_map(
     db: &dyn AnalyzerDb,
     module: ModuleId,
-) -> Analysis<Rc<IndexMap<(TraitId, TypeId), ImplId>>> {
+) -> Analysis<Arc<IndexMap<(TraitId, TypeId), ImplId>>> {
     let scope = ItemScope::new(db, module);
     let mut map = IndexMap::<(TraitId, TypeId), ImplId>::new();
 
@@ -260,10 +261,10 @@ pub fn module_impl_map(
             }
         }
     }
-    Analysis::new(Rc::new(map), scope.diagnostics.take().into())
+    Analysis::new(Arc::new(map), scope.diagnostics.take().into())
 }
 
-pub fn module_contracts(db: &dyn AnalyzerDb, module: ModuleId) -> Rc<[ContractId]> {
+pub fn module_contracts(db: &dyn AnalyzerDb, module: ModuleId) -> Arc<[ContractId]> {
     module
         .all_items(db)
         .iter()
@@ -274,7 +275,7 @@ pub fn module_contracts(db: &dyn AnalyzerDb, module: ModuleId) -> Rc<[ContractId
         .collect()
 }
 
-pub fn module_structs(db: &dyn AnalyzerDb, module: ModuleId) -> Rc<[StructId]> {
+pub fn module_structs(db: &dyn AnalyzerDb, module: ModuleId) -> Arc<[StructId]> {
     module
         .all_items(db)
         .iter()
@@ -292,8 +293,8 @@ pub fn module_structs(db: &dyn AnalyzerDb, module: ModuleId) -> Rc<[StructId]> {
         .collect()
 }
 
-pub fn module_constants(db: &dyn AnalyzerDb, module: ModuleId) -> Rc<Vec<ModuleConstantId>> {
-    Rc::new(
+pub fn module_constants(db: &dyn AnalyzerDb, module: ModuleId) -> Arc<Vec<ModuleConstantId>> {
+    Arc::new(
         module
             .all_items(db)
             .iter()
@@ -427,7 +428,7 @@ pub fn module_constant_value_cycle(
 pub fn module_used_item_map(
     db: &dyn AnalyzerDb,
     module: ModuleId,
-) -> Analysis<Rc<IndexMap<SmolStr, (Span, Item)>>> {
+) -> Analysis<Arc<IndexMap<SmolStr, (Span, Item)>>> {
     // we must check for conflicts with the global items map
     let global_items = module.global_items(db);
 
@@ -481,7 +482,7 @@ pub fn module_used_item_map(
         })
         .collect::<IndexMap<_, _>>();
 
-    Analysis::new(Rc::new(items), diagnostics.into())
+    Analysis::new(Arc::new(items), diagnostics.into())
 }
 
 pub fn module_parent_module(db: &dyn AnalyzerDb, module: ModuleId) -> Option<ModuleId> {
@@ -493,7 +494,7 @@ pub fn module_parent_module(db: &dyn AnalyzerDb, module: ModuleId) -> Option<Mod
         .copied()
 }
 
-pub fn module_submodules(db: &dyn AnalyzerDb, module: ModuleId) -> Rc<[ModuleId]> {
+pub fn module_submodules(db: &dyn AnalyzerDb, module: ModuleId) -> Arc<[ModuleId]> {
     // The module tree is entirely based on the file hierarchy for now.
 
     let ingot = module.ingot(db);

@@ -15,8 +15,9 @@ use indexmap::map::{Entry, IndexMap};
 use smol_str::SmolStr;
 use std::rc::Rc;
 use std::str::FromStr;
+use std::sync::Arc;
 
-pub fn struct_all_fields(db: &dyn AnalyzerDb, struct_: StructId) -> Rc<[StructFieldId]> {
+pub fn struct_all_fields(db: &dyn AnalyzerDb, struct_: StructId) -> Arc<[StructFieldId]> {
     struct_
         .data(db)
         .ast
@@ -24,7 +25,7 @@ pub fn struct_all_fields(db: &dyn AnalyzerDb, struct_: StructId) -> Rc<[StructFi
         .fields
         .iter()
         .map(|node| {
-            db.intern_struct_field(Rc::new(StructField {
+            db.intern_struct_field(Arc::new(StructField {
                 ast: node.clone(),
                 parent: struct_,
             }))
@@ -35,7 +36,7 @@ pub fn struct_all_fields(db: &dyn AnalyzerDb, struct_: StructId) -> Rc<[StructFi
 pub fn struct_field_map(
     db: &dyn AnalyzerDb,
     struct_: StructId,
-) -> Analysis<Rc<IndexMap<SmolStr, StructFieldId>>> {
+) -> Analysis<Arc<IndexMap<SmolStr, StructFieldId>>> {
     let scope = ItemScope::new(db, struct_.module(db));
     let mut fields = IndexMap::<SmolStr, StructFieldId>::new();
 
@@ -58,7 +59,7 @@ pub fn struct_field_map(
         }
     }
 
-    Analysis::new(Rc::new(fields), scope.diagnostics.take().into())
+    Analysis::new(Arc::new(fields), scope.diagnostics.take().into())
 }
 
 pub fn struct_field_type(
@@ -105,7 +106,7 @@ pub fn struct_field_type(
     Analysis::new(typ, scope.diagnostics.take().into())
 }
 
-pub fn struct_all_functions(db: &dyn AnalyzerDb, struct_: StructId) -> Rc<[FunctionId]> {
+pub fn struct_all_functions(db: &dyn AnalyzerDb, struct_: StructId) -> Arc<[FunctionId]> {
     let struct_data = struct_.data(db);
     struct_data
         .ast
@@ -113,7 +114,7 @@ pub fn struct_all_functions(db: &dyn AnalyzerDb, struct_: StructId) -> Rc<[Funct
         .functions
         .iter()
         .map(|node| {
-            db.intern_function(Rc::new(items::Function::new(
+            db.intern_function(Arc::new(items::Function::new(
                 db,
                 node,
                 Some(Item::Type(TypeDef::Struct(struct_))),
@@ -126,7 +127,7 @@ pub fn struct_all_functions(db: &dyn AnalyzerDb, struct_: StructId) -> Rc<[Funct
 pub fn struct_function_map(
     db: &dyn AnalyzerDb,
     struct_: StructId,
-) -> Analysis<Rc<IndexMap<SmolStr, FunctionId>>> {
+) -> Analysis<Arc<IndexMap<SmolStr, FunctionId>>> {
     let mut scope = ItemScope::new(db, struct_.module(db));
     let mut map = IndexMap::<SmolStr, FunctionId>::new();
 
@@ -174,7 +175,7 @@ pub fn struct_function_map(
             }
         }
     }
-    Analysis::new(Rc::new(map), scope.diagnostics.take().into())
+    Analysis::new(Arc::new(map), scope.diagnostics.take().into())
 }
 
 pub fn struct_dependency_graph(

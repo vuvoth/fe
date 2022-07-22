@@ -13,6 +13,7 @@ use fe_parser::ast::{ContractStmt, FuncStmt, Function, Module, ModuleStmt};
 use fe_parser::node::Node;
 use go_to_definition::find_span_contain_fn_name;
 use ropey::Rope;
+use tokio::sync::Mutex;
 use tower_lsp::jsonrpc::Result as LSPResult;
 use tower_lsp::lsp_types::*;
 use tower_lsp::{Client, LanguageServer, LspService, Server};
@@ -22,6 +23,7 @@ struct Backend {
     client: Client,
     ast_map: DashMap<String, Module>,
     content: DashMap<String, String>,
+    db: Db
 }
 
 #[derive(Debug, Clone)]
@@ -293,6 +295,7 @@ pub async fn lsp_server() {
         client,
         ast_map: DashMap::new(),
         content: DashMap::new(),
+        db: fe_driver::Db::default()
     });
     Server::new(stdin, stdout, socket).serve(service).await;
 }
@@ -308,6 +311,8 @@ impl<'a> FileId<'a> {
         FileId { name, source }
     }
 }
+
+use std::rc::Rc;
 
 impl<'a> codespan_reporting::files::Files<'a> for FileId<'_> {
     type FileId = FileId<'a>;

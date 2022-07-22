@@ -16,13 +16,14 @@ use if_chain::if_chain;
 use smol_str::SmolStr;
 use std::collections::HashMap;
 use std::rc::Rc;
+use std::sync::Arc;
 
 /// Gather context information for a function definition and check for type
 /// errors. Does not inspect the function body.
 pub fn function_signature(
     db: &dyn AnalyzerDb,
     function: FunctionSigId,
-) -> Analysis<Rc<types::FunctionSignature>> {
+) -> Analysis<Arc<types::FunctionSignature>> {
     let def = &function.data(db).ast;
 
     let mut scope = ItemScope::new(db, function.module(db));
@@ -229,7 +230,7 @@ pub fn function_signature(
         .unwrap_or_else(|| Ok(TypeId::unit(db)));
 
     Analysis {
-        value: Rc::new(types::FunctionSignature {
+        value: Arc::new(types::FunctionSignature {
             self_decl,
             ctx_decl,
             params,
@@ -266,7 +267,7 @@ pub fn resolve_function_param_type(
 }
 
 /// Gather context information for a function body and check for type errors.
-pub fn function_body(db: &dyn AnalyzerDb, function: FunctionId) -> Analysis<Rc<FunctionBody>> {
+pub fn function_body(db: &dyn AnalyzerDb, function: FunctionId) -> Analysis<Arc<FunctionBody>> {
     let def = &function.data(db).ast.kind;
     let scope = FunctionScope::new(db, function);
 
@@ -308,7 +309,7 @@ pub fn function_body(db: &dyn AnalyzerDb, function: FunctionId) -> Analysis<Rc<F
     // system. (See the definition of `FatalError`)
     let _ = traverse_statements(&mut block_scope, &def.body);
     Analysis {
-        value: Rc::new(scope.body.into_inner()),
+        value: Arc::new(scope.body.into_inner()),
         diagnostics: scope.diagnostics.into_inner().into(),
     }
 }
